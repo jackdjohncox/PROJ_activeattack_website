@@ -1,0 +1,8 @@
+---
+title: "Rememberances"
+format: 
+  html: 
+    toc: false
+---
+
+We would like to take a moment to recognize the many civilian and law enforcement lives that have been lost due to the active attack events documented on this website.

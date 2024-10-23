@@ -2,18 +2,28 @@ project:
   type: website
 
 website:
-  title: "PROJ_activeattack_website"
+  title: "Active Attack Data Explorer"
   navbar:
-    left:
-      - href: index.qmd
+    logo: "www/alerrt_banner.png"
+    right:
+      - href: 1_index.qmd
         text: Home
-      - about.qmd
+      - href: 2_by_the_numbers.qmd
+        text: By The Numbers
+      - href: 3_geography.qmd
+        text: Geography
+      - href: 4_build_your_own.qmd
+        text: Dataviz Builder
+      - href: 5_download_the_date.qmd
+        text: Download the Data
+      - href: 6_rememberance.qmd
+        text: Rememberance
 
 format:
   html:
-    theme: cosmo
+    theme: flatly
     css: styles.css
     toc: true
 
-editor: visual
+
 
