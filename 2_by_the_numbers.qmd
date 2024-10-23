@@ -21,7 +21,7 @@ p_load(cowplot,
        tidyverse)
 
 #import data
-aa_data <- import("data/aa_data_clean_2023.rds", trust=TRUE)
+aa_data <- import("data/aa_data_clean_2023.rds")
 
 ```
 
