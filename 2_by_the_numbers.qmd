@@ -6,7 +6,7 @@ format:
     scrolling: true
 ---
 
-Below are several plots that help illustrate the characteristics of active attacks included in the full Active Attack dataset. These visualization were created using the version of the dataset that is available for download on the [Download the Data](5_download_the_data.qmd) page. We selected specific aspects of Active Attacks that we believe will help inform the public and law enforcement about the nature of active attacks. While these images are static, the [Dataviz Builder](4_build_your_own.qmd) page allows users to create their own graphics using aspects of the dataset that are of most interest to them. 
+Below are several plots that help illustrate the characteristics of active attacks included in the full Active Attack dataset. These visualization were created using the version of the dataset that is available for download on the [Download the Data](5_download_the_data.qmd) page. We selected specific aspects of Active Attacks that we believe will help inform the public and law enforcement about the nature of active attacks. While these images are static, the [Dataviz Builder](4_build_your_own.qmd) page allows users to create their own graphics using aspects of the dataset that are of most interest to them.
 
 ```{r, packages_data_fns}
 #| echo: false
@@ -25,7 +25,8 @@ aa_data <- import("data/aa_data_clean_2023.rds")
 
 ```
 
-## row 1 
+## row 1
+
 ### row 1, column 1 {width="35%"}
 
 ```{r, r_objs_yr}
@@ -65,17 +66,16 @@ years_max <- max(aa_data$year, na.rm = TRUE)
 
 ```
 
-:::{.card title="Attack Frequency" expandable=false .flow}
+::: {.card .flow title="Attack Frequency" expandable="false"}
 The graphic below represents the frequency of active attacks from 2000 to `{r} years_max`. There appears to be more events in the last five years (mean = `{r} mean_last_5yr`) than the first five years (mean = `{r} mean_first_5yr`) or second five years (mean = `{r} mean_second_5yr`); however, this may be an artifact of media coverage. Events that occurred during the first part of this data collection period likely did not get the national coverage that they do now. Furthermore, technology and search engines have improved dramatically over the `{r} years` years of this data collection period.
 :::
-
 
 ### row 1, column 2 {width="65%"}
 
 ![{{< downloadthis www/univar_yr.png >}}](www/univar_yr.png)
 
-
 ## row 2
+
 ### column 1 {width="35%"}
 
 ```{r, r_objs_hr}
@@ -86,15 +86,116 @@ midday_pct <- aa_data |>
   drop_na(hour_24hr) |> 
   mutate(hour = hour(hour_24hr)) |> 
   summarise(midday_pct = mean(hour>=7 & hour<=16)*100) |> 
-  mutate(midday_pct = round(midday_pct, 2)) |> 
+  mutate(midday_pct = round(midday_pct, 1)) |> 
   pull(midday_pct)
 ```
 
-:::{.card title="Time of Day" expandable=false .flow}
-The bulk of attacks happen between the hours of 7:00 am and 4:00 pm (`{r} midday_pct`%). However, as the below graphic shows, attacks occur at all times of the day. 
+::: {.card .flow title="Time of Day" expandable="false"}
+The bulk of attacks happen between the hours of 7:00 am and 4:00 pm (`{r} midday_pct`%). However, as the below graphic shows, attacks occur at all times of the day.
 :::
 
 ### row 1, column 2 {width="65%"}
 
 ![{{< downloadthis www/univar_hr.png >}}](www/univar_hr.png)
 
+## row 3
+
+### column 1 {width="35%"}
+
+```{r, r_objs_loc}
+#| include: false
+#| echo: false
+
+aa_data_loc <- aa_data |> 
+  drop_na(location_primary) |> 
+  count(loc = location_primary,
+        tot = n()) |> 
+  mutate(loc_pct = (n/tot)*100,
+         loc_pct = round(loc_pct, 1))
+
+#get percents
+business_pct <- aa_data_loc |> 
+  filter(loc=="Business") |> 
+  pull(loc_pct)
+
+outdoors_pct <- aa_data_loc |> 
+  filter(loc=="Outdoors") |> 
+  pull(loc_pct)
+
+school_pct <- aa_data_loc |> 
+  filter(loc=="School") |> 
+  pull(loc_pct)
+
+other_pct <- aa_data_loc |> 
+  filter(loc=="Other") |> 
+  pull(loc_pct)
+
+#get n's
+business_n <- aa_data_loc |> 
+  filter(loc=="Business") |> 
+  pull(n)
+
+outdoors_n <- aa_data_loc |> 
+  filter(loc=="Outdoors") |> 
+  pull(n)
+
+school_n <- aa_data_loc |> 
+  filter(loc=="School") |> 
+  pull(n)
+
+other_n <- aa_data_loc |> 
+  filter(loc=="Other") |> 
+  pull(n)
+
+```
+
+::: {.card .flow title="Attack Location" expandable="false"}
+As seen here, the plurality of events happen at places of business (`{r} business_pct`%). Places of business include factories/warehouse, retail locations, and office space. Around a quarter of attacks (`{r} outdoors_pct`%) happened in public (outdoor) spaces. For instance, on January 8, 2011 a shooter attacked a meeting for U.S. Representative Gabrielle Giffords. This attack happened in the parking lot of a local grocery store. Had the attack happened in the store it would have been classified as a business event; however, since the attack occurred in the parking lot it is coded as a public event.
+
+Schools were attacked `{r} school_n` times (`{r} school_pct`%). These events are aggregated and include attacks on all types of educational facilities, including K-12 and institutes of higher education. Lastly, `{r} other_n` attacks (`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
+:::
+
+### row 1, column 2 {width="65%"}
+
+![{{< downloadthis www/univar_loc.png >}}](www/univar_loc.png)
+
+## row 3
+
+### column 1 {width="35%"}
+
+```{r, r_objs_vic}
+#| include: false
+#| echo: false
+
+injur_tot <- aa_data |> 
+  drop_na(c(wound_tot,kill_tot)) |> 
+  mutate(injur_tot = wound_tot+kill_tot) |> 
+  summarise(injur_tot = sum(injur_tot)) |> 
+  pull(injur_tot)
+
+kill_tot <- aa_data |> 
+  drop_na(kill_tot) |> 
+  summarise(kill_tot = sum(kill_tot)) |> 
+  pull(kill_tot)
+
+wound_tot <- aa_data |> 
+  drop_na(wound_tot) |> 
+  summarise(wound_tot = sum(wound_tot)) |> 
+  pull(wound_tot)
+
+```
+
+::: {.card .flow title="Victims" expandable="false"}
+There were `{r} injur_tot` people injured in active attacks. Of these, `{r} kill_tot` people died and `{r} wound_tot` were wounded. As can be seen here, the number of deaths has been increasing along with the number of active attacks each year. There are some noticeable spikes in the number of death, corresponding to some of the more well-known attacks. For example:
+
+-   2007: the shooting Virginia Tech resulted in (NUMBER) of deaths, accounting for (%) of active attack deaths that year
+-   2009: Fort Hood
+-   2012: Sandy Hook Elementary School, Newtown, Connecticut
+-   2017: Las Vegas, Nevada
+
+Of note, while the number of active attacks did not decrease during the COVID-19 pandemic, the lethality of attacks did decrease to less than half the number of any of the four years previous. In 2021, however, the number of attacks increased and the number of deaths returned to pre-pandemic levels.
+:::
+
+### row 1, column 2 {width="65%"}
+
+![{{< downloadthis www/bivar_eventkilled.png >}}](www/bivar_eventkilled.png)
