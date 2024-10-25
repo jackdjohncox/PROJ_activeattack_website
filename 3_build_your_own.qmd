@@ -1,3 +1,4 @@
 ---
 title: "make your own"
+format: dashboard
 ---

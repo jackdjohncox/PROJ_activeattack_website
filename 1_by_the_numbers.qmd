@@ -1,11 +1,12 @@
 ---
-title: "The Anatomy of Active Attacks in the USA, 2000-2023"
+#title: "The Anatomy of Active Attacks in the USA, 2000-2023"
 format: 
   dashboard: 
     orientation: rows
     scrolling: true
 ---
 
+**The Anatomy of Active Attacks in the USA, 2000-2023**  
 Below are several plots that help illustrate the characteristics of active attacks included in the full Active Attack dataset. These visualization were created using the version of the dataset that is available for download on the [Download the Data](5_download_the_data.qmd) page. We selected specific aspects of Active Attacks that we believe will help inform the public and law enforcement about the nature of active attacks. While these images are static, the [Dataviz Builder](4_build_your_own.qmd) page allows users to create their own graphics using aspects of the dataset that are of most interest to them.
 
 ```{r, packages_data_fns}
