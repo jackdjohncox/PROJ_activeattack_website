@@ -12,16 +12,11 @@ Below are several plots that help illustrate the characteristics of active attac
 #| echo: false
 #| include: false
 
-#install packages
-library(pacman)
-p_load(cowplot,
-       plotly,
-       rio,
-       sf,
-       tidyverse)
+#load packages
+source("0_set_up.R")
 
 #import data
-aa_data <- import("data/aa_data_clean_2023.rds")
+aa_data <- import("data/aa_data_clean_nogeo_2023.rds", trust=TRUE)
 
 ```
 
