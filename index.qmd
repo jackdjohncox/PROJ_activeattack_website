@@ -21,3 +21,5 @@ The definition we use to vet potential active attacks is: An active attack occur
 Another important feature is that active attacks are not limited to attacks carried out with a firearm. Instead, active attacks include events where a firearm, knife, or even vehicle is used as the primary weapon. Any weapon can be used in an active attack as long as the primary concern is an attempt to kill as many people as possible. 
 
 ## Website Guide
+
+Below are several plots that help illustrate the characteristics of active attacks included in the full Active Attack dataset. These visualization were created using the version of the dataset that is available for download on the [Download the Data](#download) page. We selected specific aspects of Active Attacks that we believe will help inform the public and law enforcement about the nature of active attacks. While these images are static, the [Dataviz Builder](#dataviz) page allows users to create their own graphics using aspects of the dataset that are of most interest to them.
