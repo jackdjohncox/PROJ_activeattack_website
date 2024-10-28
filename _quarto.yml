@@ -9,21 +9,18 @@ website:
       - href: index.qmd #this needs to stay "index.qmd" to be recognized as the landing page
         text: Home
       - href: 1_by_the_numbers.qmd
-        text: By The Numbers
-      - href: 2_geography.qmd
-        text: Geography
-      - href: 3_build_your_own.qmd
-        text: Dataviz Builder
-      - href: 4_download_the_data.qmd
-        text: Download the Data
-      - href: 5_rememberance.qmd
-        text: Rememberance
+        text: Visualizing Active Attacks
+      # - href: 2_download_the_data.qmd
+      #   text: Shinylive
 
 format:
   html:
     theme: flatly
     css: styles.css
     toc: true
+    
+filters: 
+  - shinylive
 
 
 
