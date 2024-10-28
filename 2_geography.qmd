@@ -1,4 +1,0 @@
----
-title: "Geography"
-format: dashboard
----
