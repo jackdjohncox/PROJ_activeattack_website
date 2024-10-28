@@ -6,8 +6,9 @@ format:
     scrolling: true
 ---
 
+# By The Numbers
+
 **The Anatomy of Active Attacks in the USA, 2000-2023**  
-Below are several plots that help illustrate the characteristics of active attacks included in the full Active Attack dataset. These visualization were created using the version of the dataset that is available for download on the [Download the Data](5_download_the_data.qmd) page. We selected specific aspects of Active Attacks that we believe will help inform the public and law enforcement about the nature of active attacks. While these images are static, the [Dataviz Builder](4_build_your_own.qmd) page allows users to create their own graphics using aspects of the dataset that are of most interest to them.
 
 ```{r, packages_data_fns}
 #| echo: false
@@ -146,14 +147,25 @@ other_n <- aa_data_loc |>
 ```
 
 ::: {.card .flow title="Attack Location" expandable="false"}
+**Location Type**  
 As seen here, the plurality of events happen at places of business (`{r} business_pct`%). Places of business include factories/warehouse, retail locations, and office space. Around a quarter of attacks (`{r} outdoors_pct`%) happened in public (outdoor) spaces. For instance, on January 8, 2011 a shooter attacked a meeting for U.S. Representative Gabrielle Giffords. This attack happened in the parking lot of a local grocery store. Had the attack happened in the store it would have been classified as a business event; however, since the attack occurred in the parking lot it is coded as a public event.
 
 Schools were attacked `{r} school_n` times (`{r} school_pct`%). These events are aggregated and include attacks on all types of educational facilities, including K-12 and institutes of higher education. Lastly, `{r} other_n` attacks (`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
+
+**Relationship to Location**  
+Most attackers have no prior relationship with the attack location. 
+ADD FACETED PLOT.
 :::
 
-### row 1, column 2 {width="65%"}
+### row 1, column 2 {.tabset width="65%"}
 
+::: {.card .fill title="Location Type" expandable="false"}
 ![{{< downloadthis www/univar_loc.png >}}](www/univar_loc.png)
+:::
+
+::: {.card .fill title="Relationship to Location" expandable="false"}
+![{{< downloadthis www/univar_rel.png >}}](www/univar_rel.png)
+:::
 
 ## row 3
 
@@ -195,3 +207,77 @@ Of note, while the number of active attacks did not decrease during the COVID-19
 ### row 1, column 2 {width="65%"}
 
 ![{{< downloadthis www/bivar_eventkilled.png >}}](www/bivar_eventkilled.png)
+
+# Across The USA
+
+**Where Active Attacks Happen**
+
+## row 1
+
+### row 1, column 1 {width="35%"}
+
+::: {.card .flow title="Victims" expandable="false"}
+Filler content
+:::
+
+### row 1, column 2 {width="21%"}
+
+```{r, r_objs_valueboxes}
+#| include: false
+#| echo: false
+
+attacks_ca <- aa_data |> 
+  filter(state=="CA") |> 
+  summarise(n=n()) |> 
+  pull(n)
+
+attacks_tx <- aa_data |> 
+  filter(state=="TX") |> 
+  summarise(n=n()) |> 
+  pull(n)
+
+attacks_fl <- aa_data |> 
+  filter(state=="FL") |> 
+  summarise(n=n()) |> 
+  pull(n)
+```
+
+```{r}
+#| content: valuebox
+#| title: "Most attacks: California"
+
+list(icon="emoji-tear-fill",
+     color="red",
+     value=attacks_ca)
+
+```
+
+### row 1, column 3 {width="21%"}
+```{r}
+#| content: valuebox
+#| title: "2nd most attacks: Texas"
+
+list(icon="emoji-tear-fill",
+     color="orange",
+     value=attacks_tx)
+
+```
+
+### row 1, column 3 {width="21%"}
+```{r}
+#| content: valuebox
+#| title: "3rd most attacks: Florida"
+
+list(icon="emoji-tear-fill",
+     color="yellow",
+     value=attacks_fl)
+
+```
+
+
+## row shiny
+
+
+
+
+
