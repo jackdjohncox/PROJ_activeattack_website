@@ -275,7 +275,36 @@ list(icon="emoji-tear-fill",
 ```
 
 
-## row shiny
+# Download the Data
+
+## row 1
+
+### row 1, column 1 {width="35%"}
+
+::: {.card .flow title="About the Data" expandable="false"}
+The data are in "long format", meaning that there is one row per shooter (not 
+per event). Events with more than one shooter will have multiple rows. Use the 
+"case_code" variable to avoid double or triple counting cases. You can 
+download the data by clicking the "download" button below.
+
+**Long Format** {{< downloadthis data/aa_data_clean_nogeo_2023.rds >}}  
+
+If you prefer "wide format", meaning that each row represents a unique event, 
+then use the "download" button below.
+
+**Wide Format** {{< downloadthis data/aa_data_clean_nogeo_2023.rds >}}
+
+:::
+
+### row 1, column 2 {width="65%"}
+
+```{r}
+
+datatable(aa_data, filter = "top")
+```
+
+
+
 
 
 
