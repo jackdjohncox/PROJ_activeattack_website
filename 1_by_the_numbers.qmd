@@ -4,6 +4,8 @@ format:
   dashboard: 
     orientation: rows
     scrolling: true
+resources: 
+  - "www/lib/"
 ---
 
 # By The Numbers
@@ -65,11 +67,29 @@ years_max <- max(aa_data$year, na.rm = TRUE)
 
 ::: {.card .flow title="Attack Frequency" expandable="false"}
 The graphic below represents the frequency of active attacks from 2000 to `{r} years_max`. There appears to be more events in the last five years (mean = `{r} mean_last_5yr`) than the first five years (mean = `{r} mean_first_5yr`) or second five years (mean = `{r} mean_second_5yr`); however, this may be an artifact of media coverage. Events that occurred during the first part of this data collection period likely did not get the national coverage that they do now. Furthermore, technology and search engines have improved dramatically over the `{r} years` years of this data collection period.
+
+**By Year**  
+**By Month**  
+**By Day of the Week**  
+**By Hour of the Day**
 :::
 
-### row 1, column 2 {width="65%"}
-
+### row 1, column 2 {.tabset width="65%"}
+::: {.card .flow title="By Year" expandable="true"}
 ![{{< downloadthis www/univar_yr.png >}}](www/univar_yr.png)
+:::
+
+::: {.card .flow title="By Month" expandable="true"}
+![{{< downloadthis www/univar_month.png >}}](www/univar_month.png)
+:::
+
+::: {.card .flow title="By Day of the Week" expandable="true"}
+![{{< downloadthis www/univar_wday.png >}}](www/univar_wday.png)
+:::
+
+::: {.card .flow title="By Hour of the Day" expandable="true"}
+![{{< downloadthis www/univar_hr.png >}}](www/univar_hr.png)
+:::
 
 ## row 2
 
@@ -80,8 +100,7 @@ The graphic below represents the frequency of active attacks from 2000 to `{r} y
 #| echo: false
 
 midday_pct <- aa_data |> 
-  drop_na(hour_24hr) |> 
-  mutate(hour = hour(hour_24hr)) |> 
+  drop_na(hour) |> 
   summarise(midday_pct = mean(hour>=7 & hour<=16)*100) |> 
   mutate(midday_pct = round(midday_pct, 1)) |> 
   pull(midday_pct)
@@ -155,6 +174,8 @@ Schools were attacked `{r} school_n` times (`{r} school_pct`%). These events are
 **Relationship to Location**  
 Most attackers have no prior relationship with the attack location. 
 ADD FACETED PLOT.
+
+**Location Type and Time of Day**  
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -163,8 +184,12 @@ ADD FACETED PLOT.
 ![{{< downloadthis www/univar_loc.png >}}](www/univar_loc.png)
 :::
 
-::: {.card .fill title="Relationship to Location" expandable="false"}
+::: {.card .fill title="Relationship to Location" expandable="true"}
 ![{{< downloadthis www/univar_rel.png >}}](www/univar_rel.png)
+:::
+
+::: {.card .fill title="Location Type & Time of Day" expandable="true"}
+![{{< downloadthis www/bivar_loc_hr.png >}}](www/bivar_loc_hr.png)
 :::
 
 ## row 3
@@ -202,11 +227,20 @@ There were `{r} injur_tot` people injured in active attacks. Of these, `{r} kill
 -   2017: Las Vegas, Nevada
 
 Of note, while the number of active attacks did not decrease during the COVID-19 pandemic, the lethality of attacks did decrease to less than half the number of any of the four years previous. In 2021, however, the number of attacks increased and the number of deaths returned to pre-pandemic levels.
+
+**Top ten deadliest attacks**  
+
 :::
 
-### row 1, column 2 {width="65%"}
+### row 1, column 2 {.tabset width="65%"}
 
+::: {.card .fill title="Number of Attacks vs. Fatalities" expandable="true"}
 ![{{< downloadthis www/bivar_eventkilled.png >}}](www/bivar_eventkilled.png)
+:::
+
+::: {.card .fill title="Fatalities Per Attack" expandable="true"}
+![{{< downloadthis www/bivar_kill_yr.png >}}](www/bivar_kill_yr.png)
+:::
 
 # Across The USA
 
@@ -217,10 +251,10 @@ Of note, while the number of active attacks did not decrease during the COVID-19
 ### row 1, column 1 {width="35%"}
 
 ::: {.card .flow title="Victims" expandable="false"}
-Filler content
+Filler content.
 :::
 
-### row 1, column 2 {width="21%"}
+### row 1, column 2 {height="21%" width="21%"}
 
 ```{r, r_objs_valueboxes}
 #| include: false
@@ -274,6 +308,23 @@ list(icon="emoji-tear-fill",
 
 ```
 
+## row 2
+
+### row 2 column 1 {width="35%"}
+
+::: {.card .flow title="About the Data" expandable="false"}
+**Where attacks happen in the USA**
+:::
+
+### row 2 column 2 {.tabset width="65%"}
+
+::: {.card .flow title="Attacks vs. Fatalities" expandable="true"}
+![{{< downloadthis www/bicol_map_eventxkilled.png >}}](www/bicol_map_eventxkilled.png)
+:::
+
+::: {.card .flow title="Attacks from 2000-2023" expandable="true"}
+![{{< downloadthis www/rolling_map.gif >}}](www/rolling_map.gif)
+:::
 
 # Download the Data
 
@@ -299,7 +350,6 @@ then use the "download" button below.
 ### row 1, column 2 {width="65%"}
 
 ```{r}
-
 datatable(aa_data, filter = "top")
 ```
 
@@ -308,7 +358,7 @@ datatable(aa_data, filter = "top")
 
 # Testing Page
 
-## row 1
+## row 1 {height="70%"}
 
 ### row 1, column 1 {width="35%"}
 
@@ -318,6 +368,7 @@ Filler content.
 
 ### row 1, column 2 {width="65%"}
 
-<iframe src="www/gg_point_html.html"></iframe>
-
+::: {.card .fill title="Testing testing..." expandable="false"}
+<iframe src="www/widget.html"></iframe>
+:::
 
