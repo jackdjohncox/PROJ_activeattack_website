@@ -1,25 +1,52 @@
 ---
-title: "Active Attack Data Explorer"
+title: "Welcome to the *Active Attack Data Explorer*"
 format: 
   html: 
     toc: true
     theme: "flatly"
 ---
 
-## Welcome!
-
-This is the Active Attack Data Explorer, a website hosted by the Research Ring of the ALERRT Center at Texas State University, located in San Marcos, Texas.
+This website is hosted by the *Research Ring* of the ALERRT Center at Texas State University, located in San Marcos, Texas.
 
 ## History of the Active Attack Project
 
-This website hosts the overall data for the 567 active attacks that occurred between 2000-2023. You may request additional information or graphics under the Requests page. Lastly, we have dedicated a Remembrance page in memory of those lost over the last 24 years. 
+This website hosts the overall data for the 567 active attacks that occurred between 2000-2023. 
 
 ## Definitions
 
-The definition we use to vet potential active attacks is: An active attack occurs when an individual or individuals is actively killing or attempting to kill multiple unrelated people in a public space. The key component of the definition is the word "Actively". For an event to be an active attack there must be an active component. This requirement removes cases where law enforcement isn't aware the attack is happening. A good example of this is a family annihilation. In many of these events, the attacker kills his/her family in their private home. Law enforcement isn't made aware of the attack until well after it is over and is unable to intervene to save lives. During an active attack, first responders generally are made aware of the attack while it is still ongoing. As you'll see in the data, half of the time the event is over before law enforcement makes it to the scene because the attacker is stopped by civilians or stops himself (i.e., commits suicide or flees the location). 
+The definition we use to vet potential active attacks is the following: **an active attack occurs when an individual or individuals is actively killing or attempting to kill multiple unrelated people in a public space**. The key component of the definition is the word "*actively*". For an event to be an active attack there must be an active component. This requirement removes cases where law enforcement is not aware the attack is happening. A good example of this is a family annihilation. In many of these events, the attacker kills his/her family in their private home. Law enforcement is not made aware of the attack until well after it is over and is unable to intervene to save lives. During an active attack, first responders generally are made aware of the attack while it is still ongoing. As you will see in the data, half of the time the event is over before law enforcement makes it to the scene because the attacker is stopped by civilians or stops himself (e.g., flees the scene or commits suicide).
 
-Another important feature is that active attacks are not limited to attacks carried out with a firearm. Instead, active attacks include events where a firearm, knife, or even vehicle is used as the primary weapon. Any weapon can be used in an active attack as long as the primary concern is an attempt to kill as many people as possible. 
+Another important feature is that active attacks are not limited to attacks carried out with a firearm. Instead, active attacks include events where a firearm, knife, or even vehicle is used as the primary weapon. Any weapon can be used in an active attack as long as the primary concern is an attempt to kill as many people as possible.
 
 ## Website Guide
 
-Below are several plots that help illustrate the characteristics of active attacks included in the full Active Attack dataset. These visualization were created using the version of the dataset that is available for download on the [Download the Data](#download) page. We selected specific aspects of Active Attacks that we believe will help inform the public and law enforcement about the nature of active attacks. While these images are static, the [Dataviz Builder](#dataviz) page allows users to create their own graphics using aspects of the dataset that are of most interest to them.
+There are several different pages on this website that may be of interest.  
+
+### Visualizing Active Attacks
+The [Visualizing Active Attacks](./1_by_the_numbers.qmd) page presents many 
+visualizations created by our team to show different aspects of the data. There
+are several subpages that organize these visualizations:
+
+* [By The Numbers](./1_by_the_numbers.qmd#by-the-numbers): Counts and
+percentages of event characteristics (e.g., date/time, location type/
+relationship), shooter characteristics (e.g., race/ethnicity, number of 
+shooters, number of weapons), and fatalities. 
+
+* [Across The USA](./1_by_the_numbers.qmd#across-the-usa): Geographic 
+distribution of attacks across the USA. This page includes plots as well as 
+maps.
+
+* [Download The Data](./1_by_the_numbers.html#download-the-data): This page 
+allows users to view the data underlying all of the visualizations. In 
+addition to viewing the data, users can download the data directly as a *.csv*
+file.
+
+All visualization are downloadable as *.png* images.
+
+### Remembrance
+The Remembrance page presents a list of victims from the active attacks included
+in the dataset. 
+
+
+
+

@@ -93,30 +93,7 @@ The graphic below represents the frequency of active attacks from 2000 to `{r} y
 
 ## row 2
 
-### column 1 {width="35%"}
-
-```{r, r_objs_hr}
-#| include: false
-#| echo: false
-
-midday_pct <- aa_data |> 
-  drop_na(hour) |> 
-  summarise(midday_pct = mean(hour>=7 & hour<=16)*100) |> 
-  mutate(midday_pct = round(midday_pct, 1)) |> 
-  pull(midday_pct)
-```
-
-::: {.card .flow title="Time of Day" expandable="false"}
-The bulk of attacks happen between the hours of 7:00 am and 4:00 pm (`{r} midday_pct`%). However, as the below graphic shows, attacks occur at all times of the day.
-:::
-
-### row 1, column 2 {width="65%"}
-
-![{{< downloadthis www/univar_hr.png >}}](www/univar_hr.png)
-
-## row 3
-
-### column 1 {width="35%"}
+### row 2, column 1 {width="35%"}
 
 ```{r, r_objs_loc}
 #| include: false
@@ -178,7 +155,7 @@ ADD FACETED PLOT.
 **Location Type and Time of Day**  
 :::
 
-### row 1, column 2 {.tabset width="65%"}
+### row 2, column 2 {.tabset width="65%"}
 
 ::: {.card .fill title="Location Type" expandable="false"}
 ![{{< downloadthis www/univar_loc.png >}}](www/univar_loc.png)
@@ -194,7 +171,7 @@ ADD FACETED PLOT.
 
 ## row 3
 
-### column 1 {width="35%"}
+### row 3, column 1 {width="35%"}
 
 ```{r, r_objs_vic}
 #| include: false
@@ -232,7 +209,7 @@ Of note, while the number of active attacks did not decrease during the COVID-19
 
 :::
 
-### row 1, column 2 {.tabset width="65%"}
+### row 3, column 2 {.tabset width="65%"}
 
 ::: {.card .fill title="Number of Attacks vs. Fatalities" expandable="true"}
 ![{{< downloadthis www/bivar_eventkilled.png >}}](www/bivar_eventkilled.png)
@@ -297,7 +274,7 @@ list(icon="emoji-tear-fill",
 
 ```
 
-### row 1, column 3 {width="21%"}
+### row 1, column 4 {width="21%"}
 ```{r}
 #| content: valuebox
 #| title: "3rd most attacks: Florida"
@@ -344,7 +321,6 @@ If you prefer "wide format", meaning that each row represents a unique event,
 then use the "download" button below.
 
 **Wide Format** {{< downloadthis data/aa_data_clean_nogeo_2023.rds >}}
-
 :::
 
 ### row 1, column 2 {width="65%"}
@@ -369,6 +345,6 @@ Filler content.
 ### row 1, column 2 {width="65%"}
 
 ::: {.card .fill title="Testing testing..." expandable="false"}
-<iframe src="www/widget.html"></iframe>
+<iframe width ="70%" height="700" src="www/widget.html"></iframe>
 :::
 
