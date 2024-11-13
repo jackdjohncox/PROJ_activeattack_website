@@ -1,0 +1,76 @@
+---
+format: 
+  html: 
+    toc: true
+    theme: "flatly"
+---
+
+```{r, packages_data_fns}
+#| echo: false
+#| include: false
+
+#load packages
+source("0_set_up.R")
+
+#import data
+aa_data <- import("data/aa_data_clean_nogeo_2023.rds", trust=TRUE)
+
+```
+
+```{r, r_objs_vic}
+#| include: false
+#| echo: false
+
+injur_tot <- aa_data |> 
+  drop_na(c(wound_tot,kill_tot)) |> 
+  mutate(injur_tot = wound_tot+kill_tot) |> 
+  summarise(injur_tot = sum(injur_tot)) |> 
+  pull(injur_tot) 
+
+kill_tot <- aa_data |> 
+  drop_na(kill_tot) |> 
+  summarise(kill_tot = sum(kill_tot)) |> 
+  pull(kill_tot)
+
+wound_tot <- aa_data |> 
+  drop_na(wound_tot) |> 
+  summarise(wound_tot = sum(wound_tot)) |> 
+  pull(wound_tot)
+
+```
+
+## We Remember
+
+Between 2000 and `{r} max(aa_data$year, na.rm=TRUE)`, our nation has 
+experienced `{r} nrow(aa_data)` active attack events. There were a total of 
+`{r} format_num(injur_tot)` people injured, and out of that number, 
+`{r} format_num(kill_tot)` 
+people died. This page attempts to list every name of every victim. Please 
+alert us if any mistakes or omissions are found. We attempt to capture every 
+name we can find to remember the victims.  
+
+Let us pause for a moment of silence to remember and honor those lost. ALERRT 
+also strives to honor with courage and compassion the thousands of surviving 
+families and those who risked their lives to save others. 
+
+
+{{< video www/victim_scroll.mp4 >}}
+
+{{< downloadthis www/victim_scroll.mp4 dname="aa_victims" >}}
+
+## Don't Name Them
+
+At ALERRT, it is our policy to refrain from naming the person or people 
+responsible for active attacks. Research has shown that many attacks are the 
+result of fame-seeking behavior by the shooters. By refusing to name them, we 
+aim to remove fame and notoriety as possible motivators of future attacks. 
+Below are listed several resources and research papers examining the effect 
+of naming and the movement to deprive would-be shooters of any additional
+motivation.
+
+
+
+
+
+
+

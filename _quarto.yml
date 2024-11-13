@@ -8,10 +8,10 @@ website:
     right:
       - href: index.qmd #this needs to stay "index.qmd" to be recognized as the landing page
         text: Home
-      - href: 1_by_the_numbers.qmd
+      - href: 1_visuals.qmd
         text: Visualizing Active Attacks
-      # - href: 2_download_the_data.qmd
-      #   text: Shinylive
+      - href: 2_victims.qmd
+        text: Remembrance
 
 format:
   html:

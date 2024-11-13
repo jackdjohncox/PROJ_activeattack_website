@@ -23,20 +23,20 @@ Another important feature is that active attacks are not limited to attacks carr
 There are several different pages on this website that may be of interest.  
 
 ### Visualizing Active Attacks
-The [Visualizing Active Attacks](./1_by_the_numbers.qmd) page presents many 
+The [Visualizing Active Attacks](./1_visuals.qmd) page presents many 
 visualizations created by our team to show different aspects of the data. There
 are several subpages that organize these visualizations:
 
-* [By The Numbers](./1_by_the_numbers.qmd#by-the-numbers): Counts and
+* [By The Numbers](./1_visuals.qmd#by-the-numbers): Counts and
 percentages of event characteristics (e.g., date/time, location type/
 relationship), shooter characteristics (e.g., race/ethnicity, number of 
 shooters, number of weapons), and fatalities. 
 
-* [Across The USA](./1_by_the_numbers.qmd#across-the-usa): Geographic 
+* [Across The USA](./1_visuals.qmd#across-the-usa): Geographic 
 distribution of attacks across the USA. This page includes plots as well as 
 maps.
 
-* [Download The Data](./1_by_the_numbers.html#download-the-data): This page 
+* [Download The Data](./1_visuals.html#download-the-data): This page 
 allows users to view the data underlying all of the visualizations. In 
 addition to viewing the data, users can download the data directly as a *.csv*
 file.
