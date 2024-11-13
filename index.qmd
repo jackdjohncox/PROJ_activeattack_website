@@ -44,9 +44,11 @@ file.
 All visualization are downloadable as *.png* images.
 
 ### Remembrance
-The Remembrance page presents a list of victims from the active attacks included
-in the dataset. 
+The [Remembrance](./2_victims.qmd) page catalogs all victims who died because 
+of the attacks included in the Active Attack dataset.
 
-
+## The ALERRT Center
+To learn more about the work and research being done at the ALERRT Center, 
+please visit [ALERRT.org](alerrt.org).
 
 
