@@ -4,6 +4,7 @@ project:
 website:
   title: "Active Attack Data Explorer"
   navbar:
+    tools:
     logo: "www/alerrt_banner.png"
     right:
       - href: index.qmd #this needs to stay "index.qmd" to be recognized as the landing page
@@ -12,6 +13,11 @@ website:
         text: Visualizing Active Attacks
       - href: 2_victims.qmd
         text: Remembrance
+  page-footer: 
+    left: "This website was created by the Research Ring at The ALERRT Center, Texas State University"
+    right: 
+      - icon: github
+        href: "https://github.com/ALERRT-Research/PROJ_activeattack_website"
 
 format:
   html:
@@ -19,8 +25,8 @@ format:
     css: styles.css
     toc: true
     
-filters: 
-  - shinylive
+# filters: 
+#   - shinylive
 
 
 
