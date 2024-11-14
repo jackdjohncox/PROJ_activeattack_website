@@ -14,7 +14,7 @@ website:
       - href: 2_victims.qmd
         text: Remembrance
   page-footer: 
-    left: "This website was created by the Research Ring at The ALERRT Center, Texas State University"
+    left: "Created by the Research Ring at The ALERRT Center, Texas State University"
     right: 
       - icon: github
         href: "https://github.com/ALERRT-Research/PROJ_activeattack_website"
