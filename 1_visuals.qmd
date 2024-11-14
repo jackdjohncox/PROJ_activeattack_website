@@ -312,7 +312,7 @@ list(icon="emoji-tear-fill",
 ::: {.card .flow title="About the Data" expandable="false"}
 **Download the Active Attack Data**
 
-{{< downloadthis data/aa_data_wide_nogeo_2023.rds dname="aa_data_2023" >}}
+{{< downloadthis data/aa_data_wide_nogeo_2023.csv dname="aa_data_2023" >}}
 :::
 
 ### row 1, column 2 {width="65%"}
