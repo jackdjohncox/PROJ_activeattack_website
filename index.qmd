@@ -22,7 +22,7 @@ Another important feature is that active attacks are not limited to attacks carr
 
 There are several different pages on this website that may be of interest.  
 
-### Visualizing Active Attacks
+#### Visualizing Active Attacks
 The [Visualizing Active Attacks](./1_visuals.qmd) page presents many 
 visualizations created by our team to show different aspects of the data. There
 are several subpages that organize these visualizations:
@@ -43,7 +43,7 @@ file.
 
 All visualization are downloadable as *.png* images.
 
-### Remembrance
+#### Remembrance
 The [Remembrance](./2_victims.qmd) page catalogs all victims who died because 
 of the attacks included in the Active Attack dataset.
 
