@@ -13,7 +13,7 @@ format:
 source("0_set_up.R")
 
 #import data
-aa_data <- import("data/aa_data_clean_nogeo_2023.rds", trust=TRUE)
+aa_data <- import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
 
 ```
 
