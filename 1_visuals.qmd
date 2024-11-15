@@ -295,8 +295,8 @@ list(icon="emoji-tear-fill",
 
 ### row 2 column 2 {.tabset width="65%"}
 
-::: {.card .flow title="Attacks Vs. Fatalities" expandable="TRUE"}
-<iframe width ="70%" height="700" src="www/bicol_map_attackxkilled.html"></iframe>
+::: {.card .flow title="Attacks Vs. Fatalities" expandable="true"}
+<iframe width ="90%" height="800" src="www/bicol_map_attackxkilled.html"></iframe>
 {{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}
 :::
 
@@ -311,7 +311,20 @@ list(icon="emoji-tear-fill",
 ### row 1, column 1 {width="35%"}
 
 ::: {.card .flow title="About the Data" expandable="false"}
-**Download the Active Attack Data**
+It is the mission of the Research Ring at ALERRT to make the Active Attack 
+dataset as freely accessible as possible. Please feel free to explore the raw 
+data in the window to the right or download as a .csv file using the 
+download button below.  
+
+The dataset is organized so that each row corresponds to a
+unique active attack. This means that some variables, like shooter 
+characteristics, need some special handling. Because some attacks involved 
+multiple shooters, variables like age, race/ethnicity, and sex, are given a special 
+suffix (e.g., _1, _2, _3) that correspond to specific shooters. For an attack 
+with only one shooter, the demographic variables ending in _2 and _3 will 
+contain missing values. The suffixes were assigned randomly and should not be 
+taken as an indication that individuals described by variables ending in _1 
+were somehow more central to the attack than the other shooters involved.
 
 {{< downloadthis data/aa_data_wide_nogeo_2023.csv dname="aa_data_2023" >}}
 :::

@@ -10,7 +10,17 @@ This website is hosted by the *Research Ring* of the ALERRT Center at Texas Stat
 
 ## History of the Active Attack Project
 
-This website hosts the overall data for the 567 active attacks that occurred between 2000-2023. 
+ALERRT started collecting data from active shooter events in 2010 in an effort 
+to better understand how the attacks unfold and to inform ALERRT’s curriculum. 
+This original dataset was focused on events where the attacker used a firearm. 
+Around 2018, we expanded the definition to include attacks where any weapon was 
+used in an attempt to commit mass murder. We started referring to this expanded 
+data as the Active Attack data.  
+
+ALERRT’s research ring partnered with the FBI to form an Active Shooter Working 
+Group in 2013. Since then, we have assisted with the FBI’s annual reporting of 
+active shooter events. The Active Attack Dataset includes all the FBI firearm 
+attacks plus additional non-firearm attacks found by ALERRT’s research team. 
 
 ## Definitions
 
@@ -24,8 +34,9 @@ There are several different pages on this website that may be of interest.
 
 #### Visualizing Active Attacks
 The [Visualizing Active Attacks](./1_visuals.qmd) page presents many 
-visualizations created by our team to show different aspects of the data. There
-are several subpages that organize these visualizations:
+visualizations created by our team to show different aspects of the data. All 
+visualization are downloadable as *.png*/*.gif*/*.mp4* files. There
+are several sub-pages that organize these visualizations:
 
 * [By The Numbers](./1_visuals.qmd#by-the-numbers): Counts and
 percentages of event characteristics (e.g., date/time, location type/
@@ -40,8 +51,6 @@ maps.
 allows users to view the data underlying all of the visualizations. In 
 addition to viewing the data, users can download the data directly as a *.csv*
 file.
-
-All visualization are downloadable as *.png* images.
 
 #### Remembrance
 The [Remembrance](./2_victims.qmd) page catalogs all victims who died because 
