@@ -65,13 +65,35 @@ years_max <- max(aa_data$year, na.rm = TRUE)
 
 ```
 
-::: {.card .flow title="Attack Frequency" expandable="false"}
-The graphic below represents the frequency of active attacks from 2000 to `{r} years_max`. There appears to be more events in the last five years (mean = `{r} mean_last_5yr`) than the first five years (mean = `{r} mean_first_5yr`) or second five years (mean = `{r} mean_second_5yr`); however, this may be an artifact of media coverage. Events that occurred during the first part of this data collection period likely did not get the national coverage that they do now. Furthermore, technology and search engines have improved dramatically over the `{r} years` years of this data collection period.
+::: {.card .flow title="Attack Timing" expandable="false"}
+
+The Active Attacks occur for a variety of reasons, sometimes they are planned 
+and other times not. Here, we show the timing of Active Attacks, a critical 
+element for premeditated attacks with the goal of maximizing casualties. As the 
+plots demonstrate, some dimensions of time are more informative than others.  
 
 **By Year**  
+The graphic below represents the frequency of active attacks from 2000 to `{r} years_max`. There appears to be more events in the last five years (mean = `{r} mean_last_5yr`) than the first five years (mean = `{r} mean_first_5yr`) or second five years (mean = `{r} mean_second_5yr`); however, this may be an artifact of media coverage. Events that occurred during the first part of this data collection period likely did not get the national coverage that they do now. Furthermore, technology and search engines have improved dramatically over the `{r} years` years of this data collection period.
+
 **By Month**  
+In contrast to the obvious upward trend in attacks across years, there appear 
+to be only a modest trend related to months of the year. Active Attacks tend to 
+peak during the warming months of the year (e.g., April through August account 
+for (!!!% APR_AUG!!!) of attacks), though
+this trend is not a strong one. The relationship with temperature is similar to 
+trends observed for certain types of violent crime (e.g., aggravated assault, 
+homicide) that also tend to peak during the warmest parts of the year.
+
 **By Day of the Week**  
-**By Hour of the Day**
+Active Attacks share no observable association with day of the week. This can 
+be seen by the flat distribution of attacks across the week. So while 
+there may be trends by year and month, attacks appear to be equally likely on
+any given day of the week.
+
+**By Hour of the Day**  
+Midday is the most common time for Active Attacks to occur. While attacks are 
+reported as beginning at noon relatively infrequently, the majority of attacks 
+reportedly occur immediately before/after the noon hour.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -94,6 +116,56 @@ The graphic below represents the frequency of active attacks from 2000 to `{r} y
 ## row 2
 
 ### row 2, column 1 {width="35%"}
+
+::: {.card .flow title="Attackers" expandable="false"}
+Many in the media attempt to create a profile describing the “average” attacker. 
+The data do not support a profile beyond sex and number of attackers. Attackers
+were male (!!!% MALE!!!) of the time. Furthermore, the 
+attacker commits the attack by him/herself !!!REPORT % SOLO!!! of the time. 
+Beyond these characteristics, attackers are fairly varied. 
+
+**Attacker Race/Ethnicity**  
+Most attackers were either Caucasian (!!!% WHITE) or African American 
+(!!!% BLACK!!!). Other racial/ethnic groups (e.g., Latino, Asian, Middle 
+Eastern) only accounted for (!!!% NOT_BW!!!). 
+
+**Attacker Age**  
+Attackers ranged in age from (!!!MIN AGE!!!) to (!!!MAX AGE!!!), but most 
+attackers were in their early twenties. The age-trend of attackers adheres to
+the classic "age-crime curve" observed for nearly every crime type, peaking in 
+late adolescence/early adulthood and steadily declining throughout the rest of 
+the life course.
+
+**Weapon Type**
+Active attacks can be carried out using any weapon though, in reality, only a 
+very small minority of attacks (!!!% NON_GUN!!!) were carried out using weapons 
+other than firearms (e.g., knife, vehicle). Among types of firearms, handguns 
+made up a clear majority (!!!% PISTOL!!!), while rifles (e.g., AR15s) and 
+shotguns were used in (!!!% RIFLE!!!) and (!!!% SHOTGUN!!!) of the time, 
+respectively.
+
+**Weapon Type And Fatalities**
+NEED THIS PLOT
+:::
+
+### row 2, column 2 {.tabset width="65%"}
+
+::: {.card .fill title="Attacker Race/Ethnicity" expandable="true"}
+![{{< downloadthis www/univar_race.png dname="aa_by_race" >}}](www/univar_race.png)
+:::
+
+::: {.card .fill title="Attacker Age" expandable="true"}
+![{{< downloadthis www/univar_age.png dname="aa_by_age" >}}](www/univar_age.png)
+:::
+
+
+::: {.card .fill title="Weapon Type" expandable="true"}
+![{{< downloadthis www/univar_weapon.png dname="aa_by_weapon" >}}](www/univar_weapon.png)
+:::
+
+## row 3
+
+### row 3, column 1 {width="35%"}
 
 ```{r, r_objs_loc}
 #| include: false
@@ -155,7 +227,7 @@ ADD FACETED PLOT.
 **Location Type and Time of Day**  
 :::
 
-### row 2, column 2 {.tabset width="65%"}
+### row 3, column 2 {.tabset width="65%"}
 
 ::: {.card .fill title="Location Type" expandable="false"}
 ![{{< downloadthis www/univar_loc.png dname="aa_by_loc_type" >}}](www/univar_loc.png)
@@ -169,9 +241,9 @@ ADD FACETED PLOT.
 ![{{< downloadthis www/bivar_loc_hr.png dname="aa_by_loc_type_hour" >}}](www/bivar_loc_hr.png)
 :::
 
-## row 3
+## row 4
 
-### row 3, column 1 {width="35%"}
+### row 4, column 1 {width="35%"}
 
 ```{r, r_objs_vic}
 #| include: false
@@ -209,7 +281,7 @@ Of note, while the number of active attacks did not decrease during the COVID-19
 
 :::
 
-### row 3, column 2 {.tabset width="65%"}
+### row 4, column 2 {.tabset width="65%"}
 
 ::: {.card .fill title="Number of Attacks vs. Fatalities" expandable="true"}
 ![{{< downloadthis www/bivar_eventkilled.png dname="aa_attacks_fatalities_year" >}}](www/bivar_eventkilled.png)
