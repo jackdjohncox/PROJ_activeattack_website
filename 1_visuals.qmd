@@ -295,8 +295,9 @@ list(icon="emoji-tear-fill",
 
 ### row 2 column 2 {.tabset width="65%"}
 
-::: {.card .flow title="Attacks vs. Fatalities" expandable="true"}
-![{{< downloadthis www/bicol_map_eventxkilled.png dname="aa_attack_fatalities_map" >}}](www/bicol_map_eventxkilled.png)
+::: {.card .flow title="Attacks Vs. Fatalities" expandable="TRUE"}
+<iframe width ="70%" height="700" src="www/bicol_map_attackxkilled.html"></iframe>
+{{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}
 :::
 
 ::: {.card .flow title="Attacks from 2000-2023" expandable="true"}
@@ -320,23 +321,4 @@ list(icon="emoji-tear-fill",
 ```{r}
 datatable(aa_data, filter = "top")
 ```
-
-
-
-
-# Testing Page
-
-## row 1 {height="70%"}
-
-### row 1, column 1 {width="35%"}
-
-::: {.card .flow title="About the Data" expandable="false"}
-Filler content.
-:::
-
-### row 1, column 2 {width="65%"}
-
-::: {.card .fill title="Testing testing..." expandable="false"}
-<iframe width ="70%" height="700" src="www/widget.html"></iframe>
-:::
 
