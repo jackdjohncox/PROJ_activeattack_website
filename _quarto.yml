@@ -10,9 +10,11 @@ website:
       - href: index.qmd #this needs to stay "index.qmd" to be recognized as the landing page
         text: Home
       - href: 1_visuals.qmd
-        text: Visualizing Active Attacks
+        text: Active Attacks
       - href: 2_victims.qmd
         text: Remembrance
+      - href: 3_contact.qmd
+        text: Contact
   page-footer: 
     left: "Created by the Research Ring at The ALERRT Center, Texas State University"
     right: 

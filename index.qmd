@@ -32,8 +32,8 @@ Another important feature is that active attacks are not limited to attacks carr
 
 There are several different pages on this website that may be of interest.  
 
-#### Visualizing Active Attacks
-The [Visualizing Active Attacks](./1_visuals.qmd) page presents many 
+#### **Active Attacks**
+The [Active Attacks](./1_visuals.qmd) page presents many 
 visualizations created by our team to show different aspects of the data. All 
 visualization are downloadable as *.png*/*.gif*/*.mp4* files. There
 are several sub-pages that organize these visualizations:
@@ -52,9 +52,13 @@ allows users to view the data underlying all of the visualizations. In
 addition to viewing the data, users can download the data directly as a *.csv*
 file.
 
-#### Remembrance
+#### **Remembrance**
 The [Remembrance](./2_victims.qmd) page catalogs all victims who died because 
 of the attacks included in the Active Attack dataset.
+
+#### **Contact**
+The [Contact](./3_contact.qmd) page provides contact information for the 
+members of the Research Ring at the ALERRT Center. 
 
 ## The ALERRT Center
 To learn more about the work and research being done at the ALERRT Center, 
