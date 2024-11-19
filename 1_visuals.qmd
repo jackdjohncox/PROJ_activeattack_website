@@ -21,6 +21,7 @@ source("0_set_up.R")
 
 #import data
 aa_data <- import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
+aa_data_long <- import("data/aa_data_long_nogeo_2023.rds", trust=TRUE)
 
 ```
 
@@ -32,68 +33,75 @@ aa_data <- import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
 #| include: false
 #| echo: false
 
-mean_last_5yr <- aa_data |> 
-  drop_na(year) |> 
-  group_by(year) |> 
-  summarise(events=n()) |> 
-  ungroup() |> 
-  filter(year >= max(year) - 5) |>
-  summarise(events_mean = mean(events, na.rm = TRUE)) |> 
-  pull(events_mean)
-  
-mean_first_5yr <- aa_data |> 
-  drop_na(year) |> 
-  group_by(year) |> 
-  summarise(events=n()) |> 
-  ungroup() |> 
-  filter(year <= min(year) + 5) |>
-  summarise(events_mean = mean(events, na.rm = TRUE)) |> 
-  pull(events_mean)
-
-mean_second_5yr <- aa_data |> 
-  drop_na(year) |> 
-  group_by(year) |> 
-  summarise(events=n()) |> 
-  ungroup() |> 
-  filter(year > (min(year) + 5) & (year <= (min(year) + 10))) |>
-  summarise(events_mean = mean(events, na.rm = TRUE)) |> 
-  pull(events_mean)
-
+#years in dataset
 years <- n_distinct(aa_data$year, na.rm = TRUE)
 
+#most recent year
 years_max <- max(aa_data$year, na.rm = TRUE)
+
+#average of last five years
+mean_last_5yr <- get_mean(aa_data, year, (years_max-5):years_max)
+
+#averge of first five years (2000-2005)
+mean_first_5yr <- get_mean(aa_data, year, 2000:2005)
+
+#average of second five years (2006-2010)
+mean_second_5yr <- get_mean(aa_data, year, 2006:2010)
+
+#April-August % of attacks
+warm_months_pct <- get_pct(aa_data, month, month.abb[4:8])
+
+#midday % of attacks
+midday_pct <- get_pct(aa_data, hour, 12)
+
+#late morning % of attacks
+late_morn_pct <- get_pct(aa_data, hour, 8:11)
+
+#early afternoon % of attacks
+early_aft_pct <- get_pct(aa_data, hour, 13:16)
 
 ```
 
 ::: {.card .flow title="Attack Timing" expandable="false"}
 
 The Active Attacks occur for a variety of reasons, sometimes they are planned 
-and other times not. Here, we show the timing of Active Attacks, a critical 
-element for premeditated attacks with the goal of maximizing casualties. As the 
-plots demonstrate, some dimensions of time are more informative than others.  
+and other times not. Here, we show the timing of Active Attacks from 2000 to 
+`{r} years_max`, a critical element for premeditated attacks with the goal of 
+maximizing casualties. As the plots demonstrate, some dimensions of time are 
+more informative than others.  
 
 **By Year**  
-The graphic below represents the frequency of active attacks from 2000 to `{r} years_max`. There appears to be more events in the last five years (mean = `{r} mean_last_5yr`) than the first five years (mean = `{r} mean_first_5yr`) or second five years (mean = `{r} mean_second_5yr`); however, this may be an artifact of media coverage. Events that occurred during the first part of this data collection period likely did not get the national coverage that they do now. Furthermore, technology and search engines have improved dramatically over the `{r} years` years of this data collection period.
+There appears to be more events in the last five years 
+(mean = `{r} mean_last_5yr`) than the first five years 
+(mean = `{r} mean_first_5yr`) or second five years 
+(mean = `{r} mean_second_5yr`); however, this may be an artifact of media 
+coverage. Events that occurred during the first part of this data collection 
+period likely did not get the national coverage that they do now. Furthermore, 
+technology and search engines have improved dramatically over the `{r} years` 
+years of this data collection period.
 
 **By Month**  
 In contrast to the obvious upward trend in attacks across years, there appear 
 to be only a modest trend related to months of the year. Active Attacks tend to 
-peak during the warming months of the year (e.g., April through August account 
-for (!!!% APR_AUG!!!) of attacks), though
-this trend is not a strong one. The relationship with temperature is similar to 
-trends observed for certain types of violent crime (e.g., aggravated assault, 
-homicide) that also tend to peak during the warmest parts of the year.
+peak during the warmer months of the year (e.g., April through August account 
+for `{r} warm_months_pct`% of attacks), though this trend is not a strong one. 
+The relationship with temperature is similar to trends observed for certain 
+types of violent crime (e.g., aggravated assault, homicide) that also tend to 
+peak during the warmest parts of the year.
 
 **By Day of the Week**  
 Active Attacks share no observable association with day of the week. This can 
 be seen by the flat distribution of attacks across the week. So while 
-there may be trends by year and month, attacks appear to be equally likely on
-any given day of the week.
+there may be trends by year and month, attacks appear to be nearly equally 
+likely on any given day of the week.
 
 **By Hour of the Day**  
-Midday is the most common time for Active Attacks to occur. While attacks are 
-reported as beginning at noon relatively infrequently, the majority of attacks 
-reportedly occur immediately before/after the noon hour.
+Active attacks tend to cluster around midday. While attacks that begin at 
+midday exactly are relatively infrequent (only `{r} midday_pct`% of attacks), 
+the majority of attacks occur immediately before midday (8-11am hours account 
+for `{r} late_morn_pct`% of attacks) or after midday (1-4pm hours account for 
+`{r} early_aft_pct`% of attacks).
+
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -117,24 +125,54 @@ reportedly occur immediately before/after the noon hour.
 
 ### row 2, column 1 {width="35%"}
 
+```{r}
+
+#male % of shooters (long data)
+male_pct <- get_pct(aa_data_long, sex, "Male")
+
+#male % of shooters
+solo_pct <- get_pct(aa_data, offender_count, 1)
+
+#Black % of shooters
+black_pct <- get_pct(aa_data_long, race, "African American")
+
+#White % of shooters
+white_pct <- get_pct(aa_data_long, race, "Caucasian")
+
+#other race % of shooters
+other_pct <- 100 - black_pct - white_pct
+
+#minimum age of shooters
+age_min <- min(aa_data_long$age, na.rm = TRUE)
+
+#maximum age of shooters
+age_max <- max(aa_data_long$age, na.rm = TRUE)
+
+#median age of shooters
+age_median <- median(aa_data_long$age, na.rm = TRUE)
+
+```
+
+
 ::: {.card .flow title="Attackers" expandable="false"}
 Many in the media attempt to create a profile describing the “average” attacker. 
 The data do not support a profile beyond sex and number of attackers. Attackers
-were male (!!!% MALE!!!) of the time. Furthermore, the 
-attacker commits the attack by him/herself !!!REPORT % SOLO!!! of the time. 
-Beyond these characteristics, attackers are fairly varied. 
+were male `{r} male_pct`% of the time. Furthermore, the 
+attacker commits the attack by him/herself `{r} solo_pct`% of the time. 
+Beyond these characteristics, attackers are somewhat more varied. 
 
 **Attacker Race/Ethnicity**  
-Most attackers were either Caucasian (!!!% WHITE) or African American 
-(!!!% BLACK!!!). Other racial/ethnic groups (e.g., Latino, Asian, Middle 
-Eastern) only accounted for (!!!% NOT_BW!!!). 
+Most attackers were either Caucasian (`{r} white_pct`%) or African American 
+`{r} black_pct`%). All other racial/ethnic groups (e.g., Latino, Asian, Middle 
+Eastern) only accounted for around a quarter of attackers (`{r} other_pct`%). 
 
 **Attacker Age**  
-Attackers ranged in age from (!!!MIN AGE!!!) to (!!!MAX AGE!!!), but most 
-attackers were in their early twenties. The age-trend of attackers adheres to
-the classic "age-crime curve" observed for nearly every crime type, peaking in 
-late adolescence/early adulthood and steadily declining throughout the rest of 
-the life course.
+While the median age of attackers was `{r} age_median`, attackers ranged in age 
+from `{r} age_min` to `{r} age_max`. Attackers in their twenties were the 
+most plentiful group compared to any other decade of life. The age-trend of attackers 
+adheres to the classic "age-crime curve" observed for nearly every crime type, 
+peaking in late adolescence/early adulthood and steadily declining throughout 
+the rest of the life course.
 
 **Weapon Type**
 Active attacks can be carried out using any weapon though, in reality, only a 
