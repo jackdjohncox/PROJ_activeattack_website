@@ -40,5 +40,26 @@ if(!file.exists("data/aa_data_wide_nogeo_2023.csv")) {
 #=function to format numbers inline============================================
 format_num <- scales::label_comma(big.mark = ",")
 
+#=function to get percentages of specific levels of a variable=================
+get_pct <- function(data=aa_data, var_name, value) {
+  data |>
+    mutate(target = {{ var_name }} %in% value) |> # Flag rows matching the value/range
+    summarise(
+      n_total = n(),
+      n_target = sum(target),
+      pct = round((n_target / n_total) * 100, 1)
+    ) |>
+    pull(pct)
+}
+
+#=function to get the mean of specific levels of a variable====================
+get_mean <- function(data, var_name, value) {
+  data |>
+    filter({{ var_name }} %in% value) |> # Filter to relevant categories or ranges
+    count({{ var_name }}) |> # Count rows per value
+    summarise(mean_count = round(mean(n, na.rm = TRUE)), 1) |> # Calculate mean of those counts
+    pull(mean_count)
+}
+
 
 
