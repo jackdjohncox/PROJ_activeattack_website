@@ -41,7 +41,7 @@ if(!file.exists("data/aa_data_wide_nogeo_2023.csv")) {
 format_num <- scales::label_comma(big.mark = ",")
 
 #=function to get percentages of specific levels of a variable=================
-get_pct <- function(data=aa_data, var_name, value) {
+get_pct <- function(data, var_name, value) {
   data |>
     mutate(target = {{ var_name }} %in% value) |> # Flag rows matching the value/range
     summarise(
@@ -61,5 +61,11 @@ get_mean <- function(data, var_name, value) {
     pull(mean_count)
 }
 
+#=function to get the raw counts of specific levels of a variable==============
+get_count <- function(data, var_name, value) {
+  data |>
+    filter({{ var_name }} %in% value) |> # Filter based on your categories or ranges
+    nrow() # Count the number of rows
+}
 
 
