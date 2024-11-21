@@ -6,21 +6,15 @@ format:
     theme: "flatly"
 ---
 
-This website is hosted by the *Research Ring* of the ALERRT Center at Texas State University, located in San Marcos, Texas.
+The Active Attack Data is a data set maintained by the Advanced Law Enforcement Rapid Response Training (ALERRT) Center at Texas State University. The purpose of this website is to make that data set more accessible to the general public, as well as the entire first responder community. Using the data, we have developed many visualizations that communicate import aspects of the data in the hopes that we can better understand these unfortunate events and improve in our efforts to prevent them in the future.
 
-## History of the Active Attack Project
+All of the media on this website is easily downloadable and we encourage their use. Please take some time to learn more about the history and definitions of the Active Attack Data in the sections that follow. At the bottom of this page, you will also find a guide that lists the contents of the website for easy navigation.
 
-ALERRT started collecting data from active shooter events in 2010 in an effort 
-to better understand how the attacks unfold and to inform ALERRT’s curriculum. 
-This original dataset was focused on events where the attacker used a firearm. 
-Around 2018, we expanded the definition to include attacks where any weapon was 
-used in an attempt to commit mass murder. We started referring to this expanded 
-data as the Active Attack data.  
+## History
 
-ALERRT’s research ring partnered with the FBI to form an Active Shooter Working 
-Group in 2013. Since then, we have assisted with the FBI’s annual reporting of 
-active shooter events. The Active Attack Dataset includes all the FBI firearm 
-attacks plus additional non-firearm attacks found by ALERRT’s research team. 
+ALERRT started collecting data from active shooter events in 2010 in an effort to better understand how the attacks unfold and to inform ALERRT’s curriculum. This original data set was focused on events where the attacker used a firearm. Around 2018, we expanded the definition to include attacks where any weapon was used in an attempt to commit mass murder. We started referring to this expanded data as the Active Attack data.
+
+ALERRT’s research ring partnered with the FBI to form an Active Shooter Working Group in 2013. Since then, we have assisted with the FBI’s annual reporting of active shooter events. The Active Attack Data includes all the FBI firearm attacks plus additional non-firearm attacks found by ALERRT’s research team.
 
 ## Definitions
 
@@ -28,40 +22,34 @@ The definition we use to vet potential active attacks is the following: **an act
 
 Another important feature is that active attacks are not limited to attacks carried out with a firearm. Instead, active attacks include events where a firearm, knife, or even vehicle is used as the primary weapon. Any weapon can be used in an active attack as long as the primary concern is an attempt to kill as many people as possible.
 
+::: {.callout-tip}
+For an helpful discussion of the similarities and differences between "active attack" and other terms commonly *mis*-used in the media, please refer to this 2022 paper by Sandel & Martaindale (*Journal of Mass Violence Research*):
+
+-   ***What Are We Talking About? Definitional Confusion Within Active and Mass Shooting Research***
+:::
+
 ## Website Guide
 
-There are several different pages on this website that may be of interest.  
+There are several different pages on this website that may be of interest.
 
 #### **Active Attacks**
-The [Active Attacks](./1_visuals.qmd) page presents many 
-visualizations created by our team to show different aspects of the data. All 
-visualization are downloadable as *.png*/*.gif*/*.mp4* files. There
-are several sub-pages that organize these visualizations:
 
-* [By The Numbers](./1_visuals.qmd#by-the-numbers): Counts and
-percentages of event characteristics (e.g., date/time, location type/
-relationship), shooter characteristics (e.g., race/ethnicity, number of 
-shooters, number of weapons), and fatalities. 
+The [Active Attacks](./1_visuals.qmd) page presents many visualizations created by our team to show different aspects of the data. All visualization are downloadable as *.png*/*.gif*/*.mp4* files. There are several sub-pages that organize these visualizations:
 
-* [Across The USA](./1_visuals.qmd#across-the-usa): Geographic 
-distribution of attacks across the USA. This page includes plots as well as 
-maps.
+-   [By The Numbers](./1_visuals.qmd#by-the-numbers): Counts and percentages of event characteristics (e.g., date/time, location type/ relationship), shooter characteristics (e.g., race/ethnicity, number of shooters, number of weapons), and fatalities.
 
-* [Download The Data](./1_visuals.html#download-the-data): This page 
-allows users to view the data underlying all of the visualizations. In 
-addition to viewing the data, users can download the data directly as a *.csv*
-file.
+-   [Across The USA](./1_visuals.qmd#across-the-usa): Geographic distribution of attacks across the USA. This page includes plots as well as maps.
+
+-   [Download The Data](./1_visuals.html#download-the-data): This page allows users to view the data underlying all of the visualizations. In addition to viewing the data, users can download the data directly as a *.csv* file.
 
 #### **Remembrance**
-The [Remembrance](./2_victims.qmd) page catalogs all victims who died because 
-of the attacks included in the Active Attack dataset.
+
+The [Remembrance](./2_victims.qmd) page catalogs all victims who died because of the attacks included in the Active Attack dataset.
 
 #### **Contact**
-The [Contact](./3_contact.qmd) page provides contact information for the 
-members of the Research Ring at the ALERRT Center. 
+
+The [Contact](./3_contact.qmd) page provides contact information for the members of the Research Ring at the ALERRT Center.
 
 ## The ALERRT Center
-To learn more about the work and research being done at the ALERRT Center, 
-please visit [ALERRT.org](alerrt.org).
 
-
+To learn more about the work and research being done at the ALERRT Center, please visit [ALERRT.org](alerrt.org).
