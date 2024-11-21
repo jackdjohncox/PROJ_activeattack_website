@@ -151,6 +151,18 @@ age_max <- max(aa_data_long$age, na.rm = TRUE)
 #median age of shooters
 age_median <- median(aa_data_long$age, na.rm = TRUE)
 
+#non-gun % of attacks
+non_gun_pct <- get_pct(aa_data, weapon_primary, c("Knife", "Vehicle"))
+
+#pistol %
+pistol_pct <- get_pct(aa_data, weapon_primary, "Pistol")
+
+#Riffle %
+rifle_pct <- get_pct(aa_data, weapon_primary, "Rifle")
+
+#Shotgun %
+shotgun_pct <- get_pct(aa_data, weapon_primary, "Shotgun")
+
 ```
 
 
@@ -174,12 +186,12 @@ adheres to the classic "age-crime curve" observed for nearly every crime type,
 peaking in late adolescence/early adulthood and steadily declining throughout 
 the rest of the life course.
 
-**Weapon Type**
+**Weapon Type**  
 Active attacks can be carried out using any weapon though, in reality, only a 
-very small minority of attacks (!!!% NON_GUN!!!) were carried out using weapons 
+very small minority of attacks (`{r} non_gun_pct`%) were carried out using weapons 
 other than firearms (e.g., knife, vehicle). Among types of firearms, handguns 
-made up a clear majority (!!!% PISTOL!!!), while rifles (e.g., AR15s) and 
-shotguns were used in (!!!% RIFLE!!!) and (!!!% SHOTGUN!!!) of the time, 
+made up a clear majority (`{r} pistol_pct`%), while rifles (e.g., AR15s) and 
+shotguns were used in `{r} rifle_pct`% and `{r} shotgun_pct`% of the time, 
 respectively.
 
 **Weapon Type And Fatalities**
@@ -209,58 +221,54 @@ NEED THIS PLOT
 #| include: false
 #| echo: false
 
-aa_data_loc <- aa_data |> 
-  drop_na(location_primary) |> 
-  count(loc = location_primary,
-        tot = n()) |> 
-  mutate(loc_pct = (n/tot)*100,
-         loc_pct = round(loc_pct, 1))
+# Business %
+business_pct <- get_pct(aa_data, location_primary, "Business")
 
-#get percents
-business_pct <- aa_data_loc |> 
-  filter(loc=="Business") |> 
-  pull(loc_pct)
+# outdoor %
+outdoors_pct <- get_pct(aa_data, location_primary, "Outdoors")
 
-outdoors_pct <- aa_data_loc |> 
-  filter(loc=="Outdoors") |> 
-  pull(loc_pct)
+# School %
+school_pct <- get_pct(aa_data, location_primary, "School")
 
-school_pct <- aa_data_loc |> 
-  filter(loc=="School") |> 
-  pull(loc_pct)
-
-other_pct <- aa_data_loc |> 
-  filter(loc=="Other") |> 
-  pull(loc_pct)
+# Other %
+other_pct <- get_pct(aa_data, location_primary, "Other")
 
 #get n's
-business_n <- aa_data_loc |> 
-  filter(loc=="Business") |> 
-  pull(n)
+# Business n
+business_n <- get_count(aa_data, location_primary, "Business")
 
-outdoors_n <- aa_data_loc |> 
-  filter(loc=="Outdoors") |> 
-  pull(n)
+# outdoor n
+outdoors_n <- get_count(aa_data, location_primary, "Outdoors")
 
-school_n <- aa_data_loc |> 
-  filter(loc=="School") |> 
-  pull(n)
+# School n
+school_n <- get_count(aa_data, location_primary, "School")
 
-other_n <- aa_data_loc |> 
-  filter(loc=="Other") |> 
-  pull(n)
+# Other n
+other_n <- get_count(aa_data, location_primary, "Other")
 
 ```
 
 ::: {.card .flow title="Attack Location" expandable="false"}
 **Location Type**  
-As seen here, the plurality of events happen at places of business (`{r} business_pct`%). Places of business include factories/warehouse, retail locations, and office space. Around a quarter of attacks (`{r} outdoors_pct`%) happened in public (outdoor) spaces. For instance, on January 8, 2011 a shooter attacked a meeting for U.S. Representative Gabrielle Giffords. This attack happened in the parking lot of a local grocery store. Had the attack happened in the store it would have been classified as a business event; however, since the attack occurred in the parking lot it is coded as a public event.
+As seen here, the plurality of events happen at places of business 
+(`{r} business_pct`%). Places of business include factories/warehouse, 
+retail locations, and office space. Around a quarter of attacks 
+(`{r} outdoors_pct`%) happened in public (outdoor) spaces. For instance, on 
+January 8, 2011 a shooter attacked a meeting for U.S. Representative Gabrielle 
+Giffords. This attack happened in the parking lot of a local grocery store. Had 
+the attack happened in the store it would have been classified as a business 
+event; however, since the attack occurred in the parking lot it is coded as a 
+public event.
 
-Schools were attacked `{r} school_n` times (`{r} school_pct`%). These events are aggregated and include attacks on all types of educational facilities, including K-12 and institutes of higher education. Lastly, `{r} other_n` attacks (`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
+Schools were attacked `{r} school_n` times (`{r} school_pct`%). These events 
+are aggregated and include attacks on all types of educational facilities, 
+including K-12 and institutes of higher education. Lastly, `{r} other_n` 
+attacks (`{r} other_pct`%) happened at "Other" locations (e.g., houses of 
+worship).
 
 **Relationship to Location**  
 Most attackers have no prior relationship with the attack location. 
-ADD FACETED PLOT.
+
 
 **Location Type and Time of Day**  
 :::
@@ -306,14 +314,22 @@ wound_tot <- aa_data |>
 ```
 
 ::: {.card .flow title="Victims" expandable="false"}
-There were `{r} format_num(injur_tot)` people injured in active attacks. Of these, `{r} format_num(kill_tot)` people died. As can be seen here, the number of deaths has been increasing along with the number of active attacks each year. There are some noticeable spikes in the number of death, corresponding to some of the more well-known attacks. For example:
+There were `{r} format_num(injur_tot)` people injured in active attacks. Of 
+these, `{r} format_num(kill_tot)` people died. As can be seen here, the number 
+of deaths has been increasing along with the number of active attacks each year. 
+There are some noticeable spikes in the number of death, corresponding to some 
+of the more well-known attacks. For example:
 
--   2007: the shooting Virginia Tech resulted in (NUMBER) of deaths, accounting for (%) of active attack deaths that year
+-   2007: the shooting Virginia Tech resulted in (NUMBER) of deaths, accounting 
+for (%) of active attack deaths that year
 -   2009: Fort Hood
 -   2012: Sandy Hook Elementary School, Newtown, Connecticut
 -   2017: Las Vegas, Nevada
 
-Of note, while the number of active attacks did not decrease during the COVID-19 pandemic, the lethality of attacks did decrease to less than half the number of any of the four years previous. In 2021, however, the number of attacks increased and the number of deaths returned to pre-pandemic levels.
+Of note, while the number of active attacks did not decrease during the 
+COVID-19 pandemic, the lethality of attacks did decrease to less than half the 
+number of any of the four years previous. In 2021, however, the number of 
+attacks increased and the number of deaths returned to pre-pandemic levels.
 
 **Top ten deadliest attacks**  
 
