@@ -5,12 +5,8 @@ format:
     orientation: rows
     scrolling: true
 resources: 
-  - "www/lib/"
+  - "www/"
 ---
-
-# By The Numbers
-
-**The Anatomy of Active Attacks in the USA, 2000-2023**  
 
 ```{r, packages_data_fns}
 #| echo: false
@@ -25,9 +21,11 @@ aa_data_long <- import("data/aa_data_long_nogeo_2023.rds", trust=TRUE)
 
 ```
 
+# Timing 
+
 ## row 1
 
-### row 1, column 1 {width="35%"}
+### row 1, column 1 {width="40%"}
 
 ```{r, r_objs_yr}
 #| include: false
@@ -101,16 +99,15 @@ midday exactly are relatively infrequent (only `{r} midday_pct`% of attacks),
 the majority of attacks occur immediately before midday (8-11am hours account 
 for `{r} late_morn_pct`% of attacks) or after midday (1-4pm hours account for 
 `{r} early_aft_pct`% of attacks).
-
 :::
 
-### row 1, column 2 {.tabset width="65%"}
+### row 1, column 2 {.tabset width="60%"}
 ::: {.card .flow title="By Year" expandable="true"}
 ![{{< downloadthis www/univar_yr.png dname="aa_by_year" >}}](www/univar_yr.png)
 :::
 
 ::: {.card .flow title="By Month" expandable="true"}
-![{{< downloadthis www/univar_month.png dname="aa_by_month" >}}](www/univar_month.png)
+![{{< downloadthis www/univar_month.png dname="aa_by_month" >}}](www/univar_month.png)  
 :::
 
 ::: {.card .flow title="By Day of the Week" expandable="true"}
@@ -121,9 +118,11 @@ for `{r} late_morn_pct`% of attacks) or after midday (1-4pm hours account for
 ![{{< downloadthis www/univar_hr.png dname="aa_by_hour" >}}](www/univar_hr.png)
 :::
 
-## row 2
+# Attackers
 
-### row 2, column 1 {width="35%"}
+## row 1 {height="50%"}
+
+### row 1, column 1 {width="35%"}
 
 ```{r}
 
@@ -179,7 +178,7 @@ Most attackers were either Caucasian (`{r} white_pct`%) or African American
 Eastern) only accounted for around a quarter of attackers (`{r} other_pct`%). 
 
 **Attacker Age**  
-While the median age of attackers was `{r} age_median`, attackers ranged in age 
+While the median age of attackers was `{r} age_median` years old, attackers ranged in age 
 from `{r} age_min` to `{r} age_max`. Attackers in their twenties were the 
 most plentiful group compared to any other decade of life. The age-trend of attackers 
 adheres to the classic "age-crime curve" observed for nearly every crime type, 
@@ -198,7 +197,7 @@ respectively.
 NEED THIS PLOT
 :::
 
-### row 2, column 2 {.tabset width="65%"}
+### row 1, column 2 {.tabset width="65%"}
 
 ::: {.card .fill title="Attacker Race/Ethnicity" expandable="true"}
 ![{{< downloadthis www/univar_race.png dname="aa_by_race" >}}](www/univar_race.png)
@@ -213,9 +212,11 @@ NEED THIS PLOT
 ![{{< downloadthis www/univar_weapon.png dname="aa_by_weapon" >}}](www/univar_weapon.png)
 :::
 
-## row 3
+# Locations
 
-### row 3, column 1 {width="35%"}
+## row 1
+
+### row 1, column 1 {width="35%"}
 
 ```{r, r_objs_loc}
 #| include: false
@@ -249,47 +250,49 @@ other_n <- get_count(aa_data, location_primary, "Other")
 ```
 
 ::: {.card .flow title="Attack Location" expandable="false"}
-**Location Type**  
-As seen here, the plurality of events happen at places of business 
-(`{r} business_pct`%). Places of business include factories/warehouse, 
-retail locations, and office space. Around a quarter of attacks 
-(`{r} outdoors_pct`%) happened in public (outdoor) spaces. For instance, on 
+For instance, on 
 January 8, 2011 a shooter attacked a meeting for U.S. Representative Gabrielle 
 Giffords. This attack happened in the parking lot of a local grocery store. Had 
 the attack happened in the store it would have been classified as a business 
 event; however, since the attack occurred in the parking lot it is coded as a 
 public event.
 
-Schools were attacked `{r} school_n` times (`{r} school_pct`%). These events 
-are aggregated and include attacks on all types of educational facilities, 
-including K-12 and institutes of higher education. Lastly, `{r} other_n` 
-attacks (`{r} other_pct`%) happened at "Other" locations (e.g., houses of 
-worship).
+**Location Type**  
+As seen here, the plurality of events happen at places of business 
+(`{r} business_pct`%). Places of business include factories/warehouse, retail 
+locations, and office space. Around a quarter of attacks 
+(`{r} outdoors_pct`%) happened in public (outdoor) spaces. Schools were 
+attacked `{r} school_n` times (`{r} school_pct`%). These events are aggregated 
+and include attacks on all types of educational facilities, including K-12 and 
+institutes of higher education. Lastly, `{r} other_n` attacks 
+(`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
 
 **Relationship to Location**  
 Most attackers have no prior relationship with the attack location. 
 
-
 **Location Type and Time of Day**  
+
 :::
 
-### row 3, column 2 {.tabset width="65%"}
+### row 1, column 2 {.tabset width="65%"}
 
-::: {.card .fill title="Location Type" expandable="false"}
-![{{< downloadthis www/univar_loc.png dname="aa_by_loc_type" >}}](www/univar_loc.png)
+::: {.card .flow title="Location Type" expandable="false"}
+![{{< downloadthis www/univar_loc.png dname="aa_by_loc_type" >}}](www/univar_loc.png)  
 :::
 
-::: {.card .fill title="Relationship to Location" expandable="true"}
+::: {.card .flow title="Relationship to Location" expandable="true"}
 ![{{< downloadthis www/univar_rel.png dname="aa_by_rel_type" >}}](www/univar_rel.png)
 :::
 
-::: {.card .fill title="Location Type & Time of Day" expandable="true"}
+::: {.card .flow title="Location Type & Time of Day" expandable="true"}
 ![{{< downloadthis www/bivar_loc_hr.png dname="aa_by_loc_type_hour" >}}](www/bivar_loc_hr.png)
 :::
 
-## row 4
+# Fatalities
 
-### row 4, column 1 {width="35%"}
+## row 1
+
+### row 1, column 1 {width="35%"}
 
 ```{r, r_objs_vic}
 #| include: false
@@ -315,7 +318,9 @@ wound_tot <- aa_data |>
 
 ::: {.card .flow title="Victims" expandable="false"}
 There were `{r} format_num(injur_tot)` people injured in active attacks. Of 
-these, `{r} format_num(kill_tot)` people died. As can be seen here, the number 
+these, `{r} format_num(kill_tot)` people died. 
+
+As can be seen here, the number 
 of deaths has been increasing along with the number of active attacks each year. 
 There are some noticeable spikes in the number of death, corresponding to some 
 of the more well-known attacks. For example:
@@ -331,102 +336,40 @@ COVID-19 pandemic, the lethality of attacks did decrease to less than half the
 number of any of the four years previous. In 2021, however, the number of 
 attacks increased and the number of deaths returned to pre-pandemic levels.
 
-**Top ten deadliest attacks**  
+**Fatalities per Attack**
+INTERACTIVE
 
 :::
 
-### row 4, column 2 {.tabset width="65%"}
+### row 1, column 2 {.tabset width="65%"}
 
-::: {.card .fill title="Number of Attacks vs. Fatalities" expandable="true"}
-![{{< downloadthis www/bivar_eventkilled.png dname="aa_attacks_fatalities_year" >}}](www/bivar_eventkilled.png)
+::: {.card .fill title="Attacks Vs. Fatalities" expandable="true"}
+<iframe width ="100%" height="550" src="www/fatalities_year_interactive.html"></iframe>
+{{< downloadthis www/fatalities_year_interactive.html dname="fatalities_year_interactive" >}}
 :::
 
-::: {.card .fill title="Fatalities Per Attack" expandable="true"}
-![{{< downloadthis www/bivar_kill_yr.png dname="aa_fatalities_year" >}}](www/bivar_kill_yr.png)
+# Across the USA
+
+## row 1 
+
+### row 1, column 21 {width="40%"}
+
+::: {.card .fill title="Attacks across the USA" expandable="true"}
+
+**Attacks & Fatalities by State**  
+Filler
+
+**Attacks & Fatalities by Year**  
 :::
 
-# Across The USA
+### row 1 column 2 {.tabset width="60%"}
 
-**Where Active Attacks Happen**
-
-## row 1
-
-### row 1, column 1 {width="35%"}
-
-::: {.card .flow title="Victims" expandable="false"}
-Filler content.
-:::
-
-### row 1, column 2 {height="21%" width="21%"}
-
-```{r, r_objs_valueboxes}
-#| include: false
-#| echo: false
-
-attacks_ca <- aa_data |> 
-  filter(state=="CA") |> 
-  summarise(n=n()) |> 
-  pull(n)
-
-attacks_tx <- aa_data |> 
-  filter(state=="TX") |> 
-  summarise(n=n()) |> 
-  pull(n)
-
-attacks_fl <- aa_data |> 
-  filter(state=="FL") |> 
-  summarise(n=n()) |> 
-  pull(n)
-```
-
-```{r}
-#| content: valuebox
-#| title: "Most attacks: California"
-
-list(icon="emoji-tear-fill",
-     color="red",
-     value=attacks_ca)
-
-```
-
-### row 1, column 3 {width="21%"}
-```{r}
-#| content: valuebox
-#| title: "2nd most attacks: Texas"
-
-list(icon="emoji-tear-fill",
-     color="orange",
-     value=attacks_tx)
-
-```
-
-### row 1, column 4 {width="21%"}
-```{r}
-#| content: valuebox
-#| title: "3rd most attacks: Florida"
-
-list(icon="emoji-tear-fill",
-     color="yellow",
-     value=attacks_fl)
-
-```
-
-## row 2
-
-### row 2 column 1 {width="35%"}
-
-::: {.card .flow title="About the Data" expandable="false"}
-**Where attacks happen in the USA**
-:::
-
-### row 2 column 2 {.tabset width="65%"}
-
-::: {.card .flow title="Attacks Vs. Fatalities" expandable="true"}
-<iframe width ="90%" height="800" src="www/bicol_map_attackxkilled.html"></iframe>
+::: {.card .flow title="Attacks & Fatalities by State" expandable="true"}
+<iframe width ="90%" height="600" src="www/bicol_map_attackxkilled.html"></iframe>
 {{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}
 :::
 
-::: {.card .flow title="Attacks from 2000-2023" expandable="true"}
+::: {.card .flow title="Attacks & Fatalities by Year" expandable="true"}
 ![{{< downloadthis www/rolling_map.gif dname="aa_attacks_year_map" >}}](www/rolling_map.gif)
 :::
 
@@ -438,11 +381,11 @@ list(icon="emoji-tear-fill",
 
 ::: {.card .flow title="About the Data" expandable="false"}
 It is the mission of the Research Ring at ALERRT to make the Active Attack 
-dataset as freely accessible as possible. Please feel free to explore the raw 
+Data as freely accessible as possible. Please feel free to explore the raw 
 data in the window to the right or download as a .csv file using the 
 download button below.  
 
-The dataset is organized so that each row corresponds to a
+The data set is organized so that each row corresponds to a
 unique active attack. This means that some variables, like shooter 
 characteristics, need some special handling. Because some attacks involved 
 multiple shooters, variables like age, race/ethnicity, and sex, are given a special 
