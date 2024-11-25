@@ -174,7 +174,7 @@ Beyond these characteristics, attackers are somewhat more varied.
 
 **Attacker Race/Ethnicity**  
 Most attackers were either Caucasian (`{r} white_pct`%) or African American 
-`{r} black_pct`%). All other racial/ethnic groups (e.g., Latino, Asian, Middle 
+(`{r} black_pct`%). All other racial/ethnic groups (e.g., Latino, Asian, Middle 
 Eastern) only accounted for around a quarter of attackers (`{r} other_pct`%). 
 
 **Attacker Age**  
@@ -363,7 +363,7 @@ INTERACTIVE
 
 ### row 1, column 21 {width="40%"}
 
-::: {.card .fill title="Attacks across the USA" expandable="true"}
+::: {.card .fill title="Attacks across the USA" expandable="false"}
 
 **Attacks & Fatalities by State**  
 Filler
