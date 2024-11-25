@@ -11,3 +11,11 @@
   .downloadthis:active {
      filter: brightness(0.80);
 }
+
+.downloadthis {
+  max-width: 125px; /* Adjust this value as needed */
+  white-space: nowrap; /* Prevent text wrapping */
+  overflow: hidden; /* Optional: hides any content that overflows */
+  text-overflow: ellipsis; /* Optional: add ellipsis for long text */
+  display: inline-block; /* Keeps it from stretching */
+}
