@@ -348,13 +348,18 @@ INTERACTIVE
 :::
 
 ::: {.card .fill title="Fatalities per Attack" expandable="true"}
-<iframe width ="100%" height="550" src="www/bivar_kill_year.html"></iframe>
-{{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}}
+<iframe width ="100%" height="600" src="www/bivar_kill_year.html"></iframe>
+{{< downloadthis www/bivar_kill_yr.png dname="fatalities_year" >}} Static plot (*.png*) 
+
+{{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}} Interactive plot (*.html*)
 :::
 
 ::: {.card .fill title="Fatalities Across Weapon Type" expandable="true"}
-<iframe width ="100%" height="550" src="www/bivar_kill_weapon.html"></iframe>
-{{< downloadthis www/bivar_kill_weapon.html dname="fatalities_weapon_type" >}}
+<iframe width ="100%" height="600" src="www/bivar_kill_weapon.html"></iframe>
+{{< downloadthis www/bivar_kill_weapon.png dname="fatalities_weapon_type" >}} Static plot (*.png*)  
+
+{{< downloadthis www/bivar_kill_weapon.html dname="fatalities_weapon_type" >}} Interactive plot (*.html*)
+
 :::
 
 # Across the USA
@@ -375,7 +380,10 @@ Filler
 
 ::: {.card .flow title="Attacks & Fatalities by State" expandable="true"}
 <iframe width ="90%" height="600" src="www/bicol_map_attackxkilled.html"></iframe>
-{{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}
+{{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}  Static plot (*.png*) 
+
+{{< downloadthis www/bicol_map_attackxkilled.html dname="aa_attack_fatalities_map" >}}  Interactive plot (*.html*)
+
 :::
 
 ::: {.card .flow title="Attacks & Fatalities by Year" expandable="true"}
@@ -391,20 +399,20 @@ Filler
 ::: {.card .flow title="About the Data" expandable="false"}
 It is the mission of the Research Ring at ALERRT to make the Active Attack 
 Data as freely accessible as possible. Please feel free to explore the raw 
-data in the window to the right or download as a .csv file using the 
+data in the window to the right or download as a *.csv* file using the 
 download button below.  
 
-The data set is organized so that each row corresponds to a
-unique active attack. This means that some variables, like shooter 
-characteristics, need some special handling. Because some attacks involved 
-multiple shooters, variables like age, race/ethnicity, and sex, are given a special 
-suffix (e.g., _1, _2, _3) that correspond to specific shooters. For an attack 
-with only one shooter, the demographic variables ending in _2 and _3 will 
-contain missing values. The suffixes were assigned randomly and should not be 
-taken as an indication that individuals described by variables ending in _1 
-were somehow more central to the attack than the other shooters involved.
+The dataset is organized so that each row corresponds to a unique active 
+attack. This means that some variables, like attacker characteristics, need 
+some special handling. Because some events involved multiple attackers, 
+variables like age, race/ethnicity, and sex, are given a special suffix 
+(e.g., _1, _2, _3) that correspond to specific attackers. For an attack with 
+only one shooter, the demographic variables ending in _2 and _3 will contain 
+missing values. The suffixes were assigned randomly and should not be taken as 
+an indication that individuals described by variables ending in _1 were somehow 
+more central to the attack than the other people involved.
 
-{{< downloadthis data/aa_data_wide_nogeo_2023.csv dname="aa_data_2023" >}}
+{{< downloadthis data/aa_data_wide_nogeo_2023.csv dname="active_attack_data_v2023" >}}
 :::
 
 ### row 1, column 2 {width="65%"}
