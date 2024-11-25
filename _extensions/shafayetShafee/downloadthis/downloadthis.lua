@@ -82,18 +82,11 @@ return {
       local mimetype = puremagic.via_path(file_path)
       local data_uri = 'data:' .. mimetype .. ";base64," .. b64_encoded
       
-      -- js code taken from
-      -- https://github.com/fmmattioni/downloadthis/blob/master/R/utils.R#L59
-      local js = [[fetch('%s').then(res => res.blob()).then(blob => {
-      const downloadURL = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      document.body.appendChild(a);
-      a.href = downloadURL;
-      a.download = '%s'; a.click();
-      window.URL.revokeObjectURL(downloadURL);
-      document.body.removeChild(a);
-        });]]
-      
+      -- js code for handling the download
+      local js = [[const a = document.createElement('a');
+      a.href = '%s';
+      a.download = '%s';
+      a.click();]]
       local clicked = js:format(data_uri, dfilename)
       
       -- creating button
@@ -101,21 +94,20 @@ return {
           "<button class=\"btn btn-" .. btn_type .. " downloadthis " .. 
           class .. "\"" ..
           " id=\"" .. id .. "\"" ..
+          " onclick=\"" .. clicked .. "\"" ..
           "><i class=\"bi bi-" .. icon .. "\"" .. "></i>" ..
           btn_label .. 
           "</button>"
       if quarto.doc.is_format("html:js") and quarto.doc.has_bootstrap()
       then
         ensureHtmlDeps()
-        return pandoc.RawInline('html',
-        "<a href=\"#" .. id .. "\"" ..
-        " onclick=\"" .. clicked .. "\">" .. button .. "</a>"
-        )
+        return pandoc.RawInline('html', button)
       else
         return pandoc.Null()
       end
     end
   end
 }
+
 
 
