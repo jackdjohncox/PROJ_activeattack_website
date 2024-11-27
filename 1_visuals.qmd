@@ -178,20 +178,20 @@ Most attackers were either Caucasian (`{r} white_pct`%) or African American
 Eastern) only accounted for around a quarter of attackers (`{r} other_pct`%). 
 
 **Attacker Age**  
-While the median age of attackers was `{r} age_median` years old, attackers ranged in age 
-from `{r} age_min` to `{r} age_max`. Attackers in their twenties were the 
-most plentiful group compared to any other decade of life. The age-trend of attackers 
-adheres to the classic "age-crime curve" observed for nearly every crime type, 
-peaking in late adolescence/early adulthood and steadily declining throughout 
-the rest of the life course.
+While the median age of attackers was `{r} age_median` years old, attackers 
+ranged in age from `{r} age_min` to `{r} age_max`. Attackers in their twenties 
+were the most plentiful group compared to any other decade of life. The 
+age-trend of attackers adheres to the classic "age-crime curve" observed for 
+nearly every crime type, peaking in late adolescence/early adulthood and 
+steadily declining throughout the rest of the life course.
 
 **Weapon Type**  
 Active attacks can be carried out using any weapon though, in reality, only a 
-very small minority of attacks (`{r} non_gun_pct`%) were carried out using weapons 
-other than firearms (e.g., knife, vehicle). Among types of firearms, handguns 
-made up a clear majority (`{r} pistol_pct`%), while rifles (e.g., AR15s) and 
-shotguns were used in `{r} rifle_pct`% and `{r} shotgun_pct`% of the time, 
-respectively.
+very small minority of attacks (`{r} non_gun_pct`%) were carried out using 
+weapons other than firearms (e.g., knife, vehicle). Among types of firearms, 
+handguns made up a clear majority (`{r} pistol_pct`%), while rifles (e.g., 
+AR15s) and shotguns were used in `{r} rifle_pct`% and `{r} shotgun_pct`% of the 
+time, respectively.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -219,6 +219,8 @@ respectively.
 #| include: false
 #| echo: false
 
+#LOCATION TYPE
+
 # Business %
 business_pct <- get_pct(aa_data, location_primary, "Business")
 
@@ -244,15 +246,34 @@ school_n <- get_count(aa_data, location_primary, "School")
 # Other n
 other_n <- get_count(aa_data, location_primary, "Other")
 
+#RELATIONSHIP TO LOC
+
+# no relationship %
+norel_pct <- get_pct(aa_data, relationship, "No relationship")
+
+# coworker %
+coworker_pct <- get_pct(aa_data, relationship, "Coworker")
+
+# other %
+other_pct <- get_pct(aa_data, relationship, "Other")
+
+# student n
+student_n <- get_count(aa_data, relationship, "Student")
+
+
+#student attacks on schools
+student_school_pct <- round((student_n/school_n)*100,1)
+
 ```
 
 ::: {.card .flow title="Attack Location" expandable="false"}
-For instance, on 
-January 8, 2011 a shooter attacked a meeting for U.S. Representative Gabrielle 
-Giffords. This attack happened in the parking lot of a local grocery store. Had 
+Defining where an attack occurred can be difficult. For instance, on January 8, 
+2011 a shooter attacked a meeting for U.S. Representative Gabrielle Giffords. 
+This attack happened in the parking lot of a local Tucson grocery store. Had 
 the attack happened in the store it would have been classified as a business 
-event; however, since the attack occurred in the parking lot it is coded as a 
-public event.
+event; however, since the attack occurred in the parking lot it is coded as an 
+outdoor event. Bear these fine distinctions in mind when examining the 
+visualizations in this section.
 
 **Location Type**  
 As seen here, the plurality of events happen at places of business 
@@ -265,9 +286,21 @@ institutes of higher education. Lastly, `{r} other_n` attacks
 (`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
 
 **Relationship to Location**  
-Most attackers have no prior relationship with the attack location. 
+In a majority of attacks (`{r} norel_pct`%), the attacker(s) had no prior 
+association with the attack location. Despite businesses being the most common 
+attack location, only `{r} coworker_pct`% of attackers were carried out by 
+current/former employees. While only `{r} student_n` attacks were carried out 
+by current/former students, these attacks accounted for `{r} student_school_pct` 
+attacks on schools. The final grouping included all remaining relationship 
+types (`{r} other_pct`% of attacks), some of which were obscure (e.g., former 
+patient) or were "indirect", that is, their spouse or other family member had 
+the primary association with the attack location.
 
 **Location Type and Time of Day**  
+When grouped by location type, the tendency of attacks to occur around midday 
+is still observable, though it is modest. The most noticeable trend can be see 
+with attacks at schools, where there is a strong tendency for attacks to 
+occur during the morning ours prior to midday.
 
 :::
 
@@ -295,50 +328,82 @@ Most attackers have no prior relationship with the attack location.
 #| include: false
 #| echo: false
 
-injur_tot <- aa_data |> 
-  drop_na(c(wound_tot,kill_tot)) |> 
-  mutate(injur_tot = wound_tot+kill_tot) |> 
-  summarise(injur_tot = sum(injur_tot)) |> 
-  pull(injur_tot)
+#get overall totals
+injur_tot <- get_total(aa_data, c(wound_tot,kill_tot))
+kill_tot <- get_total(aa_data, kill_tot)
+wound_tot <- get_total(aa_data, wound_tot)
 
-kill_tot <- aa_data |> 
-  drop_na(kill_tot) |> 
-  summarise(kill_tot = sum(kill_tot)) |> 
-  pull(kill_tot)
+#get totals for specific attacks
+virginia_tech_total <- aa_data |> filter(case_code==68)  |> pull(kill_tot)
+fort_hood_total     <- aa_data |> filter(case_code==101) |> pull(kill_tot)
+sandy_hook_total    <- aa_data |> filter(case_code==165) |> pull(kill_tot)
+las_vegas_total     <- aa_data |> filter(case_code==282) |> pull(kill_tot)
 
-wound_tot <- aa_data |> 
-  drop_na(wound_tot) |> 
-  summarise(wound_tot = sum(wound_tot)) |> 
-  pull(wound_tot)
+#get totals for specific years (of specific attacks)
+kill_2007_total <- get_total(aa_data |> filter(year==2007), kill_tot)
+kill_2009_total <- get_total(aa_data |> filter(year==2009), kill_tot)
+kill_2012_total <- get_total(aa_data |> filter(year==2012), kill_tot)
+kill_2017_total <- get_total(aa_data |> filter(year==2017), kill_tot)
+
+#get yearly percents accounted for by each attack
+virginia_tech_total_pct <- round((virginia_tech_total/kill_2007_total)*100, 1)
+fort_hood_total_pct     <- round((fort_hood_total    /kill_2009_total)*100, 1)
+sandy_hook_total_pct    <- round((sandy_hook_total   /kill_2012_total)*100, 1)
+las_vegas_total_pct     <- round((las_vegas_total    /kill_2017_total)*100, 1)
+
+#percent death ranges
+deaths_0_pct <- get_pct(aa_data |> 
+                         mutate(death_0 = ifelse(kill_tot==0, 1, 0)),
+                       death_0, 1)
+deaths_1to10_pct <- get_pct(aa_data |> 
+                         mutate(death_1to10 = ifelse(kill_tot %in% 1:10, 1, 0)),
+                       death_1to10, 1)
+deaths_lt10_pct <- get_pct(aa_data |> 
+                         mutate(death_lt10 = ifelse(kill_tot < 10, 1, 0)),
+                       death_lt10, 1)
 
 ```
 
 ::: {.card .flow title="Victims" expandable="false"}
-There were `{r} format_num(injur_tot)` people injured in active attacks. Of 
-these, `{r} format_num(kill_tot)` people died. 
+There were `{r} format_num(injur_tot)` casualties of active attacks between 
+2000 and `{r} years_max`. Of these, `{r} format_num(kill_tot)` people died. The
+visualizations in this section examine these fatalities.
 
-**Attacks vs. Fatalities**
-As can be seen here, the number 
-of deaths has been increasing along with the number of active attacks each year. 
-There are some noticeable spikes in the number of death, corresponding to some 
-of the more well-known attacks. For example:
+**Attacks vs. Fatalities by Year**  
+Attacks and total fatalities have been increasing over the course of data 
+collection (2000-`{r} years_max`). For specific years, however, there are 
+noticeable spikes in the number of death. These spike often correspond to some 
+of the more well-known attacks. For example:  
 
--   2007: the shooting Virginia Tech resulted in (NUMBER) of deaths, accounting 
-for (%) of active attack deaths that year
--   2009: Fort Hood
--   2012: Sandy Hook Elementary School, Newtown, Connecticut
--   2017: Las Vegas, Nevada
+-   **2007**: The attack on Nov. 5th at Virginia Tech, Virginia, resulted in 
+`{r} virginia_tech_total` deaths, accounting for 
+`{r} virginia_tech_total_pct`% of all attacks that year.
+-   **2009**: The attack at Fort Hood (now Fort Cavazos), Texas, resulted in 
+`{r} fort_hood_total` deaths, accounting for `{r} fort_hood_total_pct`% of 
+all attacks that year.
+-   **2012**: The school shooting on Dec. 12th at Sandy Hook Elementary School, 
+Connecticut, resulted in `{r} sandy_hook_total` deaths, accounting for 
+`{r} sandy_hook_total_pct`% of all attacks that year.
+-   **2017**: The attack on Oct. 1st in Las Vegas, Nevada, resulted in 
+`{r} las_vegas_total` deaths, accounting for `{r} las_vegas_total_pct`% of 
+all attacks that year.
 
 Of note, while the number of active attacks did not decrease during the 
 COVID-19 pandemic, the lethality of attacks did decrease to less than half the 
 number of any of the four years previous. In 2021, however, the number of 
 attacks increased and the number of deaths returned to pre-pandemic levels.
 
-**Fatalities per Attack**  
-INTERACTIVE  
+**Fatalities per Attack** (Interactive)    
+Most attacks (`{r} deaths_lt10_pct`%) resulted in fewer than 10 fatalities, with
+`{r} deaths_0_pct`% of attacks resulting in no deaths at all. Hover over the 
+points on this plot to get information about that specific attack.
 
-**Fatalities Across Weapon Type**  
-INTERACTIVE
+**Fatalities per Weapon Type** (Interactive)  
+While most attacks (`{r} pistol_pct`%) were committed using handguns, the only 
+such attack that resulted in more than 20 fatalities occurred at Virginia Tech,
+2007. Attacks using rifles accounted for all of the remaining attacks that 
+surpassed 20 deaths. Hover over the points on this plot to get information 
+about that specific attack.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -354,7 +419,7 @@ INTERACTIVE
 {{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}} Interactive plot (*.html*)
 :::
 
-::: {.card .fill title="Fatalities Across Weapon Type" expandable="true"}
+::: {.card .fill title="Fatalities per Weapon Type" expandable="true"}
 <iframe width ="100%" height="600" src="www/bivar_kill_weapon.html"></iframe>
 {{< downloadthis www/bivar_kill_weapon.png dname="fatalities_weapon_type" >}} Static plot (*.png*)  
 
@@ -368,12 +433,38 @@ INTERACTIVE
 
 ### row 1, column 21 {width="40%"}
 
+```{r}
+
+#number of states represented
+states_n <- aa_data |> 
+  distinct(state) |> 
+  filter(state!="DC") |> 
+  nrow()
+
+#states with no attacks
+states_miss <- tibble(abb = state.abb,
+       name = state.name) |> 
+  filter(!abb %in% aa_data$state) |> 
+  pull(name) |>
+  oxford_collapse()
+  
+```
+
+
 ::: {.card .fill title="Attacks across the USA" expandable="false"}
 
-**Attacks & Fatalities by State**  
-Filler
+Active attacks have been recorded in `{r} states_n` states and the District of
+Columbia. States with no recorded attacks include `{r} states_miss`. While most
+states have at least some number of attacks, the number of attacks (and 
+fatalities) tend to cluster geographically. The visualizations in this section
+show that geographic dimension.
 
-**Attacks & Fatalities by Year**  
+**Attacks & Fatalities by State** (Interactive)  
+The number of active attacks in a state strongly corresponds to the number of 
+fatalities.
+
+**Attacks & Fatalities by Year** (Interactive)  
+
 :::
 
 ### row 1 column 2 {.tabset width="60%"}
