@@ -68,4 +68,26 @@ get_count <- function(data, var_name, value) {
     nrow() # Count the number of rows
 }
 
+#=function to get the raw counts of specific levels of a variable==============
+get_total <- function(data, var_name) {
+  data |>
+    summarise(across({{ var_name }}, ~ sum(.x, na.rm = TRUE))) |>
+    summarise(total = sum(across(everything()))) |>
+    pull(total)
+}
+
+#function to collapse strings with the appropriate and after the last comma====
+oxford_collapse <- function(strings) {
+  n <- length(strings)
+  
+  if (n == 0) {
+    return("")
+  } else if (n == 1) {
+    return(strings)
+  } else if (n == 2) {
+    return(paste(strings, collapse = " and "))
+  } else {
+    return(paste(paste(strings[-n], collapse = ", "), "and", strings[n]))
+  }
+}
 
