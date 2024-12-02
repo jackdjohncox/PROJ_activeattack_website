@@ -413,14 +413,14 @@ about that specific attack.
 :::
 
 ::: {.card .fill title="Fatalities per Attack" expandable="true"}
-<iframe width ="100%" height="600" src="www/bivar_kill_year.html"></iframe>
+<iframe width ="100%" height="650" src="www/bivar_kill_year.html"></iframe>
 {{< downloadthis www/bivar_kill_yr.png dname="fatalities_year" >}} Static plot (*.png*) 
 
 {{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}} Interactive plot (*.html*)
 :::
 
 ::: {.card .fill title="Fatalities per Weapon Type" expandable="true"}
-<iframe width ="100%" height="600" src="www/bivar_kill_weapon.html"></iframe>
+<iframe width ="100%" height="650" src="www/bivar_kill_weapon.html"></iframe>
 {{< downloadthis www/bivar_kill_weapon.png dname="fatalities_weapon_type" >}} Static plot (*.png*)  
 
 {{< downloadthis www/bivar_kill_weapon.html dname="fatalities_weapon_type" >}} Interactive plot (*.html*)
@@ -461,16 +461,24 @@ show that geographic dimension.
 
 **Attacks & Fatalities by State** (Interactive)  
 The number of active attacks in a state strongly corresponds to the number of 
-fatalities.
+fatalities; however, there are some cases where the relative numbers of attacks
+and fatalities might not align. This map shows how states stack up to one 
+another regarding the raw number of attacks and fatalities. Hover over the map 
+to get information about specific states or over the legend to see which states
+are grouped together. Tip: click states or legend tiles to freeze selections 
+to make comparisons with other states/groups.
 
 **Attacks & Fatalities by Year** (Interactive)  
+The number of attacks and fatalities has been increasing annually. This 
+animation documents to specific locations and number of fatalities of attacks
+for individual years from 2000 to `{r} years_max`.
 
 :::
 
 ### row 1 column 2 {.tabset width="60%"}
 
 ::: {.card .flow title="Attacks & Fatalities by State" expandable="true"}
-<iframe width ="90%" height="600" src="www/bicol_map_attackxkilled.html"></iframe>
+<iframe width ="90%" height="650" src="www/bicol_map_attackxkilled.html"></iframe>
 {{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}  Static plot (*.png*) 
 
 {{< downloadthis www/bicol_map_attackxkilled.html dname="aa_attack_fatalities_map" >}}  Interactive plot (*.html*)
