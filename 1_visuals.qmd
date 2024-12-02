@@ -485,7 +485,7 @@ to get information about specific states or over the legend to see which states
 are grouped together. Tip: click states or legend tiles to freeze selections 
 to make comparisons with other states/groups.
 
-**Attacks & Fatalities by Year** (Interactive)  
+**Attacks & Fatalities by Year** (Animation)  
 The number of attacks and fatalities has been increasing annually. This 
 animation documents to specific locations and number of fatalities of attacks
 for individual years from 2000 to `{r} years_max`.
