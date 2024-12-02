@@ -262,7 +262,10 @@ student_n <- get_count(aa_data, relationship, "Student")
 
 
 #student attacks on schools
-student_school_pct <- round((student_n/school_n)*100,1)
+school_student_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "Student")
+school_other_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "Other")
+school_coworker_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "Coworker")
+school_norel_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "No relationship")
 
 ```
 
@@ -290,11 +293,21 @@ In a majority of attacks (`{r} norel_pct`%), the attacker(s) had no prior
 association with the attack location. Despite businesses being the most common 
 attack location, only `{r} coworker_pct`% of attackers were carried out by 
 current/former employees. While only `{r} student_n` attacks were carried out 
-by current/former students, these attacks accounted for `{r} student_school_pct` 
+by current/former students, these attacks accounted for `{r} school_student_pct` 
 attacks on schools. The final grouping included all remaining relationship 
 types (`{r} other_pct`% of attacks), some of which were obscure (e.g., former 
 patient) or were "indirect", that is, their spouse or other family member had 
 the primary association with the attack location.
+
+**Relationship by Location Type**  
+When looking within location types, we find that most attackers had no 
+relationship to the locations. However, some interesting patterns appear for 
+cases with some kind of relationship. For instance, attacks on schools were 
+rarely carried out by current/former employees or by individuals with no 
+relationship to the school (`{r} school_coworker_pct`% and 
+`{r} school_norel_pct`% of school attacks, respectively). Meaning that 
+`{r} round(school_student_pct+school_other_pct,1)`% of school attacks are 
+committed by someone who is associated with the school. 
 
 **Location Type and Time of Day**  
 When grouped by location type, the tendency of attacks to occur around midday 
@@ -312,6 +325,10 @@ occur during the morning ours prior to midday.
 
 ::: {.card .flow title="Relationship to Location" expandable="true"}
 ![{{< downloadthis www/univar_rel.png dname="aa_by_rel_type" >}}](www/univar_rel.png)
+:::
+
+::: {.card .flow title="Relationship by Location Type" expandable="true"}
+![{{< downloadthis www/bivar_loctype_rel.png dname="aa_rel_loctype" >}}](www/bivar_loctype_rel.png)
 :::
 
 ::: {.card .flow title="Location Type & Time of Day" expandable="true"}
