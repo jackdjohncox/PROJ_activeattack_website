@@ -75,7 +75,7 @@ There are several pages on this website that may be of interest.
 
 The [Active Attacks](./1_visuals.qmd) page presents many visualizations created 
 by our team to show different aspects of the data. All visualizations are 
-downloadable as *.png*/*.gif*/*.mp4* files. The sub-pages below organize these 
+downloadable as *.png*/*.gif*/*.mp4*/*.html* files. The sub-pages below organize these 
 visualizations:
 
 -   [Timing](./1_visuals.qmd#timing): A breakdown of active attacks across 
