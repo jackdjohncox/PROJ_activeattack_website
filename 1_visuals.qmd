@@ -395,13 +395,13 @@ collection (2000-`{r} years_max`). For specific years, however, there are
 noticeable spikes in the number of deaths. These spike often correspond to some 
 of the more well-known attacks. For example:  
 
--   **2007**: The attack on Nov. 5th at Virginia Tech, Virginia, resulted in 
+-   **2007**: The attack on Apr. 16th at Virginia Tech, Virginia, resulted in 
 `{r} virginia_tech_total` deaths, accounting for 
 `{r} virginia_tech_total_pct`% of all attacks that year.
--   **2009**: The attack at Fort Hood (now Fort Cavazos), Texas, resulted in 
+-   **2009**: The attack on Nov. 5th at Fort Hood (now Fort Cavazos), Texas, resulted in 
 `{r} fort_hood_total` deaths, accounting for `{r} fort_hood_total_pct`% of 
 all attacks that year.
--   **2012**: The school shooting on Dec. 12th at Sandy Hook Elementary School, 
+-   **2012**: The school shooting on Dec. 14th at Sandy Hook Elementary School, 
 Connecticut, resulted in `{r} sandy_hook_total` deaths, accounting for 
 `{r} sandy_hook_total_pct`% of all attacks that year.
 -   **2017**: The attack on Oct. 1st in Las Vegas, Nevada, resulted in 
