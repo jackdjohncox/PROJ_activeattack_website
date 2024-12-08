@@ -316,7 +316,10 @@ committed by someone who is associated with the school.
 When grouped by location type, the tendency of attacks to occur around midday 
 is still observable, though it is modest. The most noticeable trend can be see 
 with attacks at schools, where there is a strong tendency for attacks to 
-occur during the morning ours prior to midday.
+occur during the morning ours prior to midday. Note: this plot shows the 
+density of attacks *within* location types, meaning that the concentration of 
+attacks is relative to other attacks within the same location type and *not* 
+to concentrations displayed for other location types. 
 
 :::
 
