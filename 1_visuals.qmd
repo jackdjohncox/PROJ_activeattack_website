@@ -258,17 +258,27 @@ norel_pct <- get_pct(aa_data, relationship, "No relationship")
 coworker_pct <- get_pct(aa_data, relationship, "Coworker")
 
 # other %
-other_pct <- get_pct(aa_data, relationship, "Other")
+other_rel_pct <- get_pct(aa_data, relationship, "Other")
+
+# indirect %
+indirect_pct <- get_pct(aa_data, relationship, "Indirect")
+
+# student n
+student_pct <- get_pct(aa_data, relationship, "Student")
 
 # student n
 student_n <- get_count(aa_data, relationship, "Student")
 
 
-#student attacks on schools
+#relationship by location type
+#school
 school_student_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "Student")
 school_other_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "Other")
 school_coworker_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "Coworker")
 school_norel_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "No relationship")
+
+#business
+business_coworker_pct <- get_pct(aa_data |> filter(location_primary=="Business"), relationship, "Coworker")
 
 ```
 
@@ -292,31 +302,30 @@ institutes of higher education. Lastly, `{r} other_n` attacks
 (`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
 
 **Relationship to Location**  
-In a majority of attacks (`{r} norel_pct`%), the attacker(s) had no prior 
-association with the attack location. Despite businesses being the most common 
-attack location, only `{r} coworker_pct`% of attackers were carried out by 
-current/former employees. While only `{r} student_n` attacks were carried out 
-by current/former students, these attacks accounted for `{r} school_student_pct` 
-attacks on schools. The final grouping included all remaining relationship 
-types (`{r} other_pct`% of attacks), some of which were obscure (e.g., former 
-patient) or were "indirect", that is, their spouse or other family member had 
-the primary association with the attack location.
+In a vast majority of attacks (`{r} norel_pct`% of all attacks), the 
+attacker(s) had no prior association with the attack location. For attackers 
+with some relationship to the location, former/current students 
+(`{r} student_pct`%) and current/former employees (`{r} coworker_pct`%) were 
+the most common relationship types, followed by indirect (e.g., the attacker's 
+wife was associated with the location; (`{r} indirect_pct`%)) and "other" 
+associations (`{r} other_rel_pct`%).
 
 **Relationship by Location Type**  
 When looking within location types, we find that most attackers had no 
-relationship to the locations. However, some interesting patterns appear for 
-cases with some kind of relationship. For instance, attacks on schools were 
-rarely carried out by current/former employees or by individuals with no 
-relationship to the school (`{r} school_coworker_pct`% and 
-`{r} school_norel_pct`% of school attacks, respectively). Meaning that 
-`{r} round(school_student_pct+school_other_pct,1)`% of school attacks are 
-committed by someone who is associated with the school. 
+relationship to the locations. Going beyond attackers with no relationship,  
+we find some interesting patterns. Depsite making up only 
+`{r} coworker_pct` of attackers generally, attackers of businesses were 
+current/former employees `{r} business_coworker_pct`% of the time. A similar 
+trend is observable in schools, though in this case, the vast majority of 
+attackers were current/former students (`{r} school_student_pct`%). Only a 
+small percentage of attacks (`{r} school_norel_pct`) on schools were 
+perpetrated by an attacker with no relationship to the school.
 
 **Time of Day by Location Type**  
 When grouped by location type, the tendency of attacks to occur around midday 
 is still observable, though it is modest. The most noticeable trend can be see 
 with attacks at schools, where there is a strong tendency for attacks to 
-occur during the morning ours prior to midday. Note: this plot shows the 
+occur during the morning hours prior to midday. Note: this plot shows the 
 density of attacks *within* location types, meaning that the concentration of 
 attacks is relative to other attacks within the same location type and *not* 
 to concentrations displayed for other location types. 
