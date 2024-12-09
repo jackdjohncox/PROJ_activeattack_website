@@ -85,9 +85,10 @@ oxford_collapse <- function(strings) {
   } else if (n == 1) {
     return(strings)
   } else if (n == 2) {
-    return(paste(strings, collapse = " and "))
+    return(paste(strings, collapse = ", and "))
   } else {
-    return(paste(paste(strings[-n], collapse = ", "), "and", strings[n]))
+    return(paste(paste(strings[-n], collapse = ", "), ", and ", strings[n], sep = ""))
   }
 }
+
 

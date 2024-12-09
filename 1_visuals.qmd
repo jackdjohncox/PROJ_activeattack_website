@@ -62,8 +62,8 @@ early_aft_pct <- get_pct(aa_data, hour, 13:16)
 
 ::: {.card .flow title="Attack Timing" expandable="false"}
 
-The Active Attacks occur for a variety of reasons, sometimes they are planned 
-and other times not. Here, we show the timing of Active Attacks from 2000 to 
+Active attacks occur for a variety of reasons, sometimes they are planned 
+and other times not. Here, we show the timing of active attacks from 2000 to 
 `{r} years_max`, a critical element for premeditated attacks with the goal of 
 maximizing casualties. As the plots demonstrate, some dimensions of time are 
 more informative than others.  
@@ -73,7 +73,7 @@ There appears to be more events in the last five years
 (mean = `{r} mean_last_5yr`) than the first five years 
 (mean = `{r} mean_first_5yr`) or second five years 
 (mean = `{r} mean_second_5yr`); however, this may be an artifact of media 
-coverage. Events that occurred during the first part of this data collection 
+coverage. Attacks that occurred during the first part of this data collection 
 period likely did not get the national coverage that they do now. Furthermore, 
 technology and search engines have improved dramatically over the `{r} years` 
 years of this data collection period.
@@ -88,7 +88,7 @@ types of violent crime (e.g., aggravated assault, homicide) that also tend to
 peak during the warmest parts of the year.
 
 **By Day of the Week**  
-Active Attacks share no observable association with day of the week. This can 
+Active attacks share no observable association with day of the week. This can 
 be seen by the flat distribution of attacks across the week. So while 
 there may be trends by year and month, attacks appear to be nearly equally 
 likely on any given day of the week.
@@ -173,9 +173,12 @@ attacker commits the attack by him/herself `{r} solo_pct`% of the time.
 Beyond these characteristics, attackers are somewhat more varied. 
 
 **Attacker Race/Ethnicity**  
-Most attackers were either Caucasian (`{r} white_pct`%) or African American 
-(`{r} black_pct`%). All other racial/ethnic groups (e.g., Latino, Asian, Middle 
-Eastern) only accounted for around a quarter of attackers (`{r} other_pct`%). 
+The racial/ethnic makeup of attackers roughly mirrored that of the general 
+population, though Caucasians were under-represented and African 
+Americans were over-represented. Most attackers were either Caucasian 
+(`{r} white_pct`%) or African American (`{r} black_pct`%). All other 
+racial/ethnic groups (e.g., Latino, Asian, Middle Eastern) only accounted for 
+around a quarter of attackers (`{r} other_pct`%). 
 
 **Attacker Age**  
 While the median age of attackers was `{r} age_median` years old, attackers 
@@ -309,11 +312,14 @@ relationship to the school (`{r} school_coworker_pct`% and
 `{r} round(school_student_pct+school_other_pct,1)`% of school attacks are 
 committed by someone who is associated with the school. 
 
-**Location Type and Time of Day**  
+**Time of Day by Location Type**  
 When grouped by location type, the tendency of attacks to occur around midday 
 is still observable, though it is modest. The most noticeable trend can be see 
 with attacks at schools, where there is a strong tendency for attacks to 
-occur during the morning ours prior to midday.
+occur during the morning ours prior to midday. Note: this plot shows the 
+density of attacks *within* location types, meaning that the concentration of 
+attacks is relative to other attacks within the same location type and *not* 
+to concentrations displayed for other location types. 
 
 :::
 
@@ -331,8 +337,8 @@ occur during the morning ours prior to midday.
 ![{{< downloadthis www/bivar_loctype_rel.png dname="aa_rel_loctype" >}}](www/bivar_loctype_rel.png)
 :::
 
-::: {.card .flow title="Location Type & Time of Day" expandable="true"}
-![{{< downloadthis www/bivar_loc_hr.png dname="aa_by_loc_type_hour" >}}](www/bivar_loc_hr.png)
+::: {.card .flow title="Time of Day by Location Type" expandable="true"}
+![{{< downloadthis www/bivar_loc_hr.png dname="aa_hour_by_log_type" >}}](www/bivar_loc_hr.png)
 :::
 
 # Fatalities
@@ -389,16 +395,16 @@ visualizations in this section examine these fatalities.
 **Attacks vs. Fatalities by Year**  
 Attacks and total fatalities have been increasing over the course of data 
 collection (2000-`{r} years_max`). For specific years, however, there are 
-noticeable spikes in the number of death. These spike often correspond to some 
+noticeable spikes in the number of deaths. These spike often correspond to some 
 of the more well-known attacks. For example:  
 
--   **2007**: The attack on Nov. 5th at Virginia Tech, Virginia, resulted in 
+-   **2007**: The attack on Apr. 16th at Virginia Tech, Virginia, resulted in 
 `{r} virginia_tech_total` deaths, accounting for 
 `{r} virginia_tech_total_pct`% of all attacks that year.
--   **2009**: The attack at Fort Hood (now Fort Cavazos), Texas, resulted in 
+-   **2009**: The attack on Nov. 5th at Fort Hood (now Fort Cavazos), Texas, resulted in 
 `{r} fort_hood_total` deaths, accounting for `{r} fort_hood_total_pct`% of 
 all attacks that year.
--   **2012**: The school shooting on Dec. 12th at Sandy Hook Elementary School, 
+-   **2012**: The school shooting on Dec. 14th at Sandy Hook Elementary School, 
 Connecticut, resulted in `{r} sandy_hook_total` deaths, accounting for 
 `{r} sandy_hook_total_pct`% of all attacks that year.
 -   **2017**: The attack on Oct. 1st in Las Vegas, Nevada, resulted in 
