@@ -21,11 +21,11 @@ aa_data <- import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
 #| include: false
 #| echo: false
 
-injur_tot <- aa_data |> 
+casualty_tot <- aa_data |> 
   drop_na(c(wound_tot,kill_tot)) |> 
-  mutate(injur_tot = wound_tot+kill_tot) |> 
-  summarise(injur_tot = sum(injur_tot)) |> 
-  pull(injur_tot) 
+  mutate(casualty_tot = wound_tot+kill_tot) |> 
+  summarise(casualty_tot = sum(casualty_tot)) |> 
+  pull(casualty_tot) 
 
 kill_tot <- aa_data |> 
   drop_na(kill_tot) |> 
@@ -42,12 +42,11 @@ wound_tot <- aa_data |>
 ## We Remember
 
 Between 2000 and `{r} max(aa_data$year, na.rm=TRUE)`, our nation has 
-experienced `{r} nrow(aa_data)` active attack events. There were a total of 
-`{r} format_num(injur_tot)` people injured, and out of that number, 
-`{r} format_num(kill_tot)` 
-people died. This page attempts to list every name of every victim. Please 
-alert us if any mistakes or omissions are found. We attempt to capture every 
-name we can find to remember the victims.  
+experienced `{r} nrow(aa_data)` active attack events. A total of 
+`{r} format_num(casualty_tot)` casualties result from these attacks, and out of 
+that number, `{r} format_num(kill_tot)` people died. This page attempts to list 
+every name of every victim. Please alert us if any mistakes or omissions are 
+found. We attempt to capture every name we can find to remember the victims.  
 
 Let us pause for a moment of silence to remember and honor those lost. ALERRT 
 also strives to honor with courage and compassion the thousands of surviving 

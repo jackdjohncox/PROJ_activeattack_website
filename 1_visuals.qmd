@@ -361,7 +361,7 @@ to concentrations displayed for other location types.
 #| echo: false
 
 #get overall totals
-injur_tot <- get_total(aa_data, c(wound_tot,kill_tot))
+casualty_tot <- get_total(aa_data, c(wound_tot,kill_tot))
 kill_tot <- get_total(aa_data, kill_tot)
 wound_tot <- get_total(aa_data, wound_tot)
 
@@ -397,7 +397,7 @@ deaths_lt10_pct <- get_pct(aa_data |>
 ```
 
 ::: {.card .flow title="Victims" expandable="false"}
-There were `{r} format_num(injur_tot)` casualties of active attacks between 
+There were `{r} format_num(casualty_tot)` casualties from active attacks between 
 2000 and `{r} years_max`. Of these, `{r} format_num(kill_tot)` people died. The
 visualizations in this section examine these fatalities.
 
