@@ -6,6 +6,9 @@ format:
     scrolling: true
 resources: 
   - "www/"
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 ```{r, packages_data_fns}
@@ -21,7 +24,7 @@ aa_data_long <- import("data/aa_data_long_nogeo_2023.rds", trust=TRUE)
 
 ```
 
-# Timing 
+# Timing
 
 ## row 1
 
@@ -61,53 +64,54 @@ early_aft_pct <- get_pct(aa_data, hour, 13:16)
 ```
 
 ::: {.card .flow title="Attack Timing" expandable="false"}
+Active attacks occur for a variety of reasons, sometimes they are
+planned and other times not. Here, we show the timing of active attacks
+from 2000 to `{r} years_max`, a critical element for premeditated
+attacks with the goal of maximizing casualties. As the plots
+demonstrate, some dimensions of time are more informative than others.
 
-Active attacks occur for a variety of reasons, sometimes they are planned 
-and other times not. Here, we show the timing of active attacks from 2000 to 
-`{r} years_max`, a critical element for premeditated attacks with the goal of 
-maximizing casualties. As the plots demonstrate, some dimensions of time are 
-more informative than others.  
+**By Year**\
+There appears to be more events in the last five years (mean =
+`{r} mean_last_5yr`) than the first five years (mean =
+`{r} mean_first_5yr`) or second five years (mean =
+`{r} mean_second_5yr`); however, this may be an artifact of media
+coverage. Attacks that occurred during the first part of this data
+collection period likely did not get the national coverage that they do
+now. Furthermore, technology and search engines have improved
+dramatically over the `{r} years` years of this data collection period.
 
-**By Year**  
-There appears to be more events in the last five years 
-(mean = `{r} mean_last_5yr`) than the first five years 
-(mean = `{r} mean_first_5yr`) or second five years 
-(mean = `{r} mean_second_5yr`); however, this may be an artifact of media 
-coverage. Attacks that occurred during the first part of this data collection 
-period likely did not get the national coverage that they do now. Furthermore, 
-technology and search engines have improved dramatically over the `{r} years` 
-years of this data collection period.
+**By Month**\
+In contrast to the obvious upward trend in attacks across years, there
+appear to be only a modest trend related to months of the year. Active
+Attacks tend to peak during the warmer months of the year (e.g., April
+through August account for `{r} warm_months_pct`% of attacks), though
+this trend is not a strong one. The relationship with temperature is
+similar to trends observed for certain types of violent crime (e.g.,
+aggravated assault, homicide) that also tend to peak during the warmest
+parts of the year.
 
-**By Month**  
-In contrast to the obvious upward trend in attacks across years, there appear 
-to be only a modest trend related to months of the year. Active Attacks tend to 
-peak during the warmer months of the year (e.g., April through August account 
-for `{r} warm_months_pct`% of attacks), though this trend is not a strong one. 
-The relationship with temperature is similar to trends observed for certain 
-types of violent crime (e.g., aggravated assault, homicide) that also tend to 
-peak during the warmest parts of the year.
+**By Day of the Week**\
+Active attacks share no observable association with day of the week.
+This can be seen by the flat distribution of attacks across the week. So
+while there may be trends by year and month, attacks appear to be nearly
+equally likely on any given day of the week.
 
-**By Day of the Week**  
-Active attacks share no observable association with day of the week. This can 
-be seen by the flat distribution of attacks across the week. So while 
-there may be trends by year and month, attacks appear to be nearly equally 
-likely on any given day of the week.
-
-**By Hour of the Day**  
-Active attacks tend to cluster around midday. While attacks that begin at 
-midday exactly are relatively infrequent (only `{r} midday_pct`% of attacks), 
-the majority of attacks occur immediately before midday (8-11am hours account 
-for `{r} late_morn_pct`% of attacks) or after midday (1-4pm hours account for 
-`{r} early_aft_pct`% of attacks).
+**By Hour of the Day**\
+Active attacks tend to cluster around midday. While attacks that begin
+at midday exactly are relatively infrequent (only `{r} midday_pct`% of
+attacks), the majority of attacks occur immediately before midday
+(8-11am hours account for `{r} late_morn_pct`% of attacks) or after
+midday (1-4pm hours account for `{r} early_aft_pct`% of attacks).
 :::
 
 ### row 1, column 2 {.tabset width="60%"}
+
 ::: {.card .flow title="By Year" expandable="true"}
 ![{{< downloadthis www/univar_yr.png dname="aa_by_year" >}}](www/univar_yr.png)
 :::
 
 ::: {.card .flow title="By Month" expandable="true"}
-![{{< downloadthis www/univar_month.png dname="aa_by_month" >}}](www/univar_month.png)  
+![{{< downloadthis www/univar_month.png dname="aa_by_month" >}}](www/univar_month.png)
 :::
 
 ::: {.card .flow title="By Day of the Week" expandable="true"}
@@ -164,37 +168,37 @@ shotgun_pct <- get_pct(aa_data, weapon_primary, "Shotgun")
 
 ```
 
-
 ::: {.card .flow title="Attackers" expandable="false"}
-Many in the media attempt to create a profile describing the “average” attacker. 
-The data do not support a profile beyond sex and number of attackers. Attackers
-were male `{r} male_pct`% of the time. Furthermore, the 
-attacker commits the attack by him/herself `{r} solo_pct`% of the time. 
-Beyond these characteristics, attackers are somewhat more varied. 
+Many in the media attempt to create a profile describing the “average”
+attacker. The data do not support a profile beyond sex and number of
+attackers. Attackers were male `{r} male_pct`% of the time. Furthermore,
+the attacker commits the attack by him/herself `{r} solo_pct`% of the
+time. Beyond these characteristics, attackers are somewhat more varied.
 
-**Attacker Race/Ethnicity**  
-The racial/ethnic makeup of attackers roughly mirrored that of the general 
-population, though Caucasians were under-represented and African 
-Americans were over-represented. Most attackers were either Caucasian 
-(`{r} white_pct`%) or African American (`{r} black_pct`%). All other 
-racial/ethnic groups (e.g., Latino, Asian, Middle Eastern) only accounted for 
-around a quarter of attackers (`{r} other_pct`%). 
+**Attacker Race/Ethnicity**\
+The racial/ethnic makeup of attackers roughly mirrored that of the
+general population, though Caucasians were under-represented and African
+Americans were over-represented. Most attackers were either Caucasian
+(`{r} white_pct`%) or African American (`{r} black_pct`%). All other
+racial/ethnic groups (e.g., Latino, Asian, Middle Eastern) only
+accounted for around a quarter of attackers (`{r} other_pct`%).
 
-**Attacker Age**  
-While the median age of attackers was `{r} age_median` years old, attackers 
-ranged in age from `{r} age_min` to `{r} age_max`. Attackers in their twenties 
-were the most plentiful group compared to any other decade of life. The 
-age-trend of attackers adheres to the classic "age-crime curve" observed for 
-nearly every crime type, peaking in late adolescence/early adulthood and 
-steadily declining throughout the rest of the life course.
+**Attacker Age**\
+While the median age of attackers was `{r} age_median` years old,
+attackers ranged in age from `{r} age_min` to `{r} age_max`. Attackers
+in their twenties were the most plentiful group compared to any other
+decade of life. The age-trend of attackers adheres to the classic
+"age-crime curve" observed for nearly every crime type, peaking in late
+adolescence/early adulthood and steadily declining throughout the rest
+of the life course.
 
-**Weapon Type**  
-Active attacks can be carried out using any weapon though, in reality, only a 
-very small minority of attacks (`{r} non_gun_pct`%) were carried out using 
-weapons other than firearms (e.g., knife, vehicle). Among types of firearms, 
-handguns made up a clear majority (`{r} pistol_pct`%), while rifles (e.g., 
-AR15s) and shotguns were used in `{r} rifle_pct`% and `{r} shotgun_pct`% of the 
-time, respectively.
+**Weapon Type**\
+Active attacks can be carried out using any weapon though, in reality,
+only a very small minority of attacks (`{r} non_gun_pct`%) were carried
+out using weapons other than firearms (e.g., knife, vehicle). Among
+types of firearms, handguns made up a clear majority
+(`{r} pistol_pct`%), while rifles (e.g., AR15s) and shotguns were used
+in `{r} rifle_pct`% and `{r} shotgun_pct`% of the time, respectively.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -206,7 +210,6 @@ time, respectively.
 ::: {.card .fill title="Attacker Age" expandable="true"}
 ![{{< downloadthis www/univar_age.png dname="aa_by_age" >}}](www/univar_age.png)
 :::
-
 
 ::: {.card .fill title="Weapon Type" expandable="true"}
 ![{{< downloadthis www/univar_weapon.png dname="aa_by_weapon" >}}](www/univar_weapon.png)
@@ -283,59 +286,62 @@ business_coworker_pct <- get_pct(aa_data |> filter(location_primary=="Business")
 ```
 
 ::: {.card .flow title="Attack Location" expandable="false"}
-Defining where an attack occurred can be difficult. For instance, on January 8, 
-2011 a shooter attacked a meeting for U.S. Representative Gabrielle Giffords. 
-This attack happened in the parking lot of a local Tucson grocery store. Had 
-the attack happened in the store it would have been classified as a business 
-event; however, since the attack occurred in the parking lot it is coded as an 
-outdoor event. Bear these fine distinctions in mind when examining the 
-visualizations in this section.
+Defining where an attack occurred can be difficult. For instance, on
+January 8, 2011 a shooter attacked a meeting for U.S. Representative
+Gabrielle Giffords. This attack happened in the parking lot of a local
+Tucson grocery store. Had the attack happened in the store it would have
+been classified as a business event; however, since the attack occurred
+in the parking lot it is coded as an outdoor event. Bear these fine
+distinctions in mind when examining the visualizations in this section.
 
-**Location Type**  
-As seen here, the plurality of events happen at places of business 
-(`{r} business_pct`%). Places of business include factories/warehouse, retail 
-locations, and office space. Around a quarter of attacks 
-(`{r} outdoors_pct`%) happened in public (outdoor) spaces. Schools were 
-attacked `{r} school_n` times (`{r} school_pct`%). These events are aggregated 
-and include attacks on all types of educational facilities, including K-12 and 
-institutes of higher education. Lastly, `{r} other_n` attacks 
-(`{r} other_pct`%) happened at "Other" locations (e.g., houses of worship).
+**Location Type**\
+As seen here, the plurality of events happen at places of business
+(`{r} business_pct`%). Places of business include factories/warehouse,
+retail locations, and office space. Around a quarter of attacks
+(`{r} outdoors_pct`%) happened in public (outdoor) spaces. Schools were
+attacked `{r} school_n` times (`{r} school_pct`%). These events are
+aggregated and include attacks on all types of educational facilities,
+including K-12 and institutes of higher education. Lastly, `{r} other_n`
+attacks (`{r} other_pct`%) happened at "Other" locations (e.g., houses
+of worship).
 
-**Relationship to Location**  
-In a vast majority of attacks (`{r} norel_pct`% of all attacks), the 
-attacker(s) had no prior association with the attack location. For attackers 
-with some relationship to the location, former/current students 
-(`{r} student_pct`%) and current/former employees (`{r} coworker_pct`%) were 
-the most common relationship types, followed by indirect (e.g., the attacker's 
-wife was associated with the location; (`{r} indirect_pct`%)) and "other" 
-associations (`{r} other_rel_pct`%).
+**Relationship to Location**\
+In a vast majority of attacks (`{r} norel_pct`% of all attacks), the
+attacker(s) had no prior association with the attack location. For
+attackers with some relationship to the location, former/current
+students (`{r} student_pct`%) and current/former employees
+(`{r} coworker_pct`%) were the most common relationship types, followed
+by indirect (e.g., the attacker's wife was associated with the location;
+(`{r} indirect_pct`%)) and "other" associations (`{r} other_rel_pct`%).
 
-**Relationship by Location Type**  
-When looking within location types, we find that most attackers had no 
-relationship to the locations. Going beyond attackers with no relationship,  
-we find some interesting patterns. Depsite making up only 
-`{r} coworker_pct` of attackers generally, attackers of businesses were 
-current/former employees `{r} business_coworker_pct`% of the time. A similar 
-trend is observable in schools, though in this case, the vast majority of 
-attackers were current/former students (`{r} school_student_pct`%). Only a 
-small percentage of attacks (`{r} school_norel_pct`) on schools were 
-perpetrated by an attacker with no relationship to the school.
+**Relationship by Location Type**\
+When looking within location types, we find that most attackers had no
+relationship to the locations. Going beyond attackers with no
+relationship,\
+we find some interesting patterns. Depsite making up only
+`{r} coworker_pct` of attackers generally, attackers of businesses were
+current/former employees `{r} business_coworker_pct`% of the time. A
+similar trend is observable in schools, though in this case, the vast
+majority of attackers were current/former students
+(`{r} school_student_pct`%). Only a small percentage of attacks
+(`{r} school_norel_pct`) on schools were perpetrated by an attacker with
+no relationship to the school.
 
-**Time of Day by Location Type**  
-When grouped by location type, the tendency of attacks to occur around midday 
-is still observable, though it is modest. The most noticeable trend can be see 
-with attacks at schools, where there is a strong tendency for attacks to 
-occur during the morning hours prior to midday. Note: this plot shows the 
-density of attacks *within* location types, meaning that the concentration of 
-attacks is relative to other attacks within the same location type and *not* 
-to concentrations displayed for other location types. 
-
+**Time of Day by Location Type**\
+When grouped by location type, the tendency of attacks to occur around
+midday is still observable, though it is modest. The most noticeable
+trend can be see with attacks at schools, where there is a strong
+tendency for attacks to occur during the morning hours prior to midday.
+Note: this plot shows the density of attacks *within* location types,
+meaning that the concentration of attacks is relative to other attacks
+within the same location type and *not* to concentrations displayed for
+other location types.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
 
 ::: {.card .flow title="Location Type" expandable="false"}
-![{{< downloadthis www/univar_loc.png dname="aa_by_loc_type" >}}](www/univar_loc.png)  
+![{{< downloadthis www/univar_loc.png dname="aa_by_loc_type" >}}](www/univar_loc.png)
 :::
 
 ::: {.card .flow title="Relationship to Location" expandable="true"}
@@ -397,45 +403,48 @@ deaths_lt10_pct <- get_pct(aa_data |>
 ```
 
 ::: {.card .flow title="Victims" expandable="false"}
-There were `{r} format_num(casualty_tot)` casualties from active attacks between 
-2000 and `{r} years_max`. Of these, `{r} format_num(kill_tot)` people died. The
-visualizations in this section examine these fatalities.
+There were `{r} format_num(casualty_tot)` casualties from active attacks
+between 2000 and `{r} years_max`. Of these, `{r} format_num(kill_tot)`
+people died. The visualizations in this section examine these
+fatalities.
 
-**Attacks vs. Fatalities by Year**  
-Attacks and total fatalities have been increasing over the course of data 
-collection (2000-`{r} years_max`). For specific years, however, there are 
-noticeable spikes in the number of deaths. These spike often correspond to some 
-of the more well-known attacks. For example:  
+**Attacks vs. Fatalities by Year**\
+Attacks and total fatalities have been increasing over the course of
+data collection (2000-`{r} years_max`). For specific years, however,
+there are noticeable spikes in the number of deaths. These spike often
+correspond to some of the more well-known attacks. For example:
 
--   **2007**: The attack on Apr. 16th at Virginia Tech, Virginia, resulted in 
-`{r} virginia_tech_total` deaths, accounting for 
-`{r} virginia_tech_total_pct`% of all attacks that year.
--   **2009**: The attack on Nov. 5th at Fort Hood (now Fort Cavazos), Texas, resulted in 
-`{r} fort_hood_total` deaths, accounting for `{r} fort_hood_total_pct`% of 
-all attacks that year.
--   **2012**: The school shooting on Dec. 14th at Sandy Hook Elementary School, 
-Connecticut, resulted in `{r} sandy_hook_total` deaths, accounting for 
-`{r} sandy_hook_total_pct`% of all attacks that year.
--   **2017**: The attack on Oct. 1st in Las Vegas, Nevada, resulted in 
-`{r} las_vegas_total` deaths, accounting for `{r} las_vegas_total_pct`% of 
-all attacks that year.
+-   **2007**: The attack on Apr. 16th at Virginia Tech, Virginia,
+    resulted in `{r} virginia_tech_total` deaths, accounting for
+    `{r} virginia_tech_total_pct`% of all attacks that year.
+-   **2009**: The attack on Nov. 5th at Fort Hood (now Fort Cavazos),
+    Texas, resulted in `{r} fort_hood_total` deaths, accounting for
+    `{r} fort_hood_total_pct`% of all attacks that year.
+-   **2012**: The school shooting on Dec. 14th at Sandy Hook Elementary
+    School, Connecticut, resulted in `{r} sandy_hook_total` deaths,
+    accounting for `{r} sandy_hook_total_pct`% of all attacks that year.
+-   **2017**: The attack on Oct. 1st in Las Vegas, Nevada, resulted in
+    `{r} las_vegas_total` deaths, accounting for
+    `{r} las_vegas_total_pct`% of all attacks that year.
 
-Of note, while the number of active attacks did not decrease during the 
-COVID-19 pandemic, the lethality of attacks did decrease to less than half the 
-number of any of the four years previous. In 2021, however, the number of 
-attacks increased and the number of deaths returned to pre-pandemic levels.
+Of note, while the number of active attacks did not decrease during the
+COVID-19 pandemic, the lethality of attacks did decrease to less than
+half the number of any of the four years previous. In 2021, however, the
+number of attacks increased and the number of deaths returned to
+pre-pandemic levels.
 
-**Fatalities per Attack** (Interactive)    
-Most attacks (`{r} deaths_lt10_pct`%) resulted in fewer than 10 fatalities, with
-`{r} deaths_0_pct`% of attacks resulting in no deaths at all. Hover over the 
-points on this plot to get information about that specific attack.
+**Fatalities per Attack** (Interactive)\
+Most attacks (`{r} deaths_lt10_pct`%) resulted in fewer than 10
+fatalities, with `{r} deaths_0_pct`% of attacks resulting in no deaths
+at all. Hover over the points on this plot to get information about that
+specific attack.
 
-**Fatalities per Weapon Type** (Interactive)  
-While most attacks (`{r} pistol_pct`%) were committed using handguns, the only 
-such attack that resulted in more than 20 fatalities occurred at Virginia Tech,
-2007. Attacks using rifles accounted for all of the remaining attacks that 
-surpassed 20 deaths. Hover over the points on this plot to get information 
-about that specific attack.
+**Fatalities per Weapon Type** (Interactive)\
+While most attacks (`{r} pistol_pct`%) were committed using handguns,
+the only such attack that resulted in more than 20 fatalities occurred
+at Virginia Tech, 2007. Attacks using rifles accounted for all of the
+remaining attacks that surpassed 20 deaths. Hover over the points on
+this plot to get information about that specific attack.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -445,23 +454,32 @@ about that specific attack.
 :::
 
 ::: {.card .fill title="Fatalities per Attack" expandable="true"}
-<iframe width ="100%" height="650" src="www/bivar_kill_year.html"></iframe>
-{{< downloadthis www/bivar_kill_yr.png dname="fatalities_year" >}} Static plot (*.png*) 
+<iframe width="100%" height="650" src="www/bivar_kill_year.html">
 
-{{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}} Interactive plot (*.html*)
+</iframe>
+
+{{< downloadthis www/bivar_kill_yr.png dname="fatalities_year" >}}
+Static plot (*.png*)
+
+{{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}}
+Interactive plot (*.html*)
 :::
 
 ::: {.card .fill title="Fatalities per Weapon Type" expandable="true"}
-<iframe width ="100%" height="650" src="www/bivar_kill_weapon.html"></iframe>
-{{< downloadthis www/bivar_kill_weapon.png dname="fatalities_weapon_type" >}} Static plot (*.png*)  
+<iframe width="100%" height="650" src="www/bivar_kill_weapon.html">
 
-{{< downloadthis www/bivar_kill_weapon.html dname="fatalities_weapon_type" >}} Interactive plot (*.html*)
+</iframe>
 
+{{< downloadthis www/bivar_kill_weapon.png dname="fatalities_weapon_type" >}}
+Static plot (*.png*)
+
+{{< downloadthis www/bivar_kill_weapon.html dname="fatalities_weapon_type" >}}
+Interactive plot (*.html*)
 :::
 
 # Across the USA
 
-## row 1 
+## row 1
 
 ### row 1, column 21 {width="40%"}
 
@@ -482,39 +500,42 @@ states_miss <- tibble(abb = state.abb,
   
 ```
 
-
 ::: {.card .fill title="Attacks across the USA" expandable="false"}
+Active attacks have been recorded in `{r} states_n` states and the
+District of Columbia. States with no recorded attacks include
+`{r} states_miss`. While most states have at least some number of
+attacks, the number of attacks (and fatalities) tend to cluster
+geographically. The visualizations in this section show that geographic
+dimension.
 
-Active attacks have been recorded in `{r} states_n` states and the District of
-Columbia. States with no recorded attacks include `{r} states_miss`. While most
-states have at least some number of attacks, the number of attacks (and 
-fatalities) tend to cluster geographically. The visualizations in this section
-show that geographic dimension.
+**Attacks & Fatalities by State** (Interactive)\
+The number of active attacks in a state strongly corresponds to the
+number of fatalities; however, there are some cases where the relative
+numbers of attacks and fatalities might not align. This map shows how
+states stack up to one another regarding the raw number of attacks and
+fatalities. Hover over the map to get information about specific states
+or over the legend to see which states are grouped together. Tip: click
+states or legend tiles to freeze selections to make comparisons with
+other states/groups.
 
-**Attacks & Fatalities by State** (Interactive)  
-The number of active attacks in a state strongly corresponds to the number of 
-fatalities; however, there are some cases where the relative numbers of attacks
-and fatalities might not align. This map shows how states stack up to one 
-another regarding the raw number of attacks and fatalities. Hover over the map 
-to get information about specific states or over the legend to see which states
-are grouped together. Tip: click states or legend tiles to freeze selections 
-to make comparisons with other states/groups.
-
-**Attacks & Fatalities by Year** (Animation)  
-The number of attacks and fatalities has been increasing annually. This 
-animation documents to specific locations and number of fatalities of attacks
-for individual years from 2000 to `{r} years_max`.
-
+**Attacks & Fatalities by Year** (Animation)\
+The number of attacks and fatalities has been increasing annually. This
+animation documents to specific locations and number of fatalities of
+attacks for individual years from 2000 to `{r} years_max`.
 :::
 
 ### row 1 column 2 {.tabset width="60%"}
 
 ::: {.card .flow title="Attacks & Fatalities by State" expandable="true"}
-<iframe width ="90%" height="650" src="www/bicol_map_attackxkilled.html"></iframe>
-{{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}  Static plot (*.png*) 
+<iframe width="90%" height="650" src="www/bicol_map_attackxkilled.html">
 
-{{< downloadthis www/bicol_map_attackxkilled.html dname="aa_attack_fatalities_map" >}}  Interactive plot (*.html*)
+</iframe>
 
+{{< downloadthis www/bicol_map_attackxkilled.png dname="aa_attack_fatalities_map" >}}
+Static plot (*.png*)
+
+{{< downloadthis www/bicol_map_attackxkilled.html dname="aa_attack_fatalities_map" >}}
+Interactive plot (*.html*)
 :::
 
 ::: {.card .flow title="Attacks & Fatalities by Year" expandable="true"}
@@ -528,22 +549,45 @@ for individual years from 2000 to `{r} years_max`.
 ### row 1, column 1 {width="35%"}
 
 ::: {.card .flow title="About the Data" expandable="false"}
-It is the mission of the Research Ring at ALERRT to make the Active Attack 
-Data as freely accessible as possible. Please feel free to explore the raw 
-data in the window to the right or download as a *.csv* file using the 
-download button below.  
+It is the mission of the Research Ring at ALERRT to make the Active
+Attack Data as freely accessible as possible. Please feel free to
+explore the raw data in the window to the right or download the data as
+a *.csv* file using the download button below. The codebook for the data
+is also accessible below as a *.docx* file. The codebook includes
+variable names, value labels (i.e., for factor/character variables), and
+summary statistics.
 
-The dataset is organized so that each row corresponds to a unique active 
-attack. This means that some variables, like attacker characteristics, need 
-some special handling. Because some events involved multiple attackers, 
-variables like age, race/ethnicity, and sex, are given a special suffix 
-(e.g., _1, _2, _3) that correspond to specific attackers. For an attack with 
-only one shooter, the demographic variables ending in _2 and _3 will contain 
-missing values. The suffixes were assigned randomly and should not be taken as 
-an indication that individuals described by variables ending in _1 were somehow 
-more central to the attack than the other people involved.
+Before downloading the data, please familiarize yourself with the
+following notes:
+
+1.  The dataset is organized so that each row corresponds to a unique
+    active attack. This means that some variables, like attacker
+    characteristics, need some special handling. Because some events
+    involved multiple attackers, variables like age, race/ethnicity, and
+    sex, are given a special suffix (e.g., *\_1*, *\_2*, *\_3*) that
+    correspond to specific attackers. For an attack with only one
+    shooter, the demographic variables ending in *\_2* and *\_3* will
+    contain missing values. Keep in mind, the suffixes were assigned
+    randomly and should not be taken as an indication that individuals
+    described by variables ending in *\_1* were somehow more central to
+    the attack than the other people involved.
+
+2.  The dataset also includes several variables with the *\_incl*
+    suffix. This suffix refers to an "inclusive definition" applied to
+    the the variables' coding scheme. ALERRT applies more stringent
+    definitions than does the FBI for coding active attack cases. For
+    instance, injuries that were sustained during an active attack but
+    not directly by the attacker (e.g., sprained ankle from running
+    away) are not counted by ALERRT as injuries in our *wound_tot*
+    variable. For this reason, there may be differences between our
+    numbers (and visualizations) and the official FBI reports
+    (represented in the variables ending in *\_incl*).
 
 {{< downloadthis data/aa_data_wide_nogeo_2023.csv dname="active_attack_data_v2023" >}}
+Data (*.csv*)
+
+{{< downloadthis data/aa_data_wide_codebook.docx dname="active_attack_data_v2023_codebook" >}}
+Codebook (*.docx*)
 :::
 
 ### row 1, column 2 {width="65%"}
@@ -551,4 +595,3 @@ more central to the attack than the other people involved.
 ```{r}
 datatable(aa_data, filter = "top")
 ```
-

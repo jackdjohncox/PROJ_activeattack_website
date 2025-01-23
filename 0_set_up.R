@@ -6,26 +6,31 @@ p_load(bslib,
        scales,
        tidyverse)
 
-#=import data==================================================================
+#=import data & codebook=======================================================
 
 #long + geo
 if(!file.exists("data/aa_data_long_2023.rds")) {
-  system("cp ../DATA_aa/input/events/2023/aa_data_long_2023.rds data/.")
+  system("cp ../DATA_aa/output/events/2023/aa_data_long_2023.rds data/.")
 }
 
 #long + no geo
 if(!file.exists("data/aa_data_long_nogeo_2023.rds")) {
-  system("cp ../DATA_aa/input/events/2023/aa_data_long_nogeo_2023.rds data/.")
+  system("cp ../DATA_aa/output/events/2023/aa_data_long_nogeo_2023.rds data/.")
 }
 
 #wide + geo
 if(!file.exists("data/aa_data_wide_2023.rds")) {
-  system("cp ../DATA_aa/input/events/2023/aa_data_wide_2023.rds data/.")
+  system("cp ../DATA_aa/output/events/2023/aa_data_wide_2023.rds data/.")
 }
 
 #wide + no geo
 if(!file.exists("data/aa_data_wide_nogeo_2023.rds")) {
-  system("cp ../DATA_aa/input/events/2023/aa_data_wide_nogeo_2023.rds data/.")
+  system("cp ../DATA_aa/output/events/2023/aa_data_wide_nogeo_2023.rds data/.")
+}
+
+#codebook
+if(!file.exists("data/aa_data_wide_codebook.docx")) {
+  system("cp ../DATA_aa/output/aa_data_wide_codebook.docx data/.")
 }
 
 #convert data to .csv for download
