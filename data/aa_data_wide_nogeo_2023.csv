@@ -50,7 +50,7 @@ case_code,date,year,month,day,hour,zip_code,escalated,mobile,city,state,location
 50,2005-11-20,2005,Nov,Sun,12,98409,No,No,Tacoma,WA,Business,,1,No relationship,Rifle,1,0,1,2,6,6,6,0,0,6,6,6,0,0,0,0,0,0,0,Subdued by police,No,20,,,Male,,,Latino,,
 51,2005-11-22,2005,Nov,Tue,6,29860,Yes,Yes,North Augusta,SC,Outdoors,,1,No relationship,Rifle,0,0,1,1,3,3,3,0,0,2,2,2,0,0,1,1,1,0,0,Fled,Yes,,,,Male,,,Caucasian,,
 52,2006-01-30,2006,Jan,Mon,19,93111,No,No,Goleta,CA,Business,,1,Other,Pistol,1,0,0,1,6,6,6,0,0,0,0,0,0,0,6,6,6,0,0,Suicide before police arrival,Yes,44,,,Female,,,Caucasian,,
-53,2006-03-03,2006,Mar,Fri,12,27515,No,No,Chapel Hill,SC,School,University,1,Student,Vehicle,0,0,0,0,0,,0,0,0,9,,9,0,0,0,,0,0,0,Surrendered,Yes,22,,,Male,,,Middle Eastern,,
+53,2006-03-03,2006,Mar,Fri,12,27515,No,No,Chapel Hill,NC,School,University,1,Student,Vehicle,0,0,0,0,0,,0,0,0,9,,9,0,0,0,,0,0,0,Surrendered,Yes,22,,,Male,,,Middle Eastern,,
 54,2006-03-14,2006,Mar,Tue,9,89502,No,No,Reno,NV,School,Middle school,1,Student,Pistol,1,0,0,1,2,2,2,0,0,2,2,2,0,0,0,0,0,0,0,Subdued by citizens,Yes,14,,,Male,,,Caucasian,,
 55,2006-03-25,2006,Mar,Sat,7,98102,No,No,Seattle,WA,Other,,1,No relationship,Shotgun,1,1,0,2,8,8,8,0,0,2,2,2,0,0,6,6,6,0,0,Suicide after police arrival,No,28,,,Male,,,Caucasian,,
 56,2006-04-19,2006,Apr,Wed,13,63133,No,No,St. Louis,MO,Business,,1,Other,Pistol,1,0,0,1,3,4,3,0,0,1,1,1,0,0,2,3,2,0,0,Suicide after police arrival,No,55,,,Male,,,Caucasian,,
