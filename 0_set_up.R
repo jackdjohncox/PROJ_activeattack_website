@@ -2,41 +2,44 @@
 library(pacman)
 p_load(bslib,
        DT,
+       glue,
        rio,
        scales,
        tidyverse)
 
+version <- "2024"
+
 #=import data & codebook=======================================================
 
 #long + geo
-if(!file.exists("data/aa_data_long_2023.rds")) {
-  system("cp ../DATA_aa/output/events/2023/aa_data_long_2023.rds data/.")
+if(!file.exists(glue("data/aa_data_long_{version}.rds"))) {
+  system(glue("cp ../DATA_aa/output/events/{version}/aa_data_long_{version}.rds data/."))
 }
 
 #long + no geo
-if(!file.exists("data/aa_data_long_nogeo_2023.rds")) {
-  system("cp ../DATA_aa/output/events/2023/aa_data_long_nogeo_2023.rds data/.")
+if(!file.exists(glue("data/aa_data_long_nogeo_{version}.rds"))) {
+  system(glue("cp ../DATA_aa/output/events/{version}/aa_data_long_nogeo_{version}.rds data/."))
 }
 
 #wide + geo
-if(!file.exists("data/aa_data_wide_2023.rds")) {
-  system("cp ../DATA_aa/output/events/2023/aa_data_wide_2023.rds data/.")
+if(!file.exists(glue("data/aa_data_wide_{version}.rds"))) {
+  system(glue("cp ../DATA_aa/output/events/{version}/aa_data_wide_{version}.rds data/."))
 }
 
 #wide + no geo
-if(!file.exists("data/aa_data_wide_nogeo_2023.rds")) {
-  system("cp ../DATA_aa/output/events/2023/aa_data_wide_nogeo_2023.rds data/.")
+if(!file.exists(glue("data/aa_data_wide_nogeo_{version}.rds"))) {
+  system(glue("cp ../DATA_aa/output/events/{version}/aa_data_wide_nogeo_{version}.rds data/."))
 }
 
 #codebook
-if(!file.exists("data/aa_data_wide_codebook.docx")) {
-  system("cp ../DATA_aa/output/aa_data_wide_codebook.docx data/.")
+if(!file.exists(glue("data/aa_data_wide_codebook_{version}.docx"))) {
+  system(glue("cp ../DATA_aa/output/codebook/{version}/aa_data_wide_codebook_{version}.docx data/."))
 }
 
 #convert data to .csv for download
-if(!file.exists("data/aa_data_wide_nogeo_2023.csv")) {
-  aa_data <- rio::import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
-  rio::export(aa_data, "data/aa_data_wide_nogeo_2023.csv")
+if(!file.exists(glue("data/aa_data_wide_nogeo_{version}.csv"))) {
+  aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
+  export(aa_data, glue("data/aa_data_wide_nogeo_{version}.csv"))
   rm(aa_data)
 }
 

@@ -12,8 +12,11 @@ format:
 #load packages
 source("0_set_up.R")
 
+#set version
+version <- "2024"
+
 #import data
-aa_data <- import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
+aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
 
 ```
 

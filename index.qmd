@@ -6,65 +6,28 @@ format:
     theme: "flatly"
 ---
 
-The Active Attack Data is a dataset maintained by the Advanced Law Enforcement 
-Rapid Response Training (ALERRT) Center at Texas State University. The purpose 
-of this website is to make that dataset more accessible to the general public, 
-as well as to the entire first responder community. Using the data, we have 
-developed many visualizations that communicate important aspects of the dataset 
-in the hopes that we may better understand these unfortunate events and improve 
-our efforts to prevent them in the future.
+The Active Attack Data is a dataset maintained by the Advanced Law Enforcement Rapid Response Training (ALERRT) Center at Texas State University. The purpose of this website is to make that dataset more accessible to the general public, as well as to the entire first responder community. Using the data, we have developed many visualizations that communicate important aspects of the dataset in the hopes that we may better understand these unfortunate events and improve our efforts to prevent them in the future.
 
-All of the media on this website are easily downloadable, and we encourage 
-their use. Please take some time to learn more about the history and 
-definitions of the Active Attack Data in the sections that follow. At the 
-bottom of this page, you will also find a guide listing the website's contents 
-for easy navigation.
+All of the media on this website are easily downloadable, and we encourage their use. Please take some time to learn more about the history and definitions of the Active Attack Data in the sections that follow. At the bottom of this page, you will also find a guide listing the website's contents for easy navigation.
 
 ## History
 
-ALERRT started collecting data from active shooter events in 2010 to better 
-understand how these attacks unfold and to inform ALERRT’s curriculum. This 
-original dataset focused on events where the attacker used a firearm. Around 
-2018, we expanded the definition to include attacks involving any weapon used 
-in an attempt to commit mass murder. We started referring to this expanded data 
-as the Active Attack Data.
+ALERRT started collecting data from active shooter events in 2010 to better understand how these attacks unfold and to inform ALERRT’s curriculum. This original dataset focused on events where the attacker used a firearm. Around 2018, we expanded the definition to include attacks involving any weapon used in an attempt to commit mass murder. We started referring to this expanded data as the Active Attack Data.
 
-ALERRT’s research ring partnered with the FBI in 2013 to form an Active Shooter 
-Working Group. Since then, we have assisted with the FBI’s annual reporting of 
-active shooter events. The Active Attack Data includes all the FBI-documented 
-firearm attacks, plus additional non-firearm attacks identified by ALERRT’s 
-research team.
-
+ALERRT’s research ring partnered with the FBI in 2013 to form an Active Shooter Working Group. Since then, we have assisted with the FBI’s annual reporting of active shooter events. The Active Attack Data includes all the FBI-documented firearm attacks, plus additional non-firearm attacks identified by ALERRT’s research team.
 
 ## Definitions
 
-We define an active attack as follows: **an active attack occurs when an 
-individual or individuals is actively killing or attempting to kill multiple 
-unrelated people in a public space**. The key component of this definition is 
-the word *actively*. For an event to qualify as an active attack, it must 
-involve an active component. This requirement excludes cases where law 
-enforcement is unaware that the attack is happening. 
+We define an active attack as follows: **an active attack occurs when an individual or individuals is actively killing or attempting to kill multiple unrelated people in a public space**. The key component of this definition is the word *actively*. For an event to qualify as an active attack, it must involve an active component. This requirement excludes cases where law enforcement is unaware that the attack is happening.
 
-A good example is a family annihilation. In many such events, the attacker 
-kills their family in a private home. Law enforcement often learns of these 
-attacks only after they’ve ended, too late to intervene and save lives. By 
-contrast, first responders are typically alerted to an active attack while it 
-is ongoing. As you will see in the data, half the time, the event ends before 
-law enforcement arrives on the scene because the attacker is stopped by 
-civilians or stops themselves (e.g., flees the scene or commits suicide).
+A good example is a family annihilation. In many such events, the attacker kills their family in a private home. Law enforcement often learns of these attacks only after they’ve ended, too late to intervene and save lives. By contrast, first responders are typically alerted to an active attack while it is ongoing. As you will see in the data, half the time, the event ends before law enforcement arrives on the scene because the attacker is stopped by civilians or stops themselves (e.g., flees the scene or commits suicide).
 
-Active attacks are not limited to those carried out with firearms. Instead, 
-active attacks encompass events where a firearm, knife, or even a vehicle 
-serves as the primary weapon. Any weapon can be used in an active attack as 
-long as the intent is to kill as many people as possible.
+Active attacks are not limited to those carried out with firearms. Instead, active attacks encompass events where a firearm, knife, or even a vehicle serves as the primary weapon. Any weapon can be used in an active attack as long as the intent is to kill as many people as possible.
 
-::: {.callout-tip}
-For a helpful discussion of the similarities and differences between "active 
-attack" and other terms commonly misused in the media, please refer to this 
-2022 paper by Sandel & Martaindale (*Journal of Mass Violence Research*):
+::: callout-tip
+For a helpful discussion of the similarities and differences between "active attack" and other terms commonly misused in the media, please refer to this 2022 paper by Sandel & Martaindale (*Journal of Mass Violence Research*):
 
--   [***What Are We Talking About? Definitional Confusion Within Active and Mass 
-Shooting Research***](https://doi.org/10.53076/JMVR47829) 
+-   [***What Are We Talking About? Definitional Confusion Within Active and Mass Shooting Research***](https://doi.org/10.53076/JMVR47829)
 :::
 
 ## Website Guide
@@ -73,45 +36,36 @@ There are several pages on this website that may be of interest.
 
 #### **Active Attacks**
 
-The [Active Attacks](./1_visuals.qmd) page presents many visualizations created 
-by our team to show different aspects of the data. All visualizations are 
-downloadable as *.png*/*.gif*/*.mp4*/*.html* files. The sub-pages below organize these 
-visualizations:
+The [Active Attacks](./1_visuals.qmd) page presents many visualizations created by our team to show different aspects of the data. All visualizations are downloadable as *.png*/*.gif*/*.mp4*/*.html* files. The sub-pages below organize these visualizations:
 
--   [Timing](./1_visuals.qmd#timing): A breakdown of active attacks across 
-different time scales, including years, month of year, day of week, and hour of 
-day.
+-   [Timing](./1_visuals.qmd#timing): A breakdown of active attacks across different time scales, including years, month of year, day of week, and hour of day.
 
--   [Attackers](./1_visuals.qmd#attackers): Characteristics of the attackers 
-responsible for active attacks, including race/ethnicity, age, and weapons used.
+-   [Attackers](./1_visuals.qmd#attackers): Characteristics of the attackers responsible for active attacks, including race/ethnicity, age, and weapons used.
 
--   [Locations](./1_visuals.qmd#locations): Topics like the type of location 
-attacked, the relationship of the attack to the location, and the timing of 
-attacks across location types.
+-   [Locations](./1_visuals.qmd#locations): Topics like the type of location attacked, the relationship of the attack to the location, and the timing of attacks across location types.
 
--   [Fatalities](./1_visuals.qmd#fatalities): The lethality of specific active 
-attacks and changes in fatalities versus attacks over the years.
+-   [Fatalities](./1_visuals.qmd#fatalities): The lethality of specific active attacks and changes in fatalities versus attacks over the years.
 
--   [Across the USA](./1_visuals.qmd#across-the-usa): Geographic distribution 
-of attacks and fatalities across the USA, along with the accumulation of 
-attacks over the years.
+-   [Across the USA](./1_visuals.qmd#across-the-usa): Geographic distribution of attacks and fatalities across the USA, along with the accumulation of attacks over the years.
 
--   [Download the Data](./1_visuals.html#download-the-data): View and directly 
-download the data underlying all visualizations as a *.csv* file.
+-   [Download the Data](./1_visuals.html#download-the-data): View and directly download the data underlying all visualizations as a *.csv* file.
 
 #### **Remembrance**
 
-The [Remembrance](./2_victims.qmd) page catalogs all victims who died because 
-of the attacks included in the Active Attack Data.
+The [Remembrance](./2_victims.qmd) page catalogs all victims who died because of the attacks included in the Active Attack Data.
 
 #### **Contact**
 
-The [Contact](./3_contact.qmd) page provides contact information for members of 
-the Research Ring at the ALERRT Center.
+The [Contact](./3_contact.qmd) page provides contact information for members of the Research Ring at the ALERRT Center.
 
----
+------------------------------------------------------------------------
 
 ## The ALERRT Center
 
-To learn more about the work and research conducted at the ALERRT Center, 
-please visit [ALERRT.org](https://www.alerrt.org).
+To learn more about the work and research conducted at the ALERRT Center, please visit [ALERRT.org](https://www.alerrt.org).
+
+## Updates:
+
+-   *06/12/25* - Update to v2024 data.
+
+-   *01/23/25* - Initial launch of the *Active Attack Data Explorer* (v2023).

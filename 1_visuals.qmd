@@ -18,9 +18,12 @@ editor:
 #load packages
 source("0_set_up.R")
 
+#set version
+version <- "2024"
+
 #import data
-aa_data <- import("data/aa_data_wide_nogeo_2023.rds", trust=TRUE)
-aa_data_long <- import("data/aa_data_long_nogeo_2023.rds", trust=TRUE)
+aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
+aa_data_long <- import(glue("data/aa_data_long_nogeo_{version}.rds", trust=TRUE))
 
 ```
 
@@ -43,7 +46,7 @@ years_max <- max(aa_data$year, na.rm = TRUE)
 #average of last five years
 mean_last_5yr <- get_mean(aa_data, year, (years_max-5):years_max)
 
-#averge of first five years (2000-2005)
+#average of first five years (2000-2005)
 mean_first_5yr <- get_mean(aa_data, year, 2000:2005)
 
 #average of second five years (2006-2010)
@@ -583,10 +586,19 @@ following notes:
     numbers (and visualizations) and the official FBI reports
     (represented in the variables ending in *\_incl*).
 
-{{< downloadthis data/aa_data_wide_nogeo_2023.csv dname="active_attack_data_v2023" >}}
+3.  The dataset includes two variables detailing event resolution. These
+    variables are named "resolution" and "resolved_pre_le" and describe
+    how each event was resolved and whether that resolution occurred
+    prior to the arrival of law enforcement, respectively. Although
+    rare, there are a small number of events where the attacker fled the
+    scene after law enforcement arrived. As the vast majority of fleeing
+    attackers leave the scene before law enforcement arrive, these are
+    combined in the resolution data as ending prior to LE arrival. 
+
+{{< downloadthis data/aa_data_wide_nogeo_2024.csv dname="active_attack_data_v2024" >}}
 Data (*.csv*)
 
-{{< downloadthis data/aa_data_wide_codebook.docx dname="active_attack_data_v2023_codebook" >}}
+{{< downloadthis data/aa_data_wide_codebook_2024.docx dname="active_attack_data_v2024_codebook" >}}
 Codebook (*.docx*)
 :::
 
