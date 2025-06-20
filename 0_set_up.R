@@ -39,77 +39,85 @@ version <- "2024"
 
 #=import data & codebook=======================================================
 
-#long + no geo
-copy_ifelse_checksums(glue("data/aa_data_long_nogeo_{version}.rds"),
-                      glue("../DATA_aa/output/events/{version}/aa_data_long_nogeo_{version}.rds"))
-
-#wide + no geo
-copy_ifelse_checksums(glue("data/aa_data_wide_nogeo_{version}.rds"),
-                      glue("../DATA_aa/output/events/{version}/aa_data_wide_nogeo_{version}.rds"))
-
-#codebook
-copy_ifelse_checksums(glue("data/aa_data_wide_codebook_{version}.docx"),
-                      glue("../DATA_aa/output/codebook/{version}/aa_data_wide_codebook_{version}.docx"))
-
-#convert data to .csv for download
-aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
-export(aa_data, glue("data/aa_data_wide_nogeo_{version}.csv"))
-rm(aa_data)
-
+update_aa_data <- function(){
+  
+  #long + no geo
+  copy_ifelse_checksums(glue("data/aa_data_long_nogeo_{version}.rds"),
+                        glue("../DATA_aa/output/events/{version}/aa_data_long_nogeo_{version}.rds"))
+  
+  #wide + no geo
+  copy_ifelse_checksums(glue("data/aa_data_wide_nogeo_{version}.rds"),
+                        glue("../DATA_aa/output/events/{version}/aa_data_wide_nogeo_{version}.rds"))
+  
+  #codebook
+  copy_ifelse_checksums(glue("data/aa_data_wide_codebook_{version}.docx"),
+                        glue("../DATA_aa/output/codebook/{version}/aa_data_wide_codebook_{version}.docx"))
+  
+  #convert data to .csv for download
+  aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
+  export(aa_data, glue("data/aa_data_wide_nogeo_{version}.csv"))
+  rm(aa_data)
+}
 
 # import graphics ---------------------------------------------------------
 
-#timing
-copy_ifelse_checksums("www/univar_yr.png",
-                      "../PROJ_activeattack_graphics/output/univar_yr.png")
-copy_ifelse_checksums("www/univar_month.png",
-                      "../PROJ_activeattack_graphics/output/univar_month.png")
-copy_ifelse_checksums("www/univar_wday.png",
-                      "../PROJ_activeattack_graphics/output/univar_wday.png")
-copy_ifelse_checksums("www/univar_hr.png",
-                      "../PROJ_activeattack_graphics/output/univar_hr.png")
+update_aa_graphics <- function(){
+  
+  #timing
+  copy_ifelse_checksums("www/univar_yr.png",
+                        "../PROJ_activeattack_graphics/output/univar_yr.png")
+  copy_ifelse_checksums("www/univar_month.png",
+                        "../PROJ_activeattack_graphics/output/univar_month.png")
+  copy_ifelse_checksums("www/univar_wday.png",
+                        "../PROJ_activeattack_graphics/output/univar_wday.png")
+  copy_ifelse_checksums("www/univar_hr.png",
+                        "../PROJ_activeattack_graphics/output/univar_hr.png")
+  
+  #attackers
+  copy_ifelse_checksums("www/univar_race.png",
+                        "../PROJ_activeattack_graphics/output/univar_race.png")
+  copy_ifelse_checksums("www/univar_age.png",
+                        "../PROJ_activeattack_graphics/output/univar_age.png")
+  copy_ifelse_checksums("www/univar_weapon.png",
+                        "../PROJ_activeattack_graphics/output/univar_weapon.png")
+  
+  #locations
+  copy_ifelse_checksums("www/univar_loc.png",
+                        "../PROJ_activeattack_graphics/output/univar_loc.png")
+  copy_ifelse_checksums("www/univar_rel.png",
+                        "../PROJ_activeattack_graphics/output/univar_rel.png")
+  copy_ifelse_checksums("www/univar_loctype_rel.png",
+                        "../PROJ_activeattack_graphics/output/bivar_loctype_rel.png")
+  copy_ifelse_checksums("www/bivar_loc_hr.png",
+                        "../PROJ_activeattack_graphics/output/bivar_loc_hr.png")
+  
+  #fatalities
+  copy_ifelse_checksums("www/bivar_eventkilled.png",
+                        "../PROJ_activeattack_graphics/output/bivar_eventkilled.png")
+  copy_ifelse_checksums("www/bivar_kill_yr.png",
+                        "../PROJ_activeattack_graphics/output/bivar_kill_yr.png")
+  copy_ifelse_checksums("www/bivar_kill_year.html",
+                        "../PROJ_activeattack_graphics/output/bivar_kill_year.html")
+  copy_ifelse_checksums("www/bivar_kill_weapon.png",
+                        "../PROJ_activeattack_graphics/output/bivar_kill_weapon.png")
+  copy_ifelse_checksums("www/bivar_kill_weapon.html",
+                        "../PROJ_activeattack_graphics/output/bivar_kill_weapon.html")
+  
+  #geospatial
+  copy_ifelse_checksums("www/rolling_map.gif",
+                        "../PROJ_activeattack_graphics/output/rolling_map.gif")
+  copy_ifelse_checksums("www/bicol_map_attackxkilled.png",
+                        "../PROJ_activeattack_graphics/output/bicol_map_attackxkilled.png")
+  copy_ifelse_checksums("www/bicol_map_attackxkilled.html",
+                        "../PROJ_activeattack_graphics/output/bicol_map_attackxkilled.html")
+}
 
-#attackers
-copy_ifelse_checksums("www/univar_race.png",
-                      "../PROJ_activeattack_graphics/output/univar_race.png")
-copy_ifelse_checksums("www/univar_age.png",
-                      "../PROJ_activeattack_graphics/output/univar_age.png")
-copy_ifelse_checksums("www/univar_weapon.png",
-                      "../PROJ_activeattack_graphics/output/univar_weapon.png")
-
-#locations
-copy_ifelse_checksums("www/univar_loc.png",
-                      "../PROJ_activeattack_graphics/output/univar_loc.png")
-copy_ifelse_checksums("www/univar_rel.png",
-                      "../PROJ_activeattack_graphics/output/univar_rel.png")
-copy_ifelse_checksums("www/univar_loctype_rel.png",
-                      "../PROJ_activeattack_graphics/output/bivar_loctype_rel.png")
-copy_ifelse_checksums("www/bivar_loc_hr.png",
-                      "../PROJ_activeattack_graphics/output/bivar_loc_hr.png")
-
-#fatalities
-copy_ifelse_checksums("www/bivar_eventkilled.png",
-                      "../PROJ_activeattack_graphics/output/bivar_eventkilled.png")
-copy_ifelse_checksums("www/bivar_kill_yr.png",
-                      "../PROJ_activeattack_graphics/output/bivar_kill_yr.png")
-copy_ifelse_checksums("www/bivar_kill_year.html",
-                      "../PROJ_activeattack_graphics/output/bivar_kill_year.html")
-copy_ifelse_checksums("www/bivar_kill_weapon.png",
-                      "../PROJ_activeattack_graphics/output/bivar_kill_weapon.png")
-copy_ifelse_checksums("www/bivar_kill_weapon.html",
-                      "../PROJ_activeattack_graphics/output/bivar_kill_weapon.html")
-
-#geospatial
-copy_ifelse_checksums("www/rolling_map.gif",
-                      "../PROJ_activeattack_graphics/output/rolling_map.gif")
-copy_ifelse_checksums("www/bicol_map_attackxkilled.png",
-                      "../PROJ_activeattack_graphics/output/bicol_map_attackxkilled.png")
-copy_ifelse_checksums("www/bicol_map_attackxkilled.html",
-                      "../PROJ_activeattack_graphics/output/bicol_map_attackxkilled.html")
-
-#victim scroll
-copy_ifelse_checksums("www/victim_scroll.mp4",
-                      "../PROJ_activeattack_graphics/output/victim_scroll.mp4")
+update_aa_victim_scroll <- function() {
+  
+  #victim scroll
+  copy_ifelse_checksums("www/victim_scroll.mp4",
+                        "../PROJ_activeattack_graphics/output/victim_scroll.mp4")
+}
 
 #=function to format numbers inline============================================
 format_num <- scales::label_comma(big.mark = ",")

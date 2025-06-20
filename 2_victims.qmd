@@ -15,6 +15,9 @@ source("0_set_up.R")
 #set version
 version <- "2024"
 
+#update victim scroll (uncomment below)
+# update_aa_victim_scroll()
+
 #import data
 aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
 
