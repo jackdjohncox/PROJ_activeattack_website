@@ -231,7 +231,7 @@ in `{r} rifle_pct`% and `{r} shotgun_pct`% of the time, respectively.
 #LOCATION TYPE
 
 # Business %
-business_pct <- get_pct(aa_data, location_primary, "Business")
+business_pct <- get_pct(aa_data, location_primary, c("Office", "Factory/warehouse", "Retail"))
 
 # outdoor %
 outdoors_pct <- get_pct(aa_data, location_primary, "Outdoors")
@@ -244,7 +244,7 @@ other_pct <- get_pct(aa_data, location_primary, "Other")
 
 #get n's
 # Business n
-business_n <- get_count(aa_data, location_primary, "Business")
+business_n <- get_count(aa_data, location_primary, c("Office", "Factory/warehouse", "Retail"))
 
 # outdoor n
 outdoors_n <- get_count(aa_data, location_primary, "Outdoors")
@@ -284,7 +284,10 @@ school_coworker_pct <- get_pct(aa_data |> filter(location_primary=="School"), re
 school_norel_pct <- get_pct(aa_data |> filter(location_primary=="School"), relationship, "No relationship")
 
 #business
-business_coworker_pct <- get_pct(aa_data |> filter(location_primary=="Business"), relationship, "Coworker")
+business_coworker_pct <- get_pct(
+  aa_data |> filter(location_primary %in% c("Office", "Factory/warehouse", "Retail")),
+  relationship, 
+  "Coworker")
 
 ```
 
@@ -321,13 +324,13 @@ by indirect (e.g., the attacker's wife was associated with the location;
 When looking within location types, we find that most attackers had no
 relationship to the locations. Going beyond attackers with no
 relationship,\
-we find some interesting patterns. Depsite making up only
+we find some interesting patterns. Despite making up only
 `{r} coworker_pct` of attackers generally, attackers of businesses were
 current/former employees `{r} business_coworker_pct`% of the time. A
 similar trend is observable in schools, though in this case, the vast
 majority of attackers were current/former students
-(`{r} school_student_pct`%). Only a small percentage of attacks
-(`{r} school_norel_pct`) on schools were perpetrated by an attacker with
+(`{r} school_student_pct`%). Only a small percentage of attacks on
+schools (`{r} school_norel_pct`%) were perpetrated by an attacker with
 no relationship to the school.
 
 **Time of Day by Location Type**\
