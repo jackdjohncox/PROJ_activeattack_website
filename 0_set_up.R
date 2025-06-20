@@ -39,17 +39,9 @@ version <- "2024"
 
 #=import data & codebook=======================================================
 
-#long + geo
-copy_ifelse_checksums(glue("data/aa_data_long_{version}.rds"),
-                      glue("../DATA_aa/output/events/{version}/aa_data_long_{version}.rds"))
-
 #long + no geo
 copy_ifelse_checksums(glue("data/aa_data_long_nogeo_{version}.rds"),
                       glue("../DATA_aa/output/events/{version}/aa_data_long_nogeo_{version}.rds"))
-
-#wide + geo
-copy_ifelse_checksums(glue("data/aa_data_wide_{version}.rds"),
-                      glue("../DATA_aa/output/events/{version}/aa_data_wide_{version}.rds"))
 
 #wide + no geo
 copy_ifelse_checksums(glue("data/aa_data_wide_nogeo_{version}.rds"),
