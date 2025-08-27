@@ -22,8 +22,8 @@ source("0_set_up.R")
 version <- "2024"
 
 #check for updates (uncomment below)
-# update_aa_data()
-# update_aa_graphics()
+update_aa_data()
+update_aa_graphics()
 
 #import data
 aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))

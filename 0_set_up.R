@@ -86,7 +86,7 @@ update_aa_graphics <- function(){
                         "../PROJ_activeattack_graphics/output/univar_loc.png")
   copy_ifelse_checksums("www/univar_rel.png",
                         "../PROJ_activeattack_graphics/output/univar_rel.png")
-  copy_ifelse_checksums("www/univar_loctype_rel.png",
+  copy_ifelse_checksums("www/bivar_loctype_rel.png",
                         "../PROJ_activeattack_graphics/output/bivar_loctype_rel.png")
   copy_ifelse_checksums("www/bivar_loc_hr.png",
                         "../PROJ_activeattack_graphics/output/bivar_loc_hr.png")

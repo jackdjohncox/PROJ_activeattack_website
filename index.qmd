@@ -66,7 +66,9 @@ To learn more about the work and research conducted at the ALERRT Center, please
 
 ## Updates
 
--   *06/20/25* - Disaggregated the "Business" category of the "location_primary" variable in the downloadable data. The original category is now split into three: office, factory/warehouse, and retail. The codebook has also been updated to reflect the change. 
+-   *08/27/25* - Gradient color schemes were removed from plots to avoid double encoding of attack counts/percentages.
+
+-   *06/20/25* - Disaggregated the "Business" category of the "location_primary" variable in the downloadable data. The original category is now split into three: office, factory/warehouse, and retail. The codebook has also been updated to reflect the change.
 
 -   *06/12/25* - Update to v2024 data.
 
