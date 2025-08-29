@@ -94,14 +94,18 @@ update_aa_graphics <- function(){
   #fatalities
   copy_ifelse_checksums("www/bivar_eventkilled.png",
                         "../PROJ_activeattack_graphics/output/bivar_eventkilled.png")
-  copy_ifelse_checksums("www/bivar_kill_yr.png",
-                        "../PROJ_activeattack_graphics/output/bivar_kill_yr.png")
-  copy_ifelse_checksums("www/bivar_kill_year.html",
-                        "../PROJ_activeattack_graphics/output/bivar_kill_year.html")
+  # copy_ifelse_checksums("www/bivar_kill_yr.png",
+  #                       "../PROJ_activeattack_graphics/output/bivar_kill_yr.png")
+  # copy_ifelse_checksums("www/bivar_kill_year.html",
+  #                       "../PROJ_activeattack_graphics/output/bivar_kill_year.html")
   copy_ifelse_checksums("www/bivar_kill_weapon.png",
                         "../PROJ_activeattack_graphics/output/bivar_kill_weapon.png")
   copy_ifelse_checksums("www/bivar_kill_weapon.html",
                         "../PROJ_activeattack_graphics/output/bivar_kill_weapon.html")
+  copy_ifelse_checksums("www/bivar_wound_kill.png",
+                        "../PROJ_activeattack_graphics/output/bivar_wound_kill.png")
+  copy_ifelse_checksums("www/bivar_wound_kill.html",
+                        "../PROJ_activeattack_graphics/output/bivar_wound_kill.html")
   
   #geospatial
   copy_ifelse_checksums("www/rolling_map.gif",

@@ -368,7 +368,7 @@ other location types.
 ![{{< downloadthis www/bivar_loc_hr.png dname="aa_hour_by_log_type" >}}](www/bivar_loc_hr.png)
 :::
 
-# Fatalities
+# Casualties
 
 ## row 1
 
@@ -384,10 +384,15 @@ kill_tot <- get_total(aa_data, kill_tot)
 wound_tot <- get_total(aa_data, wound_tot)
 
 #get totals for specific attacks
-virginia_tech_total <- aa_data |> filter(case_code==68)  |> pull(kill_tot)
-fort_hood_total     <- aa_data |> filter(case_code==101) |> pull(kill_tot)
-sandy_hook_total    <- aa_data |> filter(case_code==165) |> pull(kill_tot)
-las_vegas_total     <- aa_data |> filter(case_code==282) |> pull(kill_tot)
+virginia_tech_kill_tot <- aa_data |> filter(case_code==68)  |> pull(kill_tot)
+fort_hood_kill_tot     <- aa_data |> filter(case_code==101) |> pull(kill_tot)
+sandy_hook_kill_tot  <- aa_data |> filter(case_code==165) |> pull(kill_tot)
+las_vegas_kill_tot    <- aa_data |> filter(case_code==282) |> pull(kill_tot)
+
+virginia_tech_wound_tot <- aa_data |> filter(case_code==68)  |> pull(wound_tot)
+fort_hood_wound_tot     <- aa_data |> filter(case_code==101) |> pull(wound_tot)
+sandy_hook_wound_tot    <- aa_data |> filter(case_code==165) |> pull(wound_tot)
+las_vegas_wound_tot     <- aa_data |> filter(case_code==282) |> pull(wound_tot)
 
 #get totals for specific years (of specific attacks)
 kill_2007_total <- get_total(aa_data |> filter(year==2007), kill_tot)
@@ -396,10 +401,10 @@ kill_2012_total <- get_total(aa_data |> filter(year==2012), kill_tot)
 kill_2017_total <- get_total(aa_data |> filter(year==2017), kill_tot)
 
 #get yearly percents accounted for by each attack
-virginia_tech_total_pct <- round((virginia_tech_total/kill_2007_total)*100, 1)
-fort_hood_total_pct     <- round((fort_hood_total    /kill_2009_total)*100, 1)
-sandy_hook_total_pct    <- round((sandy_hook_total   /kill_2012_total)*100, 1)
-las_vegas_total_pct     <- round((las_vegas_total    /kill_2017_total)*100, 1)
+virginia_tech_kill_tot_pct <- round((virginia_tech_kill_tot/kill_2007_total)*100, 1)
+fort_hood_kill_tot_pct     <- round((fort_hood_kill_tot    /kill_2009_total)*100, 1)
+sandy_hook_kill_tot_pct    <- round((sandy_hook_kill_tot   /kill_2012_total)*100, 1)
+las_vegas_kill_tot_pct     <- round((las_vegas_kill_tot    /kill_2017_total)*100, 1)
 
 #percent death ranges
 deaths_0_pct <- get_pct(aa_data |> 
@@ -412,72 +417,82 @@ deaths_lt10_pct <- get_pct(aa_data |>
                          mutate(death_lt10 = ifelse(kill_tot < 10, 1, 0)),
                        death_lt10, 1)
 
+#percent wounded ranges
+casualty_lt10_pct <- get_pct(aa_data |> 
+                         mutate(wound_lt10 = ifelse((wound_tot+kill_tot)<10, 1, 0)),
+                       wound_lt10, 1)
+
 ```
 
 ::: {.card .flow title="Victims" expandable="false"}
 There were `{r} format_num(casualty_tot)` casualties from active attacks
 between 2000 and `{r} years_max`. Of these, `{r} format_num(kill_tot)`
-people died. The visualizations in this section examine these
-fatalities.
+people died. The visualizations in this section examine the casualties
+of active attacks.
 
-**Attacks vs. Fatalities by Year**\
-Attacks and total fatalities have been increasing over the course of
-data collection (2000-`{r} years_max`). For specific years, however,
-there are noticeable spikes in the number of deaths. These spike often
-correspond to some of the more well-known attacks. For example:
+**Attacks vs. Casualties by Year**\
+Attacks and total casualties (fatalities and wounded) have been
+increasing over the course of data collection (2000-`{r} years_max`).
+For specific years, however, there are noticeable spikes in the number
+of deaths. These spike often correspond to some of the more well-known
+attacks. For example:
 
 -   **2007**: The attack on Apr. 16th at Virginia Tech, Virginia,
-    resulted in `{r} virginia_tech_total` deaths, accounting for
-    `{r} virginia_tech_total_pct`% of all attacks that year.
+    resulted in `{r} virginia_tech_kill_tot` deaths, accounting for
+    `{r} virginia_tech_kill_tot_pct`% of all attacks that year.
 -   **2009**: The attack on Nov. 5th at Fort Hood (now Fort Cavazos),
-    Texas, resulted in `{r} fort_hood_total` deaths, accounting for
-    `{r} fort_hood_total_pct`% of all attacks that year.
+    Texas, resulted in `{r} fort_hood_kill_tot` deaths, accounting for
+    `{r} fort_hood_kill_tot_pct`% of all attacks that year.
 -   **2012**: The school shooting on Dec. 14th at Sandy Hook Elementary
-    School, Connecticut, resulted in `{r} sandy_hook_total` deaths,
-    accounting for `{r} sandy_hook_total_pct`% of all attacks that year.
+    School, Connecticut, resulted in `{r} sandy_hook_kill_tot` deaths,
+    accounting for `{r} sandy_hook_kill_tot_pct`% of all attacks that
+    year.
 -   **2017**: The attack on Oct. 1st in Las Vegas, Nevada, resulted in
-    `{r} las_vegas_total` deaths, accounting for
-    `{r} las_vegas_total_pct`% of all attacks that year.
+    `{r} las_vegas_kill_tot` deaths, accounting for
+    `{r} las_vegas_kill_tot_pct`% of all attacks that year.
 
 Of note, while the number of active attacks did not decrease during the
-COVID-19 pandemic, the lethality of attacks did decrease to less than
-half the number of any of the four years previous. In 2021, however, the
-number of attacks increased and the number of deaths returned to
-pre-pandemic levels.
+COVID-19 pandemic, the lethality of attacks in 2020 decreased to less
+than half the number of any of the four years previous. In 2021,
+however, the number of attacks increased and the number of deaths
+returned to pre-pandemic levels.
 
-**Fatalities per Attack** (Interactive)\
-Most attacks (`{r} deaths_lt10_pct`%) resulted in fewer than 10
-fatalities, with `{r} deaths_0_pct`% of attacks resulting in no deaths
-at all. Hover over the points on this plot to get information about that
-specific attack.
+**Wounded vs. Fatalities per Attack** (Interactive)\
+Most attacks (`{r} casualty_lt10_pct`%) resulted in fewer than 10
+casualties (killed and/or wounded) and `{r} deaths_0_pct`% of attacks
+resulted in no deaths at all. Hover over the points on this plot to get
+information about that specific attack. Note: hovering over a point on one 
+side of the plot will highlight a corresponding point on the other side.
 
-**Fatalities per Weapon Type** (Interactive)\
-While most attacks (`{r} pistol_pct`%) were committed using handguns,
-the only such attack that resulted in more than 20 fatalities occurred
-at Virginia Tech, 2007. Attacks using rifles accounted for all of the
-remaining attacks that surpassed 20 deaths. Hover over the points on
-this plot to get information about that specific attack.
+**Wounded vs. Fatalities per Weapon Type** (Interactive)\
+Most attacks (`{r} pistol_pct`%) were committed using handguns. Among these,
+total fatalities were generally less than 20 (ecept for the attacks at Virginia 
+Tech, 2007). Similarly, nearly all handgun attacks resulted in <20 wounded 
+(except the attack at Fort Cavazos, 2009). Attacks using rifles accounted for 
+all of the attacks that surpassed 20 deaths. However, a mix of vehicle and rifle
+attacks accounted for nearly all attacks with more than 20 wounded. Hover over 
+the points on this plot to get information about that specific attack.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
 
-::: {.card .flow title="Attacks Vs. Fatalities by Year" expandable="true"}
+::: {.card .flow title="Attacks Vs. Casualties by Year" expandable="true"}
 ![{{< downloadthis www/bivar_eventkilled.png dname="attack_killed_year" >}}](www/bivar_eventkilled.png)
 :::
 
-::: {.card .fill title="Fatalities per Attack" expandable="true"}
-<iframe width="100%" height="650" src="www/bivar_kill_year.html">
+::: {.card .fill title="Wounded Vs. Fatalities per Attack" expandable="true"}
+<iframe width="100%" height="650" src="www/bivar_wound_kill.html">
 
 </iframe>
 
-{{< downloadthis www/bivar_kill_yr.png dname="fatalities_year" >}}
+{{< downloadthis www/bivar_wound_kill.png dname="wounded_fatalities_year" >}}
 Static plot (*.png*)
 
-{{< downloadthis www/bivar_kill_year.html dname="fatalities_year" >}}
+{{< downloadthis www/bivar_wound_kill.html dname="wounded_fatalities_year" >}}
 Interactive plot (*.html*)
 :::
 
-::: {.card .fill title="Fatalities per Weapon Type" expandable="true"}
+::: {.card .fill title="Wounded Vs. Fatalities per Weapon Type" expandable="true"}
 <iframe width="100%" height="650" src="www/bivar_kill_weapon.html">
 
 </iframe>
@@ -530,10 +545,10 @@ or over the legend to see which states are grouped together. Tip: click
 states or legend tiles to freeze selections to make comparisons with
 other states/groups.
 
-**Attacks & Fatalities by Year** (Animation)\
+**Attacks, Fatalities, & Weapon by Year** (Animation)\
 The number of attacks and fatalities has been increasing annually. This
-animation documents to specific locations and number of fatalities of
-attacks for individual years from 2000 to `{r} years_max`.
+animation documents to specific locations, primary weapon used, and number of 
+fatalities (<4, 4+) per attack for individual years from 2000 to `{r} years_max`.
 :::
 
 ### row 1 column 2 {.tabset width="60%"}
@@ -550,7 +565,7 @@ Static plot (*.png*)
 Interactive plot (*.html*)
 :::
 
-::: {.card .flow title="Attacks & Fatalities by Year" expandable="true"}
+::: {.card .flow title="Attacks, Fatalities, & Weapon by Year" expandable="true"}
 ![{{< downloadthis www/rolling_map.gif dname="aa_attacks_year_map" >}}](www/rolling_map.gif)
 :::
 
