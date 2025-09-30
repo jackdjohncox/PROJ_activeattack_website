@@ -466,7 +466,7 @@ side of the plot will highlight a corresponding point on the other side.
 
 **Wounded vs. Fatalities per Weapon Type** (Interactive)\
 Most attacks (`{r} pistol_pct`%) were committed using handguns. Among these,
-total fatalities were generally less than 20 (ecept for the attacks at Virginia 
+total fatalities were generally less than 20 (except for the attacks at Virginia 
 Tech, 2007). Similarly, nearly all handgun attacks resulted in <20 wounded 
 (except the attack at Fort Cavazos, 2009). Attacks using rifles accounted for 
 all of the attacks that surpassed 20 deaths. However, a mix of vehicle and rifle
