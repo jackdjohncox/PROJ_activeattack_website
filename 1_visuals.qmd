@@ -22,10 +22,10 @@ source("0_set_up.R")
 version <- "2024"
 
 #check for updates (uncomment below)
-if (Sys.getenv("GITHUB_ACTIONS") != "true") {
-  update_aa_data()
-  update_aa_graphics()
-}
+# if (Sys.getenv("GITHUB_ACTIONS") != "true") {
+#   update_aa_data()
+#   update_aa_graphics()
+# }
 
 #import data
 aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
@@ -461,17 +461,19 @@ returned to pre-pandemic levels.
 Most attacks (`{r} casualty_lt10_pct`%) resulted in fewer than 10
 casualties (killed and/or wounded) and `{r} deaths_0_pct`% of attacks
 resulted in no deaths at all. Hover over the points on this plot to get
-information about that specific attack. Note: hovering over a point on one 
-side of the plot will highlight a corresponding point on the other side.
+information about that specific attack. Note: hovering over a point on
+one side of the plot will highlight a corresponding point on the other
+side.
 
 **Wounded vs. Fatalities per Weapon Type** (Interactive)\
-Most attacks (`{r} pistol_pct`%) were committed using handguns. Among these,
-total fatalities were generally less than 20 (except for the attacks at Virginia 
-Tech, 2007). Similarly, nearly all handgun attacks resulted in <20 wounded 
-(except the attack at Fort Cavazos, 2009). Attacks using rifles accounted for 
-all of the attacks that surpassed 20 deaths. However, a mix of vehicle and rifle
-attacks accounted for nearly all attacks with more than 20 wounded. Hover over 
-the points on this plot to get information about that specific attack.
+Most attacks (`{r} pistol_pct`%) were committed using handguns. Among
+these, total fatalities were generally less than 20 (except for the
+attacks at Virginia Tech, 2007). Similarly, nearly all handgun attacks
+resulted in \<20 wounded (except the attack at Fort Cavazos, 2009).
+Attacks using rifles accounted for all of the attacks that surpassed 20
+deaths. However, a mix of vehicle and rifle attacks accounted for nearly
+all attacks with more than 20 wounded. Hover over the points on this
+plot to get information about that specific attack.
 :::
 
 ### row 1, column 2 {.tabset width="65%"}
@@ -547,8 +549,9 @@ other states/groups.
 
 **Attacks, Fatalities, & Weapon by Year** (Animation)\
 The number of attacks and fatalities has been increasing annually. This
-animation documents to specific locations, primary weapon used, and number of 
-fatalities (<4, 4+) per attack for individual years from 2000 to `{r} years_max`.
+animation documents to specific locations, primary weapon used, and
+number of fatalities (\<4, 4+) per attack for individual years from 2000
+to `{r} years_max`.
 :::
 
 ### row 1 column 2 {.tabset width="60%"}
@@ -631,3 +634,150 @@ Codebook (*.docx*)
 ```{r}
 datatable(aa_data, filter = "top")
 ```
+
+# Active Attack Fact Sheet
+
+## row 1
+
+### row 1, column 1
+
+::: {.card .flow title="Quick Statistics" expandable="false"}
+For common statistics, and a quick reference guide, feel free to
+download our active attack fact sheet.
+
+Here, you will be able to find the counts, and/or percents of common
+variables in active attacks like:
+
+-   Weapons
+
+-   Attackers
+
+-   Locations
+
+-   Resolutions
+
+-   Victims
+
+{{< downloadthis data/aa_fact_sheet_template.docx dname="active_attack_factsheet_v2024" >}}
+:::
+
+### row 1, column 2
+
+::: {.card .flow title="Statistics" expandable="false"}
+2000 - 2024 Active Attack Data
+
+There have been **597** active attacks identified.
+
+## Weapons
+
+[Primary Weapon:]{.underline}
+
+Firearm: [**557**]{.underline} (93.3%)
+
+Blade: [**28**]{.underline} (4.7%)
+
+Vehicle: [**12**]{.underline} (2%)
+
+Multiple Weapons used in **30.7%** of events.
+
+[Breakdown of Firearms:]{.underline}
+
+Pistol: [**331**]{.underline} (59.4%)
+
+Rifle: [**170**]{.underline} (30.5%)
+
+Shotgun: [**49**]{.underline} (8.8%)
+
+Unknown: [**7**]{.underline} (1.3%)
+
+## Attackers
+
+[Number of Attackers:]{.underline}
+
+Part of an active attack can include spillover from a previously
+excludable event, such as a gang attack. If an event begins as a gang
+attack and the attacker(s) continue the killing process with unrelated
+individuals, we include it as an active attack. As a result, we have a
+small number of cases with multiple attackers.
+
+1 Attacker: [**582**]{.underline} (97.5%)
+
+2 Attackers: [**12**]{.underline} (2%)
+
+3 Attackers: [**3**]{.underline} (0.5%)
+
+[Race:]{.underline}
+
+African American: [**175**]{.underline} (29.3%)
+
+Asian: [**22**]{.underline} (3.7%)
+
+Caucasian: [**282**]{.underline} (47.2%)
+
+Latino: [**78**]{.underline}(13.1%)
+
+Middle Eastern: [**16**]{.underline} (2.7%)
+
+Other: [**4**]{.underline} (0.7%)
+
+Unknown: [**20**]{.underline} (3.4%)
+
+[Attacker/Victim Relationship:]{.underline}
+
+No Relationship: [**388**]{.underline} (65%)
+
+Employee/Former Employee: [**94**]{.underline} (15.7%)
+
+Student/Former Student: [**67**]{.underline} (11.2%)
+
+All Other: [**48**]{.underline} (8%)
+
+## Locations
+
+[Location of Attacks:]{.underline}
+
+Business: [**269**]{.underline} (45.1%)
+
+School: [**80**]{.underline} (13.4%)
+
+Public/Outdoors: [**166**]{.underline} (27.8%)
+
+Church: [**20**]{.underline} (3.4%)
+
+Military Base: [**6**]{.underline} (1%)
+
+All Other: [**56**]{.underline} (9.4%)
+
+## Resolutions
+
+Prior to LE Arrival (347 \[58.2%\])
+
+            Shot by Civilian: [**27**]{.underline}(4.5%)
+
+            Subdued by Civilian: [**53**]{.underline} (8.9%)
+
+            Suicide before Police Arrival: [**81**]{.underline} (13.6%)
+
+            Flee the Scene: [**186**]{.underline} (31.2%)
+
+After LE Arrival (250 \[41.8%\])
+
+            Shot by Police: [**132**]{.underline} (22.1%)
+
+            Subdued by Police: [**54**]{.underline} (9%)
+
+            Suicide after Police Arrival: [**47**]{.underline} (7.9%)
+
+            Surrendered: [**17**]{.underline} (2.8%)
+
+## Victims
+
+Total: [**4055**]{.underline} (Median \# of Victims:
+[**4**]{.underline})
+
+Wounded: [**2640**]{.underline} (Median \# of Wounded:
+[**2**]{.underline})
+
+Killed: [**1415**]{.underline} (Median \# of Victims Killed:
+[**1**]{.underline})
+:::
