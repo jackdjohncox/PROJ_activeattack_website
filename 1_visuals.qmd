@@ -641,7 +641,7 @@ datatable(aa_data, filter = "top")
 
 ### row 1, column 1
 
-::: {.card .flow title="Quick Statistics" expandable="false"}
+::: {.card .flow title="Download" expandable="false"}
 For common statistics, and a quick reference guide, feel free to
 download our active attack fact sheet.
 
@@ -664,13 +664,13 @@ variables in active attacks like:
 ### row 1, column 2
 
 ::: {.card .flow title="Statistics" expandable="false"}
-2000 - 2024 Active Attack Data
+# [2000 - 2024 Active Attack Data]{.underline}
 
 There have been **597** active attacks identified.
 
-## Weapons
+## [**Weapons**]{.underline}
 
-[Primary Weapon:]{.underline}
+Primary Weapon:
 
 Firearm: [**557**]{.underline} (93.3%)
 
@@ -680,7 +680,7 @@ Vehicle: [**12**]{.underline} (2%)
 
 Multiple Weapons used in **30.7%** of events.
 
-[Breakdown of Firearms:]{.underline}
+Breakdown of Firearms:
 
 Pistol: [**331**]{.underline} (59.4%)
 
@@ -690,9 +690,9 @@ Shotgun: [**49**]{.underline} (8.8%)
 
 Unknown: [**7**]{.underline} (1.3%)
 
-## Attackers
+## [**Attackers**]{.underline}
 
-[Number of Attackers:]{.underline}
+Number of Attackers:
 
 Part of an active attack can include spillover from a previously
 excludable event, such as a gang attack. If an event begins as a gang
@@ -706,7 +706,7 @@ small number of cases with multiple attackers.
 
 3 Attackers: [**3**]{.underline} (0.5%)
 
-[Race:]{.underline}
+Race[:]{.underline}
 
 African American: [**175**]{.underline} (29.3%)
 
@@ -722,7 +722,7 @@ Other: [**4**]{.underline} (0.7%)
 
 Unknown: [**20**]{.underline} (3.4%)
 
-[Attacker/Victim Relationship:]{.underline}
+Attacker/Victim Relationship:
 
 No Relationship: [**388**]{.underline} (65%)
 
@@ -732,9 +732,9 @@ Student/Former Student: [**67**]{.underline} (11.2%)
 
 All Other: [**48**]{.underline} (8%)
 
-## Locations
+## [**Locations**]{.underline}
 
-[Location of Attacks:]{.underline}
+Location of Attacks:
 
 Business: [**269**]{.underline} (45.1%)
 
@@ -748,7 +748,7 @@ Military Base: [**6**]{.underline} (1%)
 
 All Other: [**56**]{.underline} (9.4%)
 
-## Resolutions
+## [**Resolutions**]{.underline}
 
 Prior to LE Arrival (347 \[58.2%\])
 
@@ -770,7 +770,7 @@ After LE Arrival (250 \[41.8%\])
 
             Surrendered: [**17**]{.underline} (2.8%)
 
-## Victims
+## [Victims]{.underline}
 
 Total: [**4055**]{.underline} (Median \# of Victims:
 [**4**]{.underline})
