@@ -641,7 +641,6 @@ datatable(aa_data, filter = "top")
 
 ### row 1, column 1
 
-::: {.card .flow title="Download" expandable="false"}
 For common statistics, and a quick reference guide, feel free to
 download our active attack fact sheet.
 
@@ -659,11 +658,9 @@ variables in active attacks like:
 -   Victims
 
 {{< downloadthis data/aa_fact_sheet_template.docx dname="active_attack_factsheet_v2024" >}}
-:::
 
 ### row 1, column 2
 
-::: {.card .flow title="Statistics" expandable="false"}
 # [2000 - 2024 Active Attack Data]{.underline}
 
 There have been **597** active attacks identified.
@@ -706,7 +703,7 @@ small number of cases with multiple attackers.
 
 3 Attackers: [**3**]{.underline} (0.5%)
 
-Race[:]{.underline}
+Race:
 
 African American: [**175**]{.underline} (29.3%)
 
@@ -780,4 +777,3 @@ Wounded: [**2640**]{.underline} (Median \# of Wounded:
 
 Killed: [**1415**]{.underline} (Median \# of Victims Killed:
 [**1**]{.underline})
-:::
