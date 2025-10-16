@@ -635,11 +635,7 @@ Codebook (*.docx*)
 datatable(aa_data, filter = "top")
 ```
 
-# Active Attack Fact Sheet
-
-## row 1
-
-### row 1, column 1
+# Fact Sheet
 
 For common statistics, and a quick reference guide, feel free to
 download our active attack fact sheet.
@@ -659,35 +655,33 @@ variables in active attacks like:
 
 {{< downloadthis data/aa_fact_sheet_template.docx dname="active_attack_factsheet_v2024" >}}
 
-### row 1, column 2
+2000 - 2024 Active Attack Data
 
-# [2000 - 2024 Active Attack Data]{.underline}
+There have been 597 active attacks identified.
 
-There have been **597** active attacks identified.
-
-## [**Weapons**]{.underline}
+Weapons
 
 Primary Weapon:
 
-Firearm: [**557**]{.underline} (93.3%)
+           Firearm: 557 (93.3%)
 
-Blade: [**28**]{.underline} (4.7%)
+           Blade: 28 (4.7%)
 
-Vehicle: [**12**]{.underline} (2%)
+           Vehicle: 12 (2%)
 
-Multiple Weapons used in **30.7%** of events.
+Multiple Weapons used in 30.7% of events.
 
 Breakdown of Firearms:
 
-Pistol: [**331**]{.underline} (59.4%)
+           Pistol: 331 (59.4%)
 
-Rifle: [**170**]{.underline} (30.5%)
+           Rifle: 170 (30.5%)
 
-Shotgun: [**49**]{.underline} (8.8%)
+           Shotgun: 49 (8.8%)
 
-Unknown: [**7**]{.underline} (1.3%)
+           Unknown: 7 (1.3%)
 
-## [**Attackers**]{.underline}
+Attackers
 
 Number of Attackers:
 
@@ -697,83 +691,80 @@ attack and the attacker(s) continue the killing process with unrelated
 individuals, we include it as an active attack. As a result, we have a
 small number of cases with multiple attackers.
 
-1 Attacker: [**582**]{.underline} (97.5%)
+           1 Attacker: 582 (97.5%)
 
-2 Attackers: [**12**]{.underline} (2%)
+           2 Attackers: 12 (2%)
 
-3 Attackers: [**3**]{.underline} (0.5%)
+           3 Attackers: 3 (0.5%)
 
 Race:
 
-African American: [**175**]{.underline} (29.3%)
+           African American: 175 (29.3%)
 
-Asian: [**22**]{.underline} (3.7%)
+           Asian: 22 (3.7%)
 
-Caucasian: [**282**]{.underline} (47.2%)
+           Caucasian: 282 (47.2%)
 
-Latino: [**78**]{.underline}(13.1%)
+           Latino: 78(13.1%)
 
-Middle Eastern: [**16**]{.underline} (2.7%)
+           Middle Eastern: 16 (2.7%)
 
-Other: [**4**]{.underline} (0.7%)
+           Other: 4 (0.7%)
 
-Unknown: [**20**]{.underline} (3.4%)
+           Unknown: 20 (3.4%)
 
 Attacker/Victim Relationship:
 
-No Relationship: [**388**]{.underline} (65%)
+           No Relationship: 388 (65%)
 
-Employee/Former Employee: [**94**]{.underline} (15.7%)
+           Employee/Former Employee: 94 (15.7%)
 
-Student/Former Student: [**67**]{.underline} (11.2%)
+           Student/Former Student: 67 (11.2%)
 
-All Other: [**48**]{.underline} (8%)
+           All Other: 48 (8%)
 
-## [**Locations**]{.underline}
+Locations
 
 Location of Attacks:
 
-Business: [**269**]{.underline} (45.1%)
+           Business: 269 (45.1%)
 
-School: [**80**]{.underline} (13.4%)
+           School: 80 (13.4%)
 
-Public/Outdoors: [**166**]{.underline} (27.8%)
+           Public/Outdoors: 166 (27.8%)
 
-Church: [**20**]{.underline} (3.4%)
+           Church: 20 (3.4%)
 
-Military Base: [**6**]{.underline} (1%)
+           Military Base: 6 (1%)
 
-All Other: [**56**]{.underline} (9.4%)
+           All Other: 56 (9.4%)
 
-## [**Resolutions**]{.underline}
+Resolutions
 
 Prior to LE Arrival (347 \[58.2%\])
 
-            Shot by Civilian: [**27**]{.underline}(4.5%)
+            Shot by Civilian: 27(4.5%)
 
-            Subdued by Civilian: [**53**]{.underline} (8.9%)
+            Subdued by Civilian: 53 (8.9%)
 
-            Suicide before Police Arrival: [**81**]{.underline} (13.6%)
+            Suicide before Police Arrival: 81 (13.6%)
 
-            Flee the Scene: [**186**]{.underline} (31.2%)
+            Flee the Scene: 186 (31.2%)
 
 After LE Arrival (250 \[41.8%\])
 
-            Shot by Police: [**132**]{.underline} (22.1%)
+            Shot by Police: 132 (22.1%)
 
-            Subdued by Police: [**54**]{.underline} (9%)
+            Subdued by Police: 54 (9%)
 
-            Suicide after Police Arrival: [**47**]{.underline} (7.9%)
+            Suicide after Police Arrival: 47 (7.9%)
 
-            Surrendered: [**17**]{.underline} (2.8%)
+            Surrendered: 17 (2.8%)
 
-## [Victims]{.underline}
+Victims
 
-Total: [**4055**]{.underline} (Median \# of Victims:
-[**4**]{.underline})
+           Total: 4055 (Median \# of Victims: 4)
 
-Wounded: [**2640**]{.underline} (Median \# of Wounded:
-[**2**]{.underline})
+           Wounded: 2640 (Median \# of Wounded: 2)
 
-Killed: [**1415**]{.underline} (Median \# of Victims Killed:
-[**1**]{.underline})
+           Killed: 1415 (Median \# of Victims Killed: 1)
