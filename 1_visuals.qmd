@@ -21,7 +21,7 @@ source("0_set_up.R")
 #set version
 version <- "2024"
 
-check for updates (uncomment below)
+# check for updates (uncomment below)
 if (Sys.getenv("GITHUB_ACTIONS") != "true") {
   update_aa_data()
   update_aa_graphics()
