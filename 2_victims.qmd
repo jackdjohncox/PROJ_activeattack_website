@@ -17,9 +17,9 @@ version <- "2024"
 
 #update victim scroll
 
-# if (Sys.getenv("GITHUB_ACTIONS") != "true") {
-# update_aa_victim_scroll()
-# }
+if (Sys.getenv("GITHUB_ACTIONS") != "true") {
+update_aa_victim_scroll()
+}
 
 #import data
 aa_data <- import(glue("data/aa_data_wide_nogeo_{version}.rds", trust=TRUE))
