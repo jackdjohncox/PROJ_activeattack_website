@@ -572,6 +572,147 @@ Interactive plot (*.html*)
 ![{{< downloadthis www/rolling_map.gif dname="aa_attacks_year_map" >}}](www/rolling_map.gif)
 :::
 
+
+# Fact Sheet
+
+::: {.card .flow title="Fact Sheet"}
+For common statistics and a quick reference guide, feel free to download
+our active attack fact sheet.
+
+Here you will be able to find the counts, and/or percents of common
+variables in active attacks like:
+
+-   Weapons
+
+-   Attackers
+
+-   Locations
+
+-   Resolutions
+
+-   Victims
+
+{{< downloadthis data/aa_fact_sheet_template.docx dname="active_attack_factsheet_v2024" >}}
+:::
+
+::: {.card .flow title="2000 - 2024"}
+There have been 597 active attacks identified.
+
+------------------------------------------------------------------------
+
+# **Weapons**
+
+Primary Weapon:
+
+-   Firearm: 557 (93.3%)
+
+-   Blade: 28 (4.7%)
+
+-   Vehicle: 12 (2%)
+
+Multiple Weapons used in 30.7% of events.
+
+Breakdown of Firearms:
+
+-   Pistol: 331 (59.4%)
+
+-   Rifle: 170 (30.5%)
+
+-   Shotgun: 49 (8.8%)
+
+-   Unknown: 7 (1.3%)
+
+------------------------------------------------------------------------
+
+# **Attackers**
+
+Number of Attackers:
+
+-   1 Attacker: 582 (97.5%)
+
+-   2 Attackers: 12 (2%)
+
+-   3 Attackers: 3 (0.5%)
+
+Race:
+
+-   African American: 175 (29.3%)
+
+-   Asian: 22 (3.7%)
+
+-   Caucasian: 282 (47.2%)
+
+-   Latino: 78(13.1%)
+
+-   Middle Eastern: 16 (2.7%)
+
+-   Other: 4 (0.7%)
+
+-   Unknown: 20 (3.4%)
+
+Attacker/Victim Relationship:
+
+-   No Relationship: 388 (65%)
+
+-   Employee/Former Employee: 94 (15.7%)
+
+-   Student/Former Student: 67 (11.2%)
+
+-   All Other: 48 (8%)
+
+------------------------------------------------------------------------
+
+# **Locations**
+
+Location of Attacks:
+
+-   Business: 269 (45.1%)
+
+-   School: 80 (13.4%)
+
+-   Public/Outdoors: 166 (27.8%)
+
+-   Church: 20 (3.4%)
+
+-   Military Base: 6 (1%)
+
+-   All Other: 56 (9.4%)
+
+------------------------------------------------------------------------
+
+# **Resolutions**
+
+Prior to LE Arrival (347 \[58.2%\])
+
+-   Shot by Civilian: 27(4.5%)
+
+-   Subdued by Civilian: 53 (8.9%)
+
+-   Suicide before Police Arrival: 81 (13.6%)
+
+-   Flee the Scene: 186 (31.2%)
+
+After LE Arrival (250 \[41.8%\])
+
+-   Shot by Police: 132 (22.1%)
+
+-   Subdued by Police: 54 (9%)
+
+-   Suicide after Police Arrival: 47 (7.9%)
+
+-   Surrendered: 17 (2.8%)
+
+------------------------------------------------------------------------
+
+# **Victims**
+
+Total: 4055 (Median \# of Victims: 4)
+
+Wounded: 2640 (Median \# of Wounded: 2)
+
+Killed: 1415 (Median \# of Victims Killed: 1)
+:::
+
 # Download the Data
 
 ## row 1
@@ -634,143 +775,3 @@ Codebook (*.docx*)
 ```{r}
 datatable(aa_data, filter = "top")
 ```
-
-# Fact Sheet
-
-::: {.card .flow}
-For common statistics, and a quick reference guide, feel free to
-download our active attack fact sheet.
-
-Here, you will be able to find the counts, and/or percents of common
-variables in active attacks like:
-
--   Weapons
-
--   Attackers
-
--   Locations
-
--   Resolutions
-
--   Victims
-
-{{< downloadthis data/aa_fact_sheet_template.docx dname="active_attack_factsheet_v2024" >}}
-:::
-
-::: {.card .flow title="2000 - 2024"}
-There have been 597 active attacks identified.
-
-------------------------------------------------------------------------
-
-Weapons
-
-Primary Weapon:
-
-           Firearm: 557 (93.3%)
-
-           Blade: 28 (4.7%)
-
-           Vehicle: 12 (2%)
-
-Multiple Weapons used in 30.7% of events.
-
-Breakdown of Firearms:
-
-           Pistol: 331 (59.4%)
-
-           Rifle: 170 (30.5%)
-
-           Shotgun: 49 (8.8%)
-
-           Unknown: 7 (1.3%)
-
-------------------------------------------------------------------------
-
-Attackers
-
-Number of Attackers:
-
-           1 Attacker: 582 (97.5%)
-
-           2 Attackers: 12 (2%)
-
-           3 Attackers: 3 (0.5%)
-
-Race:
-
-           African American: 175 (29.3%)
-
-           Asian: 22 (3.7%)
-
-           Caucasian: 282 (47.2%)
-
-           Latino: 78(13.1%)
-
-           Middle Eastern: 16 (2.7%)
-
-           Other: 4 (0.7%)
-
-           Unknown: 20 (3.4%)
-
-Attacker/Victim Relationship:
-
-           No Relationship: 388 (65%)
-
-           Employee/Former Employee: 94 (15.7%)
-
-           Student/Former Student: 67 (11.2%)
-
-           All Other: 48 (8%)
-
-------------------------------------------------------------------------
-
-Locations
-
-Location of Attacks:
-
-           Business: 269 (45.1%)
-
-           School: 80 (13.4%)
-
-           Public/Outdoors: 166 (27.8%)
-
-           Church: 20 (3.4%)
-
-           Military Base: 6 (1%)
-
-           All Other: 56 (9.4%)
-
-------------------------------------------------------------------------
-
-Resolutions
-
-Prior to LE Arrival (347 \[58.2%\])
-
-            Shot by Civilian: 27(4.5%)
-
-            Subdued by Civilian: 53 (8.9%)
-
-            Suicide before Police Arrival: 81 (13.6%)
-
-            Flee the Scene: 186 (31.2%)
-
-After LE Arrival (250 \[41.8%\])
-
-            Shot by Police: 132 (22.1%)
-
-            Subdued by Police: 54 (9%)
-
-            Suicide after Police Arrival: 47 (7.9%)
-
-            Surrendered: 17 (2.8%)
-
-------------------------------------------------------------------------
-
-Victims
-
-           Total: 4055 (Median \# of Victims: 4)
-
-           Wounded: 2640 (Median \# of Wounded: 2)
-
-           Killed: 1415 (Median \# of Victims Killed: 1)
-:::

@@ -48,6 +48,8 @@ The [Active Attacks](./1_visuals.qmd) page presents many visualizations created 
 
 -   [Across the USA](./1_visuals.qmd#across-the-usa): Geographic distribution of attacks and fatalities across the USA, along with the accumulation of attacks over the years.
 
+-   [Fact Sheet](./1_visuals.qmd#fact-sheet): Answers and statistics to some common questions regarding the ALERRT active attack data.
+
 -   [Download the Data](./1_visuals.html#download-the-data): View and directly download the data underlying all visualizations as a *.csv* file.
 
 #### **Remembrance**
